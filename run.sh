@@ -1,1 +1,1 @@
-javac main.java && java main
+mkdir -p build && javac main.java -d build && cd build && java main
