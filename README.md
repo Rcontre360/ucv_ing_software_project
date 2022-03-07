@@ -2,6 +2,7 @@
 ### Run project
 Run the following commands
 ``` 
-javac main.java
-java main
+chmod +x ./run.sh //this must be done only once
+./run.sh
+
 ```
