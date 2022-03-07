@@ -2,19 +2,25 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package InterfacesMédico;
+package doctor;
 
 /**
  *
- * @author yaricb
+ * @author rafael
  */
 public class InterfazHome extends javax.swing.JFrame {
 
     /**
-     * Creates new form InterfazHome
+     * Singleton dude
      */
-    public InterfazHome() {
+    private static final InterfazHome home = new InterfazHome();
+
+    private InterfazHome() {
         initComponents();
+    }
+    
+    public static InterfazHome getInstance() {
+        return home; 
     }
 
     /**
@@ -71,8 +77,8 @@ public class InterfazHome extends javax.swing.JFrame {
                     .addGroup(jFrame1Layout.createSequentialGroup()
                         .addGap(172, 172, 172)
                         .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, Short.MAX_VALUE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, Short.MAX_VALUE)
                             .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jFrame1Layout.createSequentialGroup()
                         .addGap(223, 223, 223)
@@ -95,7 +101,12 @@ public class InterfazHome extends javax.swing.JFrame {
                 .addComponent(jProgressBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         jLabel2.setText("HOSPITAL XYZ");
 
@@ -161,6 +172,11 @@ public class InterfazHome extends javax.swing.JFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+        System.out.print("CLOSED");
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments

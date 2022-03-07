@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package interfaces_paciente;
+package patient;
 
 /**
  *
@@ -13,8 +13,14 @@ public class HomePaciente extends javax.swing.JFrame {
     /**
      * Creates new form InterfazPaciente1
      */
-    public HomePaciente() {
+    private static final HomePaciente homePatient = new HomePaciente();
+
+    private HomePaciente() {
         initComponents();
+    }
+
+    public static HomePaciente getInstance() {
+        return homePatient; 
     }
 
     /**
@@ -36,7 +42,7 @@ public class HomePaciente extends javax.swing.JFrame {
 
         jLabel2.setText("jLabel2");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("HOSPITAL XYZ");
 

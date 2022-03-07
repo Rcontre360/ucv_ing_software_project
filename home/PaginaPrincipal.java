@@ -4,14 +4,19 @@
  */
 package home;
 
+import secretary.Secretary;
+import patient.HomePaciente;
+import doctor.InterfazHome;
+import board.HomeJunta;
+
 /**
  *
- * @author ラファエル・コントレラス
+ * @author rafael
  */
 public class PaginaPrincipal extends javax.swing.JFrame {
 
     /**
-     * Creates new form PaginaPrincipal
+     * Creates new form InterfazHome
      */
     public PaginaPrincipal() {
         initComponents();
@@ -54,6 +59,11 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         jLabel2.setText("   Bienvenido, identifíquese:");
 
         jButton2.setText("PACIENTE");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -75,6 +85,11 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         });
 
         jButton4.setText("JUNTA");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -127,12 +142,24 @@ public class PaginaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        Secretary mainSecretary = Secretary.getInstance();
+        mainSecretary.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+    //
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        HomeJunta home = HomeJunta.getInstance();
+        home.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        InterfazHome home = InterfazHome.getInstance();
+        home.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        HomePaciente mainPatient = HomePaciente.getInstance();
+        mainPatient.setVisible(true);
+    }//GEN-LAST:event_jButton2MouseClicked
 
     /**
      * @param args the command line arguments
