@@ -1,5 +1,6 @@
 *.class 
 */*.class
 /build
+/target
 
 /HospitalXYZ/target/
