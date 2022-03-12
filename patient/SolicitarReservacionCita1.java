@@ -2,19 +2,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package interfaces_paciente;
+package patient;
 
-/**
- *
- * @author ラファエル・コントレラス
- */
 public class SolicitarReservacionCita1 extends javax.swing.JFrame {
 
-    /**
-     * Creates new form SolicitarReservacionCita1
-     */
-    public SolicitarReservacionCita1() {
+    //singleton, duh
+    private static final SolicitarReservacionCita1 reservacion1 = new SolicitarReservacionCita1();
+
+    private SolicitarReservacionCita1() {
         initComponents();
+    }
+
+    public static SolicitarReservacionCita1 getInstance() {
+        return reservacion1; 
     }
 
     /**

@@ -3,16 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package patient;
+import patient.SolicitarCancelacionCita1;
+import patient.SolicitarReservacionCita1;
 
-/**
- *
- * @author ラファエル・コントレラス
- */
 public class HomePaciente extends javax.swing.JFrame {
 
-    /**
-     * Creates new form InterfazPaciente1
-     */
+    //singleton, duh
     private static final HomePaciente homePatient = new HomePaciente();
 
     private HomePaciente() {
@@ -42,11 +38,16 @@ public class HomePaciente extends javax.swing.JFrame {
 
         jLabel2.setText("jLabel2");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("HOSPITAL XYZ");
 
         jButton1.setText("Solicitar Reservación de Cita");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -107,6 +108,11 @@ public class HomePaciente extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        SolicitarReservacionCita1 reservation = SolicitarReservacionCita1.getInstance();  
+        reservation.setVisible(true);
+    }
 
     /**
      * @param args the command line arguments
