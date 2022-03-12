@@ -20,10 +20,10 @@ import org.json.simple.parser.ParseException;
  * @author andres
  */
 public class jsonTest {
-     public static void main(String args[]) {
+     public static void print(String fileName) {
       //Creating a JSONObject object
       //First Employee
-        /*JSONObject employeeDetails = new JSONObject();
+        JSONObject employeeDetails = new JSONObject();
         employeeDetails.put("firstName", "Lokesh");
         employeeDetails.put("lastName", "Gupta");
         employeeDetails.put("website", "howtodoinjava.com");
@@ -45,28 +45,28 @@ public class jsonTest {
         employeeList.add(employeeObject);
         employeeList.add(employeeObject2);
          
-        //Write JSON file
-        try (FileWriter file = new FileWriter("employees.json")) {
+        //Write JSON fileName
+        try (FileWriter file = new FileWriter(fileName)) {
             //We can write any JSONArray or JSONObject instance to the file
             file.write(employeeList.toJSONString()); 
             file.flush();
  
         } catch (IOException e) {
             e.printStackTrace();
-        }*/
+        }
         
         JSONParser jsonParser = new JSONParser();
          
-        try (FileReader reader = new FileReader("employees.json"))
+        try (FileReader reader = new FileReader(fileName))
         {
             //Read JSON file
             Object obj = jsonParser.parse(reader);
  
-            JSONArray employeeList = (JSONArray) obj;
-            System.out.println(employeeList);
+            JSONArray employeeList2 = (JSONArray) obj;
+            System.out.println(employeeList2);
              
             //Iterate over employee array
-            employeeList.forEach( emp -> parseEmployeeObject( (JSONObject) emp ) );
+            employeeList2.forEach( emp -> parseEmployeeObject( (JSONObject) emp ) );
  
         } catch (FileNotFoundException e) {
             e.printStackTrace();
