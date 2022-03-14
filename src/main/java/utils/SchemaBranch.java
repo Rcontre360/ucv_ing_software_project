@@ -17,26 +17,26 @@ public class SchemaBranch {
     }
 
     public String getDireccion(){
-
+        return "";
     }
 
-    public void  setDireccion(direccion){
+    public void  setDireccion(String direccion){
 
     }
 
     public int getLimite(){
-
+        return 0;
     }
 
-    public void  setLimite(limite){
+    public void  setLimite(int limite){
 
     }
 
     public int getCapacidad(){
-
+        return 0;
     }
 
-    public void  setCapacidad(capacidad){
+    public void  setCapacidad(int capacidad){
 
     }
 }
