@@ -1,1 +1,97 @@
-{"sucursales":[{"medicos":["M00000000"],"pacientes":["1234567"],"nombre":"sucursal uno"},{"medicos":[],"pacientes":[],"nombre":"sucursal dos"},{"medicos":[null],"pacientes":[],"nombre":"XYZ ciudad universitaria"}],"citas":[{"fecha":"01-01-2022","paciente":"1234567","sucursal":"sucursal uno","medico":"M00000000","id":"00000000"},{"fecha":"30-03-2022","paciente":"1234567","sucursal":"sucursal uno","medico":"M00000000","id":"00000001"}],"historial":[{"citas":[{"valores":{"tension":{"minima":"180","maxima":"200"},"pulso":"50","talla":"85","peso":"80","peso\/talla":"0.9"},"cita":"00000000"}],"paciente":"1234567","sucursal":"sucursal uno","id":"H00000000"}],"juntaDirectiva":[{"nombre":"directivo 1"},{"nombre":"directivo 2"}],"medicos":[{"sucursal":"sucursal uno","id":"M00000000","nombre":"Jhon doe","especialidad":"internista"},{"sucursal":"XYZ ciudad universitaria","nombre":"Jhon doe","especialidad":"internista"}],"pacientes":[{"citas":["00000000","00000001"],"cedula":"1234567","historial":["H00000000"],"nombre":"luis lopes"}]}
+{
+  "sucursales": [
+    {
+      "medicos": [
+        "M00000000"
+      ],
+      "pacientes": [
+        "1234567"
+      ],
+      "nombre": "sucursal uno"
+    },
+    {
+      "medicos": [],
+      "pacientes": [],
+      "nombre": "sucursal dos"
+    },
+    {
+      "medicos": [
+        null
+      ],
+      "pacientes": [],
+      "nombre": "XYZ ciudad universitaria"
+    }
+  ],
+  "citas": [
+    {
+      "fecha": "01-01-2022",
+      "paciente": "1234567",
+      "sucursal": "sucursal uno",
+      "medico": "M00000000",
+      "id": "00000000"
+    },
+    {
+      "fecha": "30-03-2022",
+      "paciente": "1234567",
+      "sucursal": "sucursal uno",
+      "medico": "M00000000",
+      "id": "00000001"
+    }
+  ],
+  "historial": [
+    {
+      "citas": [
+        {
+          "valores": {
+            "tension": {
+              "minima": "180",
+              "maxima": "200"
+            },
+            "pulso": "50",
+            "talla": "85",
+            "peso": "80",
+            "peso\/talla": "0.9"
+          },
+          "cita": "00000000"
+        }
+      ],
+      "paciente": "1234567",
+      "sucursal": "sucursal uno",
+      "id": "H00000000"
+    }
+  ],
+  "juntaDirectiva": [
+    {
+      "nombre": "directivo 1"
+    },
+    {
+      "nombre": "directivo 2"
+    }
+  ],
+  "medicos": [
+    {
+      "sucursal": "sucursal uno",
+      "id": "M00000000",
+      "nombre": "Jhon doe",
+      "especialidad": "internista"
+    },
+    {
+      "sucursal": "XYZ ciudad universitaria",
+      "nombre": "Jhon doe",
+      "especialidad": "internista"
+    }
+  ],
+  "pacientes": [
+    {
+      "citas": [
+        "00000000",
+        "00000001"
+      ],
+      "cedula": "1234567",
+      "historial": [
+        "H00000000"
+      ],
+      "nombre": "luis lopes"
+    }
+  ]
+}
