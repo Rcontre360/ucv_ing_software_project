@@ -4,12 +4,13 @@
  */
 package InterfacesMédico;
 
+import org.json.simple.JSONObject;
+import utils.db;
 /**
  *
  * @author yaricb
  */
 public class registrarDatosEnHistoria extends javax.swing.JFrame {
-
     /**
      * Creates new form registrarDatosEnHistoria
      */
@@ -384,6 +385,13 @@ public class registrarDatosEnHistoria extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
+    public static void setPeso(int peso, String ID) {
+        System.out.println("a");
+        JSONObject json = db.getUniversal(ID,"historiales_medicos");     
+        json.put("peso", peso);
+        db.setUniversal(json,"historiales_medicos");
+    }
 
     private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
         // TODO add your handling code here:

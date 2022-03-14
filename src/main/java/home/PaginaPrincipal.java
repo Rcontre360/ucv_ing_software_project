@@ -6,7 +6,7 @@ package home;
 
 import secretary.Secretary;
 import patient.HomePaciente;
-import doctor.InterfazHome;
+import InterfacesMédico.InterfazHome;
 import board.HomeJunta;
 
 /**
