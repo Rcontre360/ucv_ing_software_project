@@ -16,6 +16,6 @@ public class SchemaDoctor {
         
     }
 
-    public String getCódigoDeLicencia(){}
-    public void setCódigoDeLicencia(string){}
+    public String getCódigoDeLicencia(){ return ""; }
+    public void setCódigoDeLicencia(String id){}
 }

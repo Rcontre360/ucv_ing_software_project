@@ -16,8 +16,8 @@ public class SchemaDate {
         
     }
 
-    public String getFecha(){}
-    public void setFecha(fecha){}
-    public int getCodigo(){}
-    public void setCodigo(codigo){}
+    public String getFecha(){ return ""; }
+    public void setFecha(String fecha){}
+    public int getCodigo(){ return 0; }
+    public void setCodigo(String codigo){}
 }
