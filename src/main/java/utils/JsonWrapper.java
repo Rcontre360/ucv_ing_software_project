@@ -20,13 +20,13 @@ public class JsonWrapper {
     public static final String DB_NAME = "db.json";
      
     public static JSONArray getBoard() {
-        JSONObject json = _getJson();
+        JSONObject json = _getJson(DB_NAME);
         JSONArray board = (JSONArray) json.get("juntaDirectiva");
         return board;
     }
 
     public static JSONObject getBranchOffice(String name) {
-        JSONObject json = _getJson();
+        JSONObject json = _getJson(DB_NAME);
         JSONArray branches = (JSONArray) json.get("sucursales");
 
         for (Object curBranch : branches) {
@@ -39,7 +39,7 @@ public class JsonWrapper {
     }
 
     public static JSONObject getDate(String ID){
-        JSONObject json = _getJson();
+        JSONObject json = _getJson(FILE_NAME);
         JSONArray branches = (JSONArray) json.get("sucursales");
 
         for (Object obj : branches) {
@@ -58,9 +58,9 @@ public class JsonWrapper {
    
 
     public static boolean loadJson(){
-        JSONObject json = _getJson();
+        JSONObject json = _getJson(FILE_NAME);
         
-        if (json.get("loaded") == "true")
+        if (json.get("loaded").equals("true"))
             return true;
 
         JSONObject db = new JSONObject();
@@ -91,11 +91,11 @@ public class JsonWrapper {
         return false;
     }
 
-    private static JSONObject _getJson(){
+    private static JSONObject _getJson(String fileName){
         JSONParser jsonParser = new JSONParser();
         JSONObject obj = new JSONObject();
 
-        try (FileReader reader = new FileReader(FILE_NAME))
+        try (FileReader reader = new FileReader(fileName))
         {
             obj = (JSONObject)jsonParser.parse(reader);
         } catch (FileNotFoundException e) {
@@ -197,7 +197,7 @@ public class JsonWrapper {
     // key: field of obj to check
     // value: value to compare
     public static JSONObject getUniversal(String field, String key, String value){
-        JSONObject json = _getJson();
+        JSONObject json = _getJson(DB_NAME);
         JSONArray fieldJson = (JSONArray) json.get(field);
 
         for (Object obj : fieldJson) {
@@ -209,36 +209,26 @@ public class JsonWrapper {
         return null;
     }
     
-    public static void setUniversal(JSONObject newObject, String variableToModify){
-        JSONObject json = _getJson();
-        JSONArray arrayToModify;
-        arrayToModify = (JSONArray) json.get(variableToModify);
-        int i=0;
-        boolean added = false;
-        System.out.println(arrayToModify);
-        if(arrayToModify != null){
-            for (Object obj : arrayToModify) {
-                System.out.println(((JSONObject)obj).get("ID"));
-                String ID = (String) ((JSONObject)obj).get("ID");                
-                if (ID.equals(newObject.get("ID"))){
-                    System.out.println("added si");
-                    arrayToModify.set(i, newObject);
-                    added = true;
-                }
-                i++;
+    public static void setUniversal(JSONObject newObject, String field, String idKeyName, String id){
+        JSONObject json = _getJson(DB_NAME);
+        JSONArray arrayToModify =(JSONArray) json.get(field);
+        int index = 0,found = 0;
+
+        for (Object obj : arrayToModify) {
+            String curValue = (String) ((JSONObject)obj).get(idKeyName);  
+            if (curValue.equals(id)){
+                found = 1;
+                break;
             }
-            if(added == false){
-                System.out.println("added no");
-                arrayToModify.add(newObject);
-            }
-            json.put(variableToModify, arrayToModify);
-        }else{
-            JSONArray historialNewArray = new JSONArray();
-            historialNewArray.add(newObject);
-            json.put(variableToModify, historialNewArray);
+            index++;
         }
 
-        System.out.println(arrayToModify);
+        if (found == 1)
+            arrayToModify.set(index,newObject);
+        else 
+            arrayToModify.add(newObject);
+        json.put(field, arrayToModify);
+
         try {
             FileWriter file;
             file = new FileWriter(DB_NAME);

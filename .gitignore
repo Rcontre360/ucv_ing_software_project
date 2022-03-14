@@ -2,5 +2,4 @@
 */*.class
 /build
 /target
-
-/HospitalXYZ/target/
+db.json
