@@ -16,7 +16,8 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 public class JsonWrapper {
-    public static String FILE_NAME = "formato.json";
+    public static final String FILE_NAME = "formato.json";
+    public static final String DB_NAME = "db.json";
      
     public static JSONArray getBoard() {
         JSONObject json = _getJson();
@@ -55,6 +56,40 @@ public class JsonWrapper {
         return null;
     }
 
+    public static boolean loadJson(){
+        JSONObject json = _getJson();
+        
+        if (json.get("loaded") == "true")
+            return true;
+
+        JSONObject db = new JSONObject();
+
+        db.put("juntaDirectiva",json.get("juntaDirectiva"));
+        db.put("sucursales",_parseBranches((JSONArray)json.get("sucursales")));
+        db.put("medicos",_parseDoctors((JSONArray)json.get("sucursales")));
+        db.put("pacientes",_parsePatients((JSONArray)json.get("sucursales")));
+        db.put("citas",_parseDates((JSONArray)json.get("sucursales")));
+        db.put("historial",_parseHistory((JSONArray)json.get("sucursales")));
+
+        json.put("loaded","true");
+
+        try (FileWriter file = new FileWriter(DB_NAME)) {
+            //We can write any JSONArray or JSONObject instance to the file
+            FileWriter input = new FileWriter(FILE_NAME);
+            
+            file.write(db.toJSONString()); 
+            file.flush();
+            input.write(json.toJSONString());
+            input.flush();
+ 
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
     private static JSONObject _getJson(){
         JSONParser jsonParser = new JSONParser();
         JSONObject obj = new JSONObject();
@@ -71,5 +106,100 @@ public class JsonWrapper {
         }
 
         return obj;
+    }
+
+    private static JSONArray _parseBranches(JSONArray branches){
+        JSONArray result = new JSONArray();
+        for (Object curBranch : branches) {
+            JSONObject branch = (JSONObject)curBranch;
+            JSONObject newBranch = new JSONObject();
+            JSONArray doctorList = _getOnlyField((JSONArray)branch.get("medicos"),"id");
+            JSONArray patientList = _getOnlyField((JSONArray)branch.get("pacientes"),"cedula");
+
+            newBranch.put("nombre",(String)branch.get("nombre"));
+            newBranch.put("medicos",doctorList);
+            newBranch.put("pacientes",patientList);
+            result.add(newBranch);
+        }
+        return result;
+    }
+
+    private static JSONArray _parseDoctors(JSONArray branches){
+        JSONArray result = new JSONArray();
+        for (Object curBranch : branches) {
+            JSONObject branch = (JSONObject)curBranch;
+            for (Object rawDoctor : (JSONArray)branch.get("medicos")){
+                JSONObject doctor = (JSONObject)rawDoctor;
+                doctor.put("sucursal",branch.get("nombre"));
+
+                result.add(doctor);
+            }
+        }
+        return result;
+    }
+
+    private static JSONArray _parsePatients(JSONArray branches){
+        JSONArray result = new JSONArray();
+        for (Object curBranch : branches) {
+            JSONObject branch = (JSONObject)curBranch;
+            for (Object rawPatient : (JSONArray)branch.get("pacientes")){
+                JSONObject patient = (JSONObject)rawPatient;
+                JSONObject newPatient = new JSONObject();
+
+                newPatient.put("cedula",patient.get("cedula"));
+                newPatient.put("nombre",patient.get("nombre"));
+                newPatient.put("citas",_getOnlyField((JSONArray)patient.get("citas"),"id"));
+                newPatient.put("historial",_getOnlyField((JSONArray)patient.get("historial"),"id"));
+                result.add(newPatient);
+            }
+        }
+        return result;
+    }
+
+    private static JSONArray _parseDates(JSONArray branches){
+        JSONArray result = new JSONArray();
+        for (Object curBranch : branches) {
+            JSONObject branch = (JSONObject)curBranch;
+            for (Object rawPatient : (JSONArray)branch.get("pacientes")){
+                JSONObject patient = (JSONObject)rawPatient;
+
+                for (Object rawDate : (JSONArray)patient.get("citas")){
+                    JSONObject date = (JSONObject)rawDate;
+                    date.put("paciente",patient.get("cedula"));
+                    date.put("sucursal",branch.get("nombre"));
+                    result.add(date);
+                }
+            }
+        }
+        return result;
+    }
+
+    private static JSONArray _parseHistory(JSONArray branches){
+        JSONArray result = new JSONArray();
+        for (Object curBranch : branches) {
+            JSONObject branch = (JSONObject)curBranch;
+            for (Object rawPatient : (JSONArray)branch.get("pacientes")){
+                JSONObject patient = (JSONObject)rawPatient;
+
+                for (Object rawHistory : (JSONArray)patient.get("historial")){
+                    JSONObject history = (JSONObject)rawHistory;
+                    history.put("paciente",patient.get("cedula"));
+                    history.put("sucursal",branch.get("nombre"));
+                    result.add(history);
+                }
+            }
+        }
+        return result;
+    }
+
+    private static JSONArray _getOnlyField(JSONArray arr,String field){
+        JSONArray result = new JSONArray();
+
+        for (Object raw : arr){
+            JSONObject object = (JSONObject)raw;
+            result.add(object.get(field));
+        }
+        
+        return result;
     }
 }
