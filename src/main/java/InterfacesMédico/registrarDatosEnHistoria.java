@@ -5,7 +5,6 @@
 package InterfacesMédico;
 
 import org.json.simple.JSONObject;
-import utils.db;
 /**
  *
  * @author yaricb
