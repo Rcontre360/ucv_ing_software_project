@@ -108,6 +108,24 @@ public class JsonWrapper {
 
         return obj;
     }
+    
+        private static JSONObject _getDB(){
+        JSONParser jsonParser = new JSONParser();
+        JSONObject obj = new JSONObject();
+
+        try (FileReader reader = new FileReader(FILE_NAME))
+        {
+            obj = (JSONObject)jsonParser.parse(reader);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return obj;
+    }
 
     private static JSONArray _parseBranches(JSONArray branches){
         JSONArray result = new JSONArray();
@@ -191,6 +209,60 @@ public class JsonWrapper {
             }
         }
         return result;
+    }
+    
+        public static JSONObject getUniversal(String ID, String variableToModify){
+        JSONObject json = _getDB();
+        JSONArray historiales = (JSONArray) json.get(variableToModify);
+
+        for (Object obj : historiales) {
+            String historialID = (String) ((JSONObject)obj).get("ID");  
+            if (historialID.equals(ID)){
+                return ((JSONObject)obj);
+            }
+        }
+        return null;
+    }
+    
+    public static void setUniversal(JSONObject newObject, String variableToModify){
+        JSONObject json = _getDB();
+        JSONArray arrayToModify;
+        arrayToModify = (JSONArray) json.get(variableToModify);
+        int i=0;
+        boolean added = false;
+        System.out.println(arrayToModify);
+        if(arrayToModify != null){
+            for (Object obj : arrayToModify) {
+                System.out.println(((JSONObject)obj).get("ID"));
+                String ID = (String) ((JSONObject)obj).get("ID");                
+                if (ID.equals(newObject.get("ID"))){
+                    System.out.println("added si");
+                    arrayToModify.set(i, newObject);
+                    added = true;
+                }
+                i++;
+            }
+            if(added == false){
+                System.out.println("added no");
+                arrayToModify.add(newObject);
+            }
+            json.put(variableToModify, arrayToModify);
+        }else{
+            JSONArray historialNewArray = new JSONArray();
+            historialNewArray.add(newObject);
+            json.put(variableToModify, historialNewArray);
+        }
+
+        System.out.println(arrayToModify);
+        try {
+            FileWriter file;
+            file = new FileWriter(DB_NAME);
+            file.write(json.toJSONString()); 
+            file.flush();
+ 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private static JSONArray _getOnlyField(JSONArray arr,String field){
