@@ -109,24 +109,6 @@ public class JsonWrapper {
         return obj;
     }
     
-        private static JSONObject _getDB(){
-        JSONParser jsonParser = new JSONParser();
-        JSONObject obj = new JSONObject();
-
-        try (FileReader reader = new FileReader(FILE_NAME))
-        {
-            obj = (JSONObject)jsonParser.parse(reader);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-        return obj;
-    }
-
     private static JSONArray _parseBranches(JSONArray branches){
         JSONArray result = new JSONArray();
         for (Object curBranch : branches) {
@@ -211,13 +193,16 @@ public class JsonWrapper {
         return result;
     }
     
-        public static JSONObject getUniversal(String ID, String variableToModify){
-        JSONObject json = _getDB();
-        JSONArray historiales = (JSONArray) json.get(variableToModify);
+    // field: field of json to search
+    // key: field of obj to check
+    // value: value to compare
+    public static JSONObject getUniversal(String field, String key, String value){
+        JSONObject json = _getJson();
+        JSONArray fieldJson = (JSONArray) json.get(field);
 
-        for (Object obj : historiales) {
-            String historialID = (String) ((JSONObject)obj).get("ID");  
-            if (historialID.equals(ID)){
+        for (Object obj : fieldJson) {
+            String curValue = (String) ((JSONObject)obj).get(key);  
+            if (curValue.equals(value)){
                 return ((JSONObject)obj);
             }
         }
@@ -225,7 +210,7 @@ public class JsonWrapper {
     }
     
     public static void setUniversal(JSONObject newObject, String variableToModify){
-        JSONObject json = _getDB();
+        JSONObject json = _getJson();
         JSONArray arrayToModify;
         arrayToModify = (JSONArray) json.get(variableToModify);
         int i=0;

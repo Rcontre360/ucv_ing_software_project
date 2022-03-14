@@ -4,16 +4,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
  
-package utils;
+package schemas;
 
 import java.util.*;
 
 import utils.JsonWrapper;
 
 public class SchemaBranch {
+
+    private String direccion;
+    private int limite;
+    private int capacidad;
     
-    public SchemaBranch(String branchName){
-        
+    public SchemaBranch(String branchName){ //if branch name isnt null, search on db
+        //if (branchName.length > 0) {
+
+        //}
     }
 
     public String getDireccion(){

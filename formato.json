@@ -1,1 +1,77 @@
-{"loaded":"true","sucursales":[{"medicos":[{"sucursal":"sucursal uno","id":"M00000000","nombre":"Jhon doe","especialidad":"internista"}],"pacientes":[{"citas":[{"fecha":"01-01-2022","paciente":"1234567","sucursal":"sucursal uno","medico":"M00000000","id":"00000000"},{"fecha":"30-03-2022","paciente":"1234567","sucursal":"sucursal uno","medico":"M00000000","id":"00000001"}],"cedula":"1234567","historial":[{"citas":[{"valores":{"tension":{"minima":"180","maxima":"200"},"pulso":"50","talla":"85","peso":"80","peso\/talla":"0.9"},"cita":"00000000"}],"paciente":"1234567","sucursal":"sucursal uno","id":"H00000000"}],"nombre":"luis lopes"}],"nombre":"sucursal uno"},{"medicos":[],"pacientes":[],"nombre":"sucursal dos"},{"medicos":[{"sucursal":"XYZ ciudad universitaria","nombre":"Jhon doe","especialidad":"internista"}],"pacientes":[],"nombre":"XYZ ciudad universitaria"}],"juntaDirectiva":[{"nombre":"directivo 1"},{"nombre":"directivo 2"}]}
+{
+  "juntaDirectiva": [
+    {
+      "nombre": "directivo 1"
+    },
+    {
+      "nombre": "directivo 2"
+    }
+  ],
+  "sucursales": [
+    {
+      "nombre": "sucursal uno",
+      "medicos": [
+        {
+          "id": "M00000000",
+          "nombre": "Jhon doe",
+          "especialidad": "internista"
+        }
+      ],
+      "pacientes": [
+        {
+          "cedula": "1234567",
+          "nombre": "luis lopes",
+          "citas": [
+            {
+              "id": "00000000",
+              "medico": "M00000000",
+              "fecha": "01-01-2022"
+            },
+            {
+              "id": "00000001",
+              "medico": "M00000000",
+              "fecha": "30-03-2022"
+            }
+          ],
+          "historial": [
+            {
+              "id": "H00000000",
+              "paciente": "1234567",
+              "citas": [
+                {
+                  "id": "00000000",
+                  "valores": {
+                    "peso": "80",
+                    "talla": "85",
+                    "pesoTalla": "0.9",
+                    "tension": {
+                      "maxima": "200",
+                      "minima": "180"
+                    },
+                    "pulso": "50"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nombre": "sucursal dos",
+      "medicos": [],
+      "pacientes": []
+    },
+    {
+      "nombre": "XYZ ciudad universitaria",
+      "medicos": [
+        {
+          "id": "M00000000",
+          "nombre": "Jhon doe",
+          "especialidad": "internista"
+        }
+      ],
+      "pacientes": []
+    }
+  ]
+}
