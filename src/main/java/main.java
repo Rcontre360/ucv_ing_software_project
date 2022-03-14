@@ -9,15 +9,6 @@ public class main {
         //PaginaPrincipal instance = new PaginaPrincipal();
         //instance.setVisible(true);
         JSONObject date = JsonWrapper.getDate("00000000");
-        JSONObject employeeDetails2 = new JSONObject();
-        employeeDetails2.put("ID", "Lokesha");
-        employeeDetails2.put("firstName", "Lokesha");
-        employeeDetails2.put("lastName", "Gupta");
-        employeeDetails2.put("website", "howtodoinjava.com");
-        db.setUniversal(employeeDetails2, "historiales_medicos2");
-        InterfacesMédico.registrarDatosEnHistoria.setPeso(4,"Brian");
-        InterfacesMédico.registrarDatosEnHistoria.setPesoTest(4,"Lokesha");
-        //
         System.out.println(date);
     }
 }

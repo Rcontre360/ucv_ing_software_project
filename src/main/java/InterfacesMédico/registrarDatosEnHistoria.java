@@ -392,13 +392,6 @@ public class registrarDatosEnHistoria extends javax.swing.JFrame {
         json.put("peso", peso);
         db.setUniversal(json,"historiales_medicos");
     }
-    
-    public static void setPesoTest(int peso, String ID) {
-        System.out.println("a");
-        JSONObject json = db.getUniversal(ID,"historiales_medicos2");     
-        json.put("peso", peso);
-        db.setUniversal(json,"historiales_medicos2");
-    }
 
     private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
         // TODO add your handling code here:
