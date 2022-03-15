@@ -4,7 +4,7 @@
  */
 package board;
 
-import interfaces_paciente.*;
+import patient.*;
 
 /**
  *
