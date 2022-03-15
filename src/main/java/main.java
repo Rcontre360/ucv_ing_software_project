@@ -1,6 +1,5 @@
 import home.PaginaPrincipal;
 import org.json.simple.*;
-
 import schemas.SchemaBranch;
 import schemas.SchemaDate;
 import utils.JsonWrapper ;
