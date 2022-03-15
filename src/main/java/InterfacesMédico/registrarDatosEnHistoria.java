@@ -13,8 +13,16 @@ public class registrarDatosEnHistoria extends javax.swing.JFrame {
     /**
      * Creates new form registrarDatosEnHistoria
      */
+    
+    private static final registrarDatosEnHistoria registro = new registrarDatosEnHistoria();
+
     public registrarDatosEnHistoria() {
         initComponents();
+    }
+    
+
+    public static registrarDatosEnHistoria getInstance() {
+        return registro; 
     }
 
     /**

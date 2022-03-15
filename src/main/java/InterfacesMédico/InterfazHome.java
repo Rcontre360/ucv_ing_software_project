@@ -118,6 +118,11 @@ public class InterfazHome extends javax.swing.JFrame {
         });
 
         jButton6.setText("Registrar Datos en Historia");
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton6MouseClicked(evt);
+            }
+        });
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -177,6 +182,11 @@ public class InterfazHome extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.out.print("CLOSED");
     }//GEN-LAST:event_formWindowClosed
+
+    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+        registrarDatosEnHistoria registro = registrarDatosEnHistoria.getInstance();  
+        registro.setVisible(true);
+    }//GEN-LAST:event_jButton6MouseClicked
 
     /**
      * @param args the command line arguments
