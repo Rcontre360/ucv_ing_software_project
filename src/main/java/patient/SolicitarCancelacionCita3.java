@@ -10,13 +10,17 @@ package patient;
  */
 public class SolicitarCancelacionCita3 extends javax.swing.JFrame {
 
-    /**
-     * Creates new form SolicitarReservacionCita3
-     */
-    public SolicitarCancelacionCita3() {
+
+    //singleton, duh
+    private static final SolicitarReservacionCita3 ui = new SolicitarReservacionCita3();
+
+    private SolicitarReservacionCita3() {
         initComponents();
     }
 
+    public static SolicitarReservacionCita3 getInstance() {
+        return ui; 
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

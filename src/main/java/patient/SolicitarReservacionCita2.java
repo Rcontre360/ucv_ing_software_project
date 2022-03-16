@@ -10,12 +10,17 @@ package patient;
  */
 public class SolicitarReservacionCita2 extends javax.swing.JFrame {
 
-    /**
-     * Creates new form SolicitarReservacionCita2
-     */
-    public SolicitarReservacionCita2() {
+    //singleton, duh
+    private static final SolicitarReservacionCita2 validatinj = new SolicitarReservacionCita2();
+
+    private SolicitarReservacionCita2() {
         initComponents();
     }
+
+    public static SolicitarReservacionCita2 getInstance() {
+        return validating; 
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
