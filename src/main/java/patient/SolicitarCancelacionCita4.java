@@ -10,11 +10,15 @@ package patient;
  */
 public class SolicitarCancelacionCita4 extends javax.swing.JFrame {
 
-    /**
-     * Creates new form SolicitarReservacionCita4
-     */
-    public SolicitarCancelacionCita4() {
+    //singleton, duh
+    private static final SolicitarCancelacionCita4 ui = new SolicitarCancelacionCita4();
+
+    private SolicitarCancelacionCita4() {
         initComponents();
+    }
+
+    public static SolicitarCancelacionCita4 getInstance() {
+        return ui; 
     }
 
     /**

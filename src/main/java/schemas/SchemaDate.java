@@ -15,7 +15,8 @@ import utils.JsonWrapper;
 
 public class SchemaDate {
 
-    private LocalDateTime fecha;
+    private static DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy"); 
+    private LocalDate fecha;
     private String codigo;
 
     private String medico;
@@ -23,24 +24,21 @@ public class SchemaDate {
     private String paciente;
     
     public SchemaDate(String _codigo){
+        codigo =  _codigo;
         if (_codigo.length() > 0) {
             JSONObject date = JsonWrapper.getUniversal("citas","id",_codigo);
             if (date != null){
-                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-                fecha = LocalDateTime.parse(((String)date.get("fecha")),myFormatObj);
-                codigo = (String)date.get("id");
+                fecha = LocalDate.parse(((String)date.get("fecha")),SchemaDate.dateFormat);
             }
         }
     }
 
     public String getFecha(){ 
-        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-        return fecha.format(myFormatObj); 
+        return fecha.format(SchemaDate.dateFormat); 
     }
 
     public void setFecha(String _fecha){
-        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-        fecha = LocalDateTime.parse(_fecha,myFormatObj);
+        fecha = LocalDate.parse(_fecha,SchemaDate.dateFormat);
     }
 
     public String getCodigo(){
@@ -77,13 +75,16 @@ public class SchemaDate {
 
     public void commit(){
         JSONObject date = new JSONObject();
-        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-        date.put("fecha",fecha.format(myFormatObj)); 
+        date.put("fecha",fecha.format(SchemaDate.dateFormat)); 
         date.put("codigo",codigo); 
         date.put("medico",medico); 
         date.put("sucursal",sucursal); 
         date.put("paciente",paciente); 
 
         JsonWrapper.setUniversal(date, "citas", "id", codigo);
+    }
+
+    public void removeJson(){
+        JsonWrapper.filterField("citas","id",codigo);
     }
 }
