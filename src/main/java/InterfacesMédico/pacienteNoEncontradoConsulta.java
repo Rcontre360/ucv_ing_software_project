@@ -9,13 +9,20 @@ package InterfacesMédico;
  *
  * @author pc
  */
-public class pacienteNoEncontrado extends javax.swing.JFrame {
+public class pacienteNoEncontradoConsulta extends javax.swing.JFrame {
 
     /**
      * Creates new form pacienteNoEncontrado
      */
-    public pacienteNoEncontrado() {
+    
+    private static pacienteNoEncontradoConsulta noEncontrado= new pacienteNoEncontradoConsulta();
+    
+    public pacienteNoEncontradoConsulta() {
         initComponents();
+    }
+    
+    public static pacienteNoEncontradoConsulta getinstance(){
+        return noEncontrado;
     }
 
     /**
@@ -35,7 +42,7 @@ public class pacienteNoEncontrado extends javax.swing.JFrame {
 
         label2.setAlignment(java.awt.Label.CENTER);
         label2.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        label2.setForeground(new java.awt.Color(222, 222, 222));
+        label2.setForeground(new java.awt.Color(0, 0, 0));
         label2.setPreferredSize(new java.awt.Dimension(38, 30));
         label2.setText("Paciente No Encontrado"); // NOI18N
 
@@ -43,6 +50,11 @@ public class pacienteNoEncontrado extends javax.swing.JFrame {
         jLabel18.setText("HOSPITAL XYZ");
 
         button1.setLabel("Volver al menú");
+        button1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                button1MouseClicked(evt);
+            }
+        });
         button1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button1ActionPerformed(evt);
@@ -88,6 +100,12 @@ public class pacienteNoEncontrado extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_button1ActionPerformed
 
+    private void button1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button1MouseClicked
+        InterfazHome Noencontrado= InterfazHome.getInstance();
+        noEncontrado.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_button1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -105,20 +123,21 @@ public class pacienteNoEncontrado extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(pacienteNoEncontrado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(pacienteNoEncontradoConsulta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(pacienteNoEncontrado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(pacienteNoEncontradoConsulta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(pacienteNoEncontrado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(pacienteNoEncontradoConsulta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(pacienteNoEncontrado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(pacienteNoEncontradoConsulta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new pacienteNoEncontrado().setVisible(true);
+                new pacienteNoEncontradoConsulta().setVisible(true);
             }
         });
     }

@@ -4,8 +4,18 @@
  */
 package patient;
 
+import java.utils.*;
+import java.util.*;
+import java.time.*;
+import java.time.format.*;
+
+import patient.SolicitarReservacionCita3;
+import patient.SolicitarReservacionCita4;
+import utils.SchemaDate
+
 public class SolicitarReservacionCita1 extends javax.swing.JFrame {
 
+    String _rawDate = "";
     //singleton, duh
     private static final SolicitarReservacionCita1 reservacion1 = new SolicitarReservacionCita1();
 
@@ -45,7 +55,19 @@ public class SolicitarReservacionCita1 extends javax.swing.JFrame {
 
         jLabel2.setText("Ingrese la fecha de su reservación:");
 
+        jTextField1.setText("dd/MM/yyyy HH:mm");
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField1KeyTyped(evt);
+            }
+        });
+
         jButton1.setText("Enviar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -96,6 +118,26 @@ public class SolicitarReservacionCita1 extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+        _rawDate = ((javax.swing.JTextField)evt.getSource()).getText() + String.valueOf(evt.getKeyChar());
+    }//GEN-LAST:event_jTextField1KeyTyped
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        SolicitarReservacionCita3 success = SolicitarReservacionCita3.getInstance();
+        SolicitarReservacionCita4 error = SolicitarReservacionCita4.getInstance();
+
+        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+        try {
+            LocalDateTime date = LocalDateTime.parse(_rawDate,myFormatObj); //check if is valid
+            String code = UUID.randomUUID().toString().replace("-","").substring(0,8);
+            System.out.println(code);
+            success.setVisible(true);
+        }catch(java.time.format.DateTimeParseException e){
+            error.setVisible(true);
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments

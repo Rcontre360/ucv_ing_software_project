@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package interfaces_paciente;
+package patient;
 
 /**
  *
@@ -10,11 +10,15 @@ package interfaces_paciente;
  */
 public class SolicitarModificacionCita1 extends javax.swing.JFrame {
 
-    /**
-     * Creates new form SolicitarReservacionCita1
-     */
-    public SolicitarModificacionCita1() {
+    //singleton, duh
+    private static final SolicitarModificacionCita1 ui = new SolicitarModificacionCita1();
+
+    private SolicitarModificacionCita1() {
         initComponents();
+    }
+
+    public static SolicitarModificacionCita1 getInstance() {
+        return ui; 
     }
 
     /**

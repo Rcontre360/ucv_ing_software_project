@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package interfaces_paciente;
+package patient;
 
 /**
  *
@@ -10,11 +10,15 @@ package interfaces_paciente;
  */
 public class SolicitarReservacionCita4 extends javax.swing.JFrame {
 
-    /**
-     * Creates new form SolicitarReservacionCita4
-     */
-    public SolicitarReservacionCita4() {
+    //singleton, duh
+    private static final SolicitarReservacionCita4 ui = new SolicitarReservacionCita4();
+
+    private SolicitarReservacionCita4() {
         initComponents();
+    }
+
+    public static SolicitarReservacionCita4 getInstance() {
+        return ui; 
     }
 
     /**
@@ -30,7 +34,7 @@ public class SolicitarReservacionCita4 extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBorder(new javax.swing.border.MatteBorder(null));
 

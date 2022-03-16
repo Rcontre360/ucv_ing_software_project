@@ -99,6 +99,11 @@ public class verHistorialMédico extends javax.swing.JFrame {
         label7.setText("1.75");
 
         button1.setLabel("Volver al menú");
+        button1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                button1MouseClicked(evt);
+            }
+        });
 
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel19.setText("HOSPITAL XYZ");
@@ -203,6 +208,11 @@ public class verHistorialMédico extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void button1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button1MouseClicked
+       InterfazHome home= InterfazHome.getInstance();
+        home.setVisible(true);
+    }//GEN-LAST:event_button1MouseClicked
 
     /**
      * @param args the command line arguments
