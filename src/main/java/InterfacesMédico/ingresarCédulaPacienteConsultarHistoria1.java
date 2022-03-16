@@ -9,20 +9,20 @@ package InterfacesMédico;
  *
  * @author pc
  */
-public class ingresarCédulaPacienteHistoria extends javax.swing.JFrame {
+public class ingresarCédulaPacienteConsultarHistoria1 extends javax.swing.JFrame {
 
     /**
      * Creates new form ingresarCédulaPacienteHistoria
      */
     
-    private static final ingresarCédulaPacienteHistoria registro = new ingresarCédulaPacienteHistoria();
+    private static final ingresarCédulaPacienteConsultarHistoria1 consulta = new ingresarCédulaPacienteConsultarHistoria1();
 
-    public ingresarCédulaPacienteHistoria() {
+    public ingresarCédulaPacienteConsultarHistoria1() {
         initComponents();
     }
 
-    public static ingresarCédulaPacienteHistoria getInstance() {
-        return registro; 
+    public static ingresarCédulaPacienteConsultarHistoria1 getInstance() {
+        return consulta; 
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -70,7 +70,7 @@ public class ingresarCédulaPacienteHistoria extends javax.swing.JFrame {
 
         label1.setAlignment(java.awt.Label.CENTER);
         label1.setForeground(new java.awt.Color(0, 0, 0));
-        label1.setText("Cédula del paciente a buscar (registro)");
+        label1.setText("Cédula del paciente a buscar (consulta)");
 
         button1.setLabel("Buscar Historia");
         button1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -148,7 +148,7 @@ public class ingresarCédulaPacienteHistoria extends javax.swing.JFrame {
     }//GEN-LAST:event_button1ActionPerformed
 
     private void button1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button1MouseClicked
-        validandoRegistro MensajeValidacion= validandoRegistro.getinstance();
+        validandoConsulta MensajeValidacion= validandoConsulta.getinstance();
         MensajeValidacion.setVisible(true);
     }//GEN-LAST:event_button1MouseClicked
 
@@ -169,20 +169,21 @@ public class ingresarCédulaPacienteHistoria extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ingresarCédulaPacienteHistoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ingresarCédulaPacienteConsultarHistoria1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ingresarCédulaPacienteHistoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ingresarCédulaPacienteConsultarHistoria1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ingresarCédulaPacienteHistoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ingresarCédulaPacienteConsultarHistoria1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ingresarCédulaPacienteHistoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ingresarCédulaPacienteConsultarHistoria1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ingresarCédulaPacienteHistoria().setVisible(true);
+                new ingresarCédulaPacienteConsultarHistoria1().setVisible(true);
             }
         });
     }

@@ -111,6 +111,11 @@ public class InterfazHome extends javax.swing.JFrame {
         jLabel2.setText("HOSPITAL XYZ");
 
         jButton5.setText("Consultar Historia Médica");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -184,9 +189,14 @@ public class InterfazHome extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosed
 
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
-        registrarDatosEnHistoria registro = registrarDatosEnHistoria.getInstance();  
-        registro.setVisible(true);
+       ingresarCédulaPacienteHistoria consulta = ingresarCédulaPacienteHistoria.getInstance();
+       consulta.setVisible(true);
     }//GEN-LAST:event_jButton6MouseClicked
+
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+       ingresarCédulaPacienteConsultarHistoria1 consulta = ingresarCédulaPacienteConsultarHistoria1.getInstance();
+       consulta.setVisible(true);
+    }//GEN-LAST:event_jButton5MouseClicked
 
     /**
      * @param args the command line arguments

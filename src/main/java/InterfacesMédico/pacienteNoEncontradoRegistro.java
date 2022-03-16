@@ -9,23 +9,22 @@ package InterfacesMédico;
  *
  * @author pc
  */
-public class historiaGuardada extends javax.swing.JFrame {
+public class pacienteNoEncontradoRegistro extends javax.swing.JFrame {
 
     /**
-     * Creates new form historiaGuardada
+     * Creates new form pacienteNoEncontrado
      */
-    private static historiaGuardada MensajeHistoriaGuardada= new historiaGuardada();
     
+    private static pacienteNoEncontradoRegistro noEncontrado= new pacienteNoEncontradoRegistro();
     
-   
-    
-    public historiaGuardada() {
+    public pacienteNoEncontradoRegistro() {
         initComponents();
     }
-
-    public static historiaGuardada getinstance(){
-        return MensajeHistoriaGuardada;
+    
+    public static pacienteNoEncontradoRegistro getinstance(){
+        return noEncontrado;
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -36,8 +35,8 @@ public class historiaGuardada extends javax.swing.JFrame {
     private void initComponents() {
 
         label2 = new java.awt.Label();
-        button1 = new java.awt.Button();
         jLabel18 = new javax.swing.JLabel();
+        button1 = new java.awt.Button();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -45,7 +44,10 @@ public class historiaGuardada extends javax.swing.JFrame {
         label2.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         label2.setForeground(new java.awt.Color(0, 0, 0));
         label2.setPreferredSize(new java.awt.Dimension(38, 30));
-        label2.setText("Historia Guardada\n Exitosamente"); // NOI18N
+        label2.setText("Paciente No Encontrado"); // NOI18N
+
+        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel18.setText("HOSPITAL XYZ");
 
         button1.setLabel("Volver al menú");
         button1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -58,9 +60,6 @@ public class historiaGuardada extends javax.swing.JFrame {
                 button1ActionPerformed(evt);
             }
         });
-
-        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel18.setText("HOSPITAL XYZ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -94,8 +93,6 @@ public class historiaGuardada extends javax.swing.JFrame {
                 .addContainerGap(100, Short.MAX_VALUE))
         );
 
-        label2.getAccessibleContext().setAccessibleName("title");
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -104,8 +101,9 @@ public class historiaGuardada extends javax.swing.JFrame {
     }//GEN-LAST:event_button1ActionPerformed
 
     private void button1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button1MouseClicked
-        InterfazHome home= InterfazHome.getInstance();
-        home.setVisible(true);
+        InterfazHome Noencontrado= InterfazHome.getInstance();
+        noEncontrado.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_button1MouseClicked
 
     /**
@@ -125,20 +123,23 @@ public class historiaGuardada extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(historiaGuardada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(pacienteNoEncontradoRegistro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(historiaGuardada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(pacienteNoEncontradoRegistro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(historiaGuardada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(pacienteNoEncontradoRegistro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(historiaGuardada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(pacienteNoEncontradoRegistro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new historiaGuardada().setVisible(true);
+                new pacienteNoEncontradoRegistro().setVisible(true);
             }
         });
     }
