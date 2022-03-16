@@ -1,1 +1,119 @@
-{"sucursales":[{"medicos":["M00000000"],"pacientes":["1234567"],"nombre":"sucursal uno"},{"medicos":[],"pacientes":[],"nombre":"sucursal dos"},{"medicos":["M00000000"],"pacientes":[],"nombre":"XYZ ciudad universitaria"}],"citas":[{"fecha":"30-03-2022","paciente":"1234567","sucursal":"sucursal uno","medico":"M00000000","id":"00000001"}],"historial":[{"citas":[{"valores":{"tension":{"minima":"180","maxima":"200"},"pulso":"50","talla":"85","peso":"80","pesoTalla":"0.9"},"id":"00000000"}],"paciente":"1234567","sucursal":"sucursal uno","id":"H00000000"}],"juntaDirectiva":[{"nombre":"directivo 1"},{"nombre":"directivo 2"}],"medicos":[{"sucursal":"sucursal uno","id":"M00000000","nombre":"Jhon doe","especialidad":"internista"},{"sucursal":"XYZ ciudad universitaria","id":"M00000000","nombre":"Jhon doe","especialidad":"internista"}],"pacientes":[{"citas":["00000000","00000001"],"cedula":"1234567","historial":["H00000000"],"nombre":"luis lopes"}]}
+{
+  "sucursales": [
+    {
+      "medicos": [
+        "M00000000"
+      ],
+      "pacientes": [
+        "1234567"
+      ],
+      "nombre": "sucursal uno"
+    },
+    {
+      "medicos": [],
+      "pacientes": [],
+      "nombre": "sucursal dos"
+    },
+    {
+      "medicos": [
+        "M00000000"
+      ],
+      "pacientes": [],
+      "nombre": "XYZ ciudad universitaria"
+    }
+  ],
+  "citas": [
+    {
+      "fecha": "30-03-2022",
+      "paciente": "1234567",
+      "sucursal": "sucursal uno",
+      "medico": "M00000000",
+      "id": "00000001"
+    },
+    {
+      "fecha": "12-12-2022",
+      "codigo": "d950fdd7",
+      "sucursal": "",
+      "paciente": "",
+      "medico": ""
+    },
+    {
+      "fecha": "11-01-2002",
+      "codigo": "8e3592fc",
+      "sucursal": "",
+      "paciente": "",
+      "medico": ""
+    },
+    {
+      "fecha": "11-11-2011",
+      "codigo": "8e2406ad",
+      "sucursal": "sucursal uno",
+      "paciente": "",
+      "medico": "M00000000"
+    },
+    {
+      "fecha": "11-11-2011",
+      "codigo": "27543973",
+      "sucursal": "sucursal uno",
+      "paciente": "",
+      "medico": "M00000000"
+    }
+  ],
+  "historial": [
+    {
+      "citas": [
+        {
+          "valores": {
+            "tension": {
+              "minima": "180",
+              "maxima": "200"
+            },
+            "pulso": "50",
+            "talla": "85",
+            "peso": "80",
+            "pesoTalla": "0.9"
+          },
+          "id": "00000000"
+        }
+      ],
+      "paciente": "1234567",
+      "sucursal": "sucursal uno",
+      "id": "H00000000"
+    }
+  ],
+  "juntaDirectiva": [
+    {
+      "nombre": "directivo 1"
+    },
+    {
+      "nombre": "directivo 2"
+    }
+  ],
+  "medicos": [
+    {
+      "sucursal": "sucursal uno",
+      "id": "M00000000",
+      "nombre": "Jhon doe",
+      "especialidad": "internista"
+    },
+    {
+      "sucursal": "XYZ ciudad universitaria",
+      "id": "M00000000",
+      "nombre": "Jhon doe",
+      "especialidad": "internista"
+    }
+  ],
+  "pacientes": [
+    {
+      "citas": [
+        "00000000",
+        "00000001"
+      ],
+      "cedula": "1234567",
+      "historial": [
+        "H00000000"
+      ],
+      "nombre": "luis lopes"
+    }
+  ]
+}

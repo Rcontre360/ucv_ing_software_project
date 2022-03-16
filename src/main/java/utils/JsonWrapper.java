@@ -114,8 +114,8 @@ public class JsonWrapper {
         for (Object curBranch : branches) {
             JSONObject branch = (JSONObject)curBranch;
             JSONObject newBranch = new JSONObject();
-            JSONArray doctorList = _getOnlyField((JSONArray)branch.get("medicos"),"id");
-            JSONArray patientList = _getOnlyField((JSONArray)branch.get("pacientes"),"cedula");
+            JSONArray doctorList = getOnlyField((JSONArray)branch.get("medicos"),"id");
+            JSONArray patientList = getOnlyField((JSONArray)branch.get("pacientes"),"cedula");
 
             newBranch.put("nombre",(String)branch.get("nombre"));
             newBranch.put("medicos",doctorList);
@@ -149,8 +149,8 @@ public class JsonWrapper {
 
                 newPatient.put("cedula",patient.get("cedula"));
                 newPatient.put("nombre",patient.get("nombre"));
-                newPatient.put("citas",_getOnlyField((JSONArray)patient.get("citas"),"id"));
-                newPatient.put("historial",_getOnlyField((JSONArray)patient.get("historial"),"id"));
+                newPatient.put("citas",getOnlyField((JSONArray)patient.get("citas"),"id"));
+                newPatient.put("historial",getOnlyField((JSONArray)patient.get("historial"),"id"));
                 result.add(newPatient);
             }
         }
@@ -208,6 +208,24 @@ public class JsonWrapper {
         }
         return null;
     }
+
+    public static JSONArray getAllUniversal(String field, String key, String value){
+        JSONObject json = _getJson(DB_NAME);
+        JSONArray fieldJson = (JSONArray) json.get(field);
+        JSONArray result = new JSONArray();
+
+        for (Object obj : fieldJson) {
+            String curValue = (String) ((JSONObject)obj).get(key);  
+            if (curValue.equals(value))
+                result.add((JSONObject)obj);
+        }
+        return result;
+    }
+
+    public static JSONArray getField(String field){
+        JSONObject json = _getJson(DB_NAME);
+        return (JSONArray) json.get(field);
+    }
     
     public static void setUniversal(JSONObject newObject, String field, String idKeyName, String id){
         JSONObject json = _getJson(DB_NAME);
@@ -216,7 +234,7 @@ public class JsonWrapper {
 
         for (Object obj : arrayToModify) {
             String curValue = (String) ((JSONObject)obj).get(idKeyName);  
-            if (curValue.equals(id)){
+            if (curValue != null && curValue.equals(id)){
                 found = 1;
                 break;
             }
@@ -246,10 +264,8 @@ public class JsonWrapper {
 
         for (Object obj : arrayToModify) {
             String curValue = (String) ((JSONObject)obj).get(key);  
-            if (curValue.equals(value)){
+            if (curValue.equals(value))
                 arrayToModify.remove(obj);
-                break;
-            }
         }
 
         json.put(field, arrayToModify);
@@ -265,7 +281,7 @@ public class JsonWrapper {
         }
     }
 
-    private static JSONArray _getOnlyField(JSONArray arr,String field){
+    public static JSONArray getOnlyField(JSONArray arr,String field){
         JSONArray result = new JSONArray();
 
         for (Object raw : arr){

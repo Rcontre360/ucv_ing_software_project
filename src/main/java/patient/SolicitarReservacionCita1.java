@@ -128,12 +128,14 @@ public class SolicitarReservacionCita1 extends javax.swing.JFrame {
         SchemaDate myDate = new SchemaDate("");
 
         try {
-            myDate.setFecha(_rawDate);
             String code = UUID.randomUUID().toString().replace("-","").substring(0,8);
-            success.setVisible(true);
+            myDate.setCodigo(code);
+            myDate.setFecha(_rawDate);
+            myDate.commit();
 
-            System.out.println(code);
-        }catch(java.time.format.DateTimeParseException e){
+            success.setCode(code);
+            success.setVisible(true);
+        }catch(java.lang.Exception e){
             error.setVisible(true);
             e.printStackTrace();
         }

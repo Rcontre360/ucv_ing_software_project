@@ -43,7 +43,7 @@ public class SolicitarReservacionCita3 extends javax.swing.JFrame {
         jLabel1.setText("SOLICITUD DE RESERVACIÓN EXITOSA");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel3.setText("CÓDIGO DE CITA: 001");
+        jLabel3.setText("CÓDIGO DE CITA: ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -131,6 +131,10 @@ public class SolicitarReservacionCita3 extends javax.swing.JFrame {
                 new SolicitarReservacionCita3().setVisible(true);
             }
         });
+    }
+
+    public void setCode(String _code){
+        jLabel3.setText("CÓDIGO DE CITA: " + _code);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

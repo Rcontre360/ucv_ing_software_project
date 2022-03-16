@@ -10,6 +10,7 @@ import java.util.*;
 import java.time.*;
 import java.time.format.*;
 import org.json.simple.JSONObject;
+import org.json.simple.JSONArray;
 
 import utils.JsonWrapper;
 
@@ -17,11 +18,11 @@ public class SchemaDate {
 
     private static DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy"); 
     private LocalDate fecha;
-    private String codigo;
+    private String codigo = "";
 
-    private String medico;
-    private String sucursal;
-    private String paciente;
+    private String medico = "";
+    private String sucursal = "";
+    private String paciente = "";
     
     public SchemaDate(String _codigo){
         codigo =  _codigo;
@@ -73,12 +74,32 @@ public class SchemaDate {
         paciente = _paciente;
     }
 
-    public void commit(){
+    public void commit() throws Exception {
         JSONObject date = new JSONObject();
-        date.put("fecha",fecha.format(SchemaDate.dateFormat)); 
+        String rawFecha = fecha.format(SchemaDate.dateFormat);
+        JSONArray allDates = JsonWrapper.getAllUniversal("citas","fecha",rawFecha);
+        JSONArray freeDoctors = JsonWrapper.getOnlyField(JsonWrapper.getField("medicos"),"id");
+
+        for (Object obj : allDates) {
+            JSONObject curDate = (JSONObject)obj;
+            String curFecha = (String) curDate.get("fecha");  
+            if (curFecha.equals(rawFecha)){
+                freeDoctors.remove((String)curDate.get("medico"));
+                System.out.println("REMOVED");
+                System.out.println(freeDoctors);
+            }
+        }
+
+        if (freeDoctors.size() <= 0)
+            throw new Exception("No doctor found");
+
+        String doctorId = (String)freeDoctors.get(0);
+        JSONObject doctor = JsonWrapper.getUniversal("medicos","id",doctorId);
+
+        date.put("fecha",rawFecha); 
         date.put("codigo",codigo); 
-        date.put("medico",medico); 
-        date.put("sucursal",sucursal); 
+        date.put("medico",freeDoctors.get(0)); 
+        date.put("sucursal",(String)doctor.get("sucursal")); 
         date.put("paciente",paciente); 
 
         JsonWrapper.setUniversal(date, "citas", "id", codigo);
