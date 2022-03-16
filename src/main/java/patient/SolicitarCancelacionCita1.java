@@ -4,12 +4,18 @@
  */
 package patient;
 
+import java.util.*;
+import schemas.SchemaDate;
+import patient.SolicitarCancelacionCita3;
+import patient.SolicitarCancelacionCita4;
+
 /**
  *
  * @author ラファエル・コントレラス
  */
 public class SolicitarCancelacionCita1 extends javax.swing.JFrame {
 
+    private String _code;
     //singleton, duh
     private static final SolicitarCancelacionCita1 cancelacion1 = new SolicitarCancelacionCita1();
 
@@ -49,7 +55,18 @@ public class SolicitarCancelacionCita1 extends javax.swing.JFrame {
 
         jLabel2.setText("Ingrese el código rspectivo de la cita:");
 
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField1KeyTyped(evt);
+            }
+        });
+
         jButton1.setText("Enviar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -100,6 +117,25 @@ public class SolicitarCancelacionCita1 extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+        _code = ((javax.swing.JTextField)evt.getSource()).getText() + String.valueOf(evt.getKeyChar());
+    }//GEN-LAST:event_jTextField1KeyTyped
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        SolicitarCancelacionCita3 success = SolicitarCancelacionCita3.getInstance();
+        SolicitarCancelacionCita4 error = SolicitarCancelacionCita4.getInstance();
+
+        try {
+            SchemaDate date = new SchemaDate(_code); 
+            date.getFecha(); //if there's a date no error is thrown
+            date.removeJson();
+            success.setVisible(true);
+        }catch(java.lang.NullPointerException e){
+            error.setVisible(true);
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments

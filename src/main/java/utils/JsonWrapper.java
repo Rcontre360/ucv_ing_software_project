@@ -60,7 +60,7 @@ public class JsonWrapper {
     public static boolean loadJson(){
         JSONObject json = _getJson(FILE_NAME);
         
-        if (json.get("loaded").equals("true"))
+        if (json.get("loaded") != null && json.get("loaded").equals("true"))
             return true;
 
         JSONObject db = new JSONObject();
@@ -227,6 +227,31 @@ public class JsonWrapper {
             arrayToModify.set(index,newObject);
         else 
             arrayToModify.add(newObject);
+        json.put(field, arrayToModify);
+
+        try {
+            FileWriter file;
+            file = new FileWriter(DB_NAME);
+            file.write(json.toJSONString()); 
+            file.flush();
+ 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void filterField(String field, String key, String value) {
+        JSONObject json = _getJson(DB_NAME);
+        JSONArray arrayToModify =(JSONArray) json.get(field);
+
+        for (Object obj : arrayToModify) {
+            String curValue = (String) ((JSONObject)obj).get(key);  
+            if (curValue.equals(value)){
+                arrayToModify.remove(obj);
+                break;
+            }
+        }
+
         json.put(field, arrayToModify);
 
         try {

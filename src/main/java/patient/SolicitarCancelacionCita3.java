@@ -12,13 +12,13 @@ public class SolicitarCancelacionCita3 extends javax.swing.JFrame {
 
 
     //singleton, duh
-    private static final SolicitarReservacionCita3 ui = new SolicitarReservacionCita3();
+    private static final SolicitarCancelacionCita3 ui = new SolicitarCancelacionCita3();
 
     private SolicitarCancelacionCita3() {
         initComponents();
     }
 
-    public static SolicitarReservacionCita3 getInstance() {
+    public static SolicitarCancelacionCita3 getInstance() {
         return ui; 
     }
     /**

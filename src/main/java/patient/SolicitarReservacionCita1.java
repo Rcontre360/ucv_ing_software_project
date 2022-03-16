@@ -4,14 +4,13 @@
  */
 package patient;
 
-import java.utils.*;
 import java.util.*;
 import java.time.*;
 import java.time.format.*;
 
 import patient.SolicitarReservacionCita3;
 import patient.SolicitarReservacionCita4;
-import utils.SchemaDate
+import schemas.SchemaDate;
 
 public class SolicitarReservacionCita1 extends javax.swing.JFrame {
 
@@ -55,7 +54,7 @@ public class SolicitarReservacionCita1 extends javax.swing.JFrame {
 
         jLabel2.setText("Ingrese la fecha de su reservación:");
 
-        jTextField1.setText("dd/MM/yyyy HH:mm");
+        jTextField1.setText("dd-MM-yyyy");
         jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField1KeyTyped(evt);
@@ -116,7 +115,7 @@ public class SolicitarReservacionCita1 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
@@ -126,13 +125,14 @@ public class SolicitarReservacionCita1 extends javax.swing.JFrame {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         SolicitarReservacionCita3 success = SolicitarReservacionCita3.getInstance();
         SolicitarReservacionCita4 error = SolicitarReservacionCita4.getInstance();
+        SchemaDate myDate = new SchemaDate("");
 
-        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
         try {
-            LocalDateTime date = LocalDateTime.parse(_rawDate,myFormatObj); //check if is valid
+            myDate.setFecha(_rawDate);
             String code = UUID.randomUUID().toString().replace("-","").substring(0,8);
-            System.out.println(code);
             success.setVisible(true);
+
+            System.out.println(code);
         }catch(java.time.format.DateTimeParseException e){
             error.setVisible(true);
             e.printStackTrace();
