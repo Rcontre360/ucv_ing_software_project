@@ -30,6 +30,10 @@ public class SchemaPersona {
         return nombre;
     }
     
+    public String getApellido(){
+        return apellido;
+    }
+    
     public String getCedula() {
         return cedula;
     }
@@ -68,6 +72,10 @@ public class SchemaPersona {
     
     public void setNombre(String _nombre){
         nombre = _nombre;
+    }
+    
+    public void setApellido(String _apellido){
+        nombre = _apellido;
     }
     
     public void setCedula(String _cedula) {
