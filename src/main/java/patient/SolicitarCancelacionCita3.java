@@ -14,7 +14,7 @@ public class SolicitarCancelacionCita3 extends javax.swing.JFrame {
     //singleton, duh
     private static final SolicitarReservacionCita3 ui = new SolicitarReservacionCita3();
 
-    private SolicitarReservacionCita3() {
+    private SolicitarCancelacionCita3() {
         initComponents();
     }
 
@@ -71,7 +71,7 @@ public class SolicitarCancelacionCita3 extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(129, 129, 129)
+                .addGap(161, 161, 161)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );

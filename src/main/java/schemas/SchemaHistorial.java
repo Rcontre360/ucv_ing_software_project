@@ -7,6 +7,7 @@
 package schemas;
 
 import java.util.*;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import utils.JsonWrapper;
@@ -71,5 +72,17 @@ public class SchemaHistorial {
 
     public void setPulso(float _pulso){
         pulso = _pulso;
+    }
+    
+    public void commit(){
+        JSONObject historial = new JSONObject(); 
+        historial.put("peso",peso);
+        historial.put("talla",talla);
+        historial.put("talla",talla);
+        historial.put("indiceMasaCorporal",indiceMasaCorporal);
+        historial.put("indiceMasaCorporal",indiceMasaCorporal);
+        historial.put("tensionDiastolica",tensionDiastolica);
+        historial.put("tensionSistolica",tensionSistolica);
+        JsonWrapper.setUniversal(historial, "historiales_medicos", "ID", ID);
     }
 }

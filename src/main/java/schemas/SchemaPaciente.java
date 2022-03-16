@@ -4,17 +4,20 @@
  */
 package schemas;
 
+import org.json.simple.JSONObject;
+import utils.JsonWrapper;
+
 /**
  *
  * @author andres
  */
-public class SchemaPaciente {
+public class SchemaPaciente extends SchemaPersona {
     
-    String ID;
-    int tlfPersonaRelacionada;
+    private String ID;
+    private int tlfPersonaRelacionada;
     
     public SchemaPaciente(String pacienteID){
-        
+        super();
     }
 
     public int gettlfPersonaRelacionada(){
@@ -24,5 +27,21 @@ public class SchemaPaciente {
     public void settlfPersonaRelacionada(int _tlfPersonaRelacionada){
         tlfPersonaRelacionada = _tlfPersonaRelacionada;
     }
-
+    
+    public void commit(){
+        JSONObject paciente = new JSONObject(); 
+        paciente.put("tlfPersonaRelacionada",tlfPersonaRelacionada);
+        paciente.put("nombre",getNombre());
+        paciente.put("apellido",getApellido());
+        paciente.put("cedula",getCedula());
+        paciente.put("sexo",getSexo());
+        paciente.put("lugarDeNacimiento",getLugarDeNacimiento());
+        paciente.put("fechaDeNacimiento",getFechaDeNacimiento());
+        paciente.put("estadoCivil",getEstadoCivil());
+        paciente.put("direccionDeHabitacion",getDireccionDeHabitacion());
+        paciente.put("telefono",getTelefono());
+        paciente.put("profesion",getProfesion());
+        paciente.put("ocupacion",getOcupacion());
+        JsonWrapper.setUniversal(paciente, "pacientes", "ID", ID);
+    }
 }
