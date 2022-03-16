@@ -10,11 +10,15 @@ package patient;
  */
 public class SolicitarReservacionCita3 extends javax.swing.JFrame {
 
-    /**
-     * Creates new form SolicitarReservacionCita3
-     */
-    public SolicitarReservacionCita3() {
+    //singleton, duh
+    private static final SolicitarReservacionCita3 ui = new SolicitarReservacionCita3();
+
+    private SolicitarReservacionCita3() {
         initComponents();
+    }
+
+    public static SolicitarReservacionCita3 getInstance() {
+        return ui; 
     }
 
     /**
@@ -31,7 +35,7 @@ public class SolicitarReservacionCita3 extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBorder(new javax.swing.border.MatteBorder(null));
 

@@ -10,11 +10,15 @@ package patient;
  */
 public class SolicitarModificacionCita1 extends javax.swing.JFrame {
 
-    /**
-     * Creates new form SolicitarReservacionCita1
-     */
-    public SolicitarModificacionCita1() {
+    //singleton, duh
+    private static final SolicitarModificacionCita1 ui = new SolicitarModificacionCita1();
+
+    private SolicitarModificacionCita1() {
         initComponents();
+    }
+
+    public static SolicitarModificacionCita1 getInstance() {
+        return ui; 
     }
 
     /**
