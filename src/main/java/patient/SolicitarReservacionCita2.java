@@ -11,7 +11,7 @@ package patient;
 public class SolicitarReservacionCita2 extends javax.swing.JFrame {
 
     //singleton, duh
-    private static final SolicitarReservacionCita2 validatinj = new SolicitarReservacionCita2();
+    private static final SolicitarReservacionCita2 validating = new SolicitarReservacionCita2();
 
     private SolicitarReservacionCita2() {
         initComponents();

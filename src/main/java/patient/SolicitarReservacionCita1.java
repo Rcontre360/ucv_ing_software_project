@@ -4,14 +4,13 @@
  */
 package patient;
 
-import java.utils.*;
 import java.util.*;
 import java.time.*;
 import java.time.format.*;
 
 import patient.SolicitarReservacionCita3;
 import patient.SolicitarReservacionCita4;
-import utils.SchemaDate
+import schemas.SchemaDate;
 
 public class SolicitarReservacionCita1 extends javax.swing.JFrame {
 
