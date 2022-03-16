@@ -7,6 +7,7 @@
 package schemas;
 
 import java.util.*;
+import org.json.simple.JSONObject;
 
 import utils.JsonWrapper;
 
