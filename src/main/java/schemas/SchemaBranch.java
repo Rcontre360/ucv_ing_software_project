@@ -17,7 +17,7 @@ public class SchemaBranch {
     private String direccion;
     private String nombre;
     private int limite;
-    private int capacidad;
+    private int capacidad = 1000000;
     
     public SchemaBranch(String branchName){ //if branch name isnt null, search on db
         nombre = branchName;
