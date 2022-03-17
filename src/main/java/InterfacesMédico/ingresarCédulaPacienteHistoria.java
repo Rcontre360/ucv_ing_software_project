@@ -148,8 +148,7 @@ public class ingresarCédulaPacienteHistoria extends javax.swing.JFrame {
     }//GEN-LAST:event_button1ActionPerformed
 
     private void button1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button1MouseClicked
-        validandoRegistro MensajeValidacion= validandoRegistro.getinstance();
-        MensajeValidacion.setVisible(true);
+
     }//GEN-LAST:event_button1MouseClicked
 
     /**
