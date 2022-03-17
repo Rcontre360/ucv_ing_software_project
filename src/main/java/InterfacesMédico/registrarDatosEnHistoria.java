@@ -5,6 +5,7 @@
 package InterfacesMédico;
 
 import org.json.simple.JSONObject;
+import schemas.SchemaHistorial;
 /**
  *
  * @author yaricb
@@ -261,12 +262,22 @@ public class registrarDatosEnHistoria extends javax.swing.JFrame {
                 jTextField13ActionPerformed(evt);
             }
         });
+        jTextField13.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField13KeyTyped(evt);
+            }
+        });
 
         jLabel21.setText("Talla (m):");
 
         jTextField14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField14ActionPerformed(evt);
+            }
+        });
+        jTextField14.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField14KeyTyped(evt);
             }
         });
 
@@ -299,6 +310,11 @@ public class registrarDatosEnHistoria extends javax.swing.JFrame {
         jTextField18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField18ActionPerformed(evt);
+            }
+        });
+        jTextField18.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField18KeyTyped(evt);
             }
         });
 
@@ -404,7 +420,14 @@ public class registrarDatosEnHistoria extends javax.swing.JFrame {
         json.put("peso", peso);
         db.setUniversal(json,"historiales_medicos");
     }*/
-
+    public static String ID;
+    public static int peso;
+    public static float talla;
+    public static float indiceMasaCorporal;
+    public static String tensionDiastolica;
+    public static String tensionSistolica;
+    public static float pulso;    
+    
     private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField11ActionPerformed
@@ -444,12 +467,52 @@ public class registrarDatosEnHistoria extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
-
+    
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+    SchemaHistorial historial= new SchemaHistorial("");
+    historial.setPeso(Float.parseFloat(jTextField13.getText()));
+    historial.setTalla(Float.parseFloat(jTextField14.getText()));
+    historial.setIMC(Float.parseFloat(jTextField15.getText())); 
+    historial.setTensionSistolica(Integer.parseInt(jTextField16.getText()));
+    historial.setTensionDiastolica(Integer.parseInt(jTextField17.getText())); 
+    historial.setPulso(Integer.parseInt(jTextField18.getText()));  
+    //aqui deberia de ir un error en el maping y un try and cach
+ 
+       //si todo ok:
        historiaGuardada mensajeHistoriaGuardada= historiaGuardada.getinstance();
        mensajeHistoriaGuardada.setVisible(true);
     }//GEN-LAST:event_jButton3MouseClicked
 
+    private void jTextField13KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField13KeyTyped
+       String texto = jTextField13.getText(); 
+       char c = evt.getKeyChar();
+       if(((c<'0'||c>'9')&&c!='.')||(c=='.'&&texto.contains("."))) evt.consume();
+    }//GEN-LAST:event_jTextField13KeyTyped
+
+    private void jTextField14KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField14KeyTyped
+       String texto = jTextField14.getText(); 
+       char c = evt.getKeyChar();
+       if(((c<'0'||c>'9')&&c!='.')||(c=='.'&&texto.contains("."))) evt.consume();
+    }//GEN-LAST:event_jTextField14KeyTyped
+
+    private void jTextField18KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField18KeyTyped
+       char c = evt.getKeyChar();
+       if((c<'0'||c>'9')) evt.consume();
+    }//GEN-LAST:event_jTextField18KeyTyped
+    private void jTextField15KeyTyped(java.awt.event.KeyEvent evt) {                                      
+       String texto = jTextField15.getText(); 
+       char c = evt.getKeyChar();
+       if(((c<'0'||c>'9')&&c!='.')||(c=='.'&&texto.contains("."))) evt.consume();
+    }
+    private void jTextField16KeyTyped(java.awt.event.KeyEvent evt) {                                      
+       char c = evt.getKeyChar();
+       if((c<'0'||c>'9')) evt.consume();
+    }
+    private void jTextField17KeyTyped(java.awt.event.KeyEvent evt) {                                      
+       char c = evt.getKeyChar();
+       if((c<'0'||c>'9')) evt.consume();
+    }
+    
     /**
      * @param args the command line arguments
      */
