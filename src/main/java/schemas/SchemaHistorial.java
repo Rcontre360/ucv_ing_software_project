@@ -15,12 +15,12 @@ import utils.JsonWrapper;
 public class SchemaHistorial {
     
     String ID;
-    int peso;
+    float peso;
     float talla;
     float indiceMasaCorporal;
-    String tensionDiastolica;
-    String tensionSistolica;
-    float pulso;    
+    int  tensionDiastolica;
+    int tensionSistolica;
+    int pulso;    
     
     public SchemaHistorial(String historialID){
         
@@ -30,7 +30,7 @@ public class SchemaHistorial {
         return peso;
     }
 
-    public void setPeso(int _peso){
+    public void setPeso(float _peso){
         peso = _peso;
     }
     
@@ -38,7 +38,7 @@ public class SchemaHistorial {
         return talla;
     }
 
-    public void setTalla(int _talla){
+    public void setTalla(float _talla){
         talla = _talla;
     }
     
@@ -46,31 +46,31 @@ public class SchemaHistorial {
         return indiceMasaCorporal;
     }
 
-    public void setIMC(int _IMC){
+    public void setIMC(float _IMC){
         indiceMasaCorporal = _IMC;
     }
     
-    public String getTensionDiastolica(){
+    public int getTensionDiastolica(){
         return tensionDiastolica;
     }
 
-    public void setTensionDiastolica(String _tensionDiastolica){
+    public void setTensionDiastolica(int _tensionDiastolica){
         tensionDiastolica = _tensionDiastolica;
     }
     
-    public String getTensionSistolica(){
+    public int getTensionSistolica(){
         return tensionSistolica;
     }
     
-    public void setTensionSistolica(String _tensionSistolica){
+    public void setTensionSistolica(int _tensionSistolica){
         tensionSistolica = _tensionSistolica;
     }
     
-    public float getPulso(){
+    public int getPulso(){
         return pulso;
     }
 
-    public void setPulso(float _pulso){
+    public void setPulso(int _pulso){
         pulso = _pulso;
     }
     

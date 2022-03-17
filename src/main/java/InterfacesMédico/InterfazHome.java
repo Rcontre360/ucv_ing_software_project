@@ -189,7 +189,7 @@ public class InterfazHome extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosed
 
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
-       ingresarCédulaPacienteHistoria consulta = ingresarCédulaPacienteHistoria.getInstance();
+       ingresarCédulaPacienteRegistrarHistoria consulta = ingresarCédulaPacienteRegistrarHistoria.getInstance();
        consulta.setVisible(true);
     }//GEN-LAST:event_jButton6MouseClicked
 
