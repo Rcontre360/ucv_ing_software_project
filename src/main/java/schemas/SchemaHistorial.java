@@ -78,8 +78,6 @@ public class SchemaHistorial {
         JSONObject historial = new JSONObject(); 
         historial.put("peso",peso);
         historial.put("talla",talla);
-        historial.put("talla",talla);
-        historial.put("indiceMasaCorporal",indiceMasaCorporal);
         historial.put("indiceMasaCorporal",indiceMasaCorporal);
         historial.put("tensionDiastolica",tensionDiastolica);
         historial.put("tensionSistolica",tensionSistolica);
