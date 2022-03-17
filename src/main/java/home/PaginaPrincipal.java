@@ -14,13 +14,27 @@ import board.HomeJunta;
  * @author rafael
  */
 public class PaginaPrincipal extends javax.swing.JFrame {
+    
+    /**
+     * Singleton dude
+     */
+    private static final PaginaPrincipal home = new PaginaPrincipal();
+
+    private PaginaPrincipal() {
+        initComponents();
+    }
+
+    public static PaginaPrincipal getInstance() {
+        return home;
+    }
 
     /**
      * Creates new form InterfazHome
-     */
-    public PaginaPrincipal() {
+     * public PaginaPrincipal() {
         initComponents();
     }
+     */
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
