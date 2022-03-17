@@ -202,7 +202,7 @@ public class JsonWrapper {
 
         for (Object obj : fieldJson) {
             String curValue = (String) ((JSONObject)obj).get(key);  
-            if (curValue.equals(value)){
+            if (curValue != null && curValue.equals(value)){
                 return ((JSONObject)obj);
             }
         }

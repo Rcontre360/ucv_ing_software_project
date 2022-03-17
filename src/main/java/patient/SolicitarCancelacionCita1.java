@@ -120,6 +120,7 @@ public class SolicitarCancelacionCita1 extends javax.swing.JFrame {
 
     private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
         _code = ((javax.swing.JTextField)evt.getSource()).getText() + String.valueOf(evt.getKeyChar());
+        _code = _code.replace("\n","").replace("\r","").replace(" ","");
     }//GEN-LAST:event_jTextField1KeyTyped
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
