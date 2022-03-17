@@ -11,10 +11,16 @@ package secretary;
 public class ReservDate extends javax.swing.JFrame {
 
     /**
-     * Creates new form ReservDate
+     * Singlenton
      */
-    public ReservDate() {
+    private ReservDate() {
         initComponents();
+    }
+    
+    private static final ReservDate reservD = new ReservDate();
+    
+    public static ReservDate getInstance(){
+        return reservD;
     }
 
     /**
