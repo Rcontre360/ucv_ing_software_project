@@ -10,11 +10,17 @@ package secretary;
  */
 public class CancelDate extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ReservDate
-     */
-    public CancelDate() {
+    /*
+    Singlenton
+    */
+    private CancelDate() {
         initComponents();
+    }
+    
+    private static final CancelDate cd = new CancelDate();
+    
+    public static CancelDate getInstance(){
+        return cd;
     }
 
     /**
