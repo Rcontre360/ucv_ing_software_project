@@ -288,6 +288,11 @@ public class registrarDatosEnHistoria extends javax.swing.JFrame {
                 jTextField15ActionPerformed(evt);
             }
         });
+        jTextField15.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField15KeyTyped(evt);
+            }
+        });
 
         jLabel23.setText("Tensión Arterial Sistólica (mmHg):");
 
@@ -296,12 +301,22 @@ public class registrarDatosEnHistoria extends javax.swing.JFrame {
                 jTextField16ActionPerformed(evt);
             }
         });
+        jTextField16.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField16KeyTyped(evt);
+            }
+        });
 
         jLabel24.setText("Tensión Arterial Diastólica (mmHg):");
 
         jTextField17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField17ActionPerformed(evt);
+            }
+        });
+        jTextField17.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField17KeyTyped(evt);
             }
         });
 
@@ -477,7 +492,7 @@ public class registrarDatosEnHistoria extends javax.swing.JFrame {
     historial.setTensionDiastolica(Integer.parseInt(jTextField17.getText())); 
     historial.setPulso(Integer.parseInt(jTextField18.getText()));  
     //aqui deberia de ir un error en el maping y un try and cach
- 
+    historial.commit();
        //si todo ok:
        historiaGuardada mensajeHistoriaGuardada= historiaGuardada.getinstance();
        mensajeHistoriaGuardada.setVisible(true);
@@ -499,19 +514,24 @@ public class registrarDatosEnHistoria extends javax.swing.JFrame {
        char c = evt.getKeyChar();
        if((c<'0'||c>'9')) evt.consume();
     }//GEN-LAST:event_jTextField18KeyTyped
-    private void jTextField15KeyTyped(java.awt.event.KeyEvent evt) {                                      
+
+    private void jTextField15KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField15KeyTyped
        String texto = jTextField15.getText(); 
        char c = evt.getKeyChar();
        if(((c<'0'||c>'9')&&c!='.')||(c=='.'&&texto.contains("."))) evt.consume();
-    }
-    private void jTextField16KeyTyped(java.awt.event.KeyEvent evt) {                                      
-       char c = evt.getKeyChar();
+    }//GEN-LAST:event_jTextField15KeyTyped
+
+    private void jTextField16KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField16KeyTyped
+        char c = evt.getKeyChar();
        if((c<'0'||c>'9')) evt.consume();
-    }
-    private void jTextField17KeyTyped(java.awt.event.KeyEvent evt) {                                      
-       char c = evt.getKeyChar();
+    }//GEN-LAST:event_jTextField16KeyTyped
+
+    private void jTextField17KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField17KeyTyped
+        char c = evt.getKeyChar();
        if((c<'0'||c>'9')) evt.consume();
-    }
+    }//GEN-LAST:event_jTextField17KeyTyped
+    
+    
     
     /**
      * @param args the command line arguments

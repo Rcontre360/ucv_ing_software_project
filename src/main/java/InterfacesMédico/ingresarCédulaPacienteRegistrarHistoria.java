@@ -157,7 +157,17 @@ public class ingresarCédulaPacienteRegistrarHistoria extends javax.swing.JFrame
     }//GEN-LAST:event_button1ActionPerformed
 
     private void button1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button1MouseClicked
-
+        cedula = jTextField19.getText();
+        if(JsonWrapper.getUniversal("pacientes","cedula",cedula)!=null){
+            registrarDatosEnHistoria registro= registrarDatosEnHistoria.getInstance();
+            registro.setVisible(true);
+            System.out.println("Hola Mundo!");
+        }else{
+            pacienteNoEncontradoRegistro noEncontrado= pacienteNoEncontradoRegistro.getinstance();
+            noEncontrado.setVisible(true);
+            System.out.println("Hola Mundo!");
+            
+        }
     }//GEN-LAST:event_button1MouseClicked
 
     private void jTextField19KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField19KeyTyped

@@ -26,7 +26,7 @@ public class SchemaHistorial {
         
     }
 
-    public int getPeso(){
+    public float getPeso(){
         return peso;
     }
 
