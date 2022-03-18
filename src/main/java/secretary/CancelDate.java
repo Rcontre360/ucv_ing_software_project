@@ -85,9 +85,12 @@ public class CancelDate extends javax.swing.JFrame {
         int j=0;
         for (Object obj : testArray) {
             if(((JSONObject)obj).get("registered")!=null){
-                boolean curValueRegistered = (boolean) ((JSONObject)obj).get("registered");
-                if(curValueRegistered==true){
-                     j++;
+                    if(((JSONObject)obj).get("solicitudCancelar")!=null){
+                        boolean curValueCancel = (boolean) ((JSONObject)obj).get("solicitudCancelar");
+                        boolean curValueRegistered = (boolean) ((JSONObject)obj).get("registered");
+                        if(curValueRegistered==true&&curValueCancel==true){
+                             j++;
+                    }
                 }
             }
         }
@@ -97,15 +100,18 @@ public class CancelDate extends javax.swing.JFrame {
         for (Object obj : testArray) {
             String curValueId = (String) ((JSONObject)obj).get("id");  
             String curValueSucursal = (String) ((JSONObject)obj).get("sucursal");
-            if(((JSONObject)obj).get("registered")!=null){
-                boolean curValueRegistered = (boolean) ((JSONObject)obj).get("registered");
-                if(curValueRegistered==true){
-                    test[i]="Codigo: "+curValueId+" Sucursal:"+curValueSucursal;
-                    if(first==true){
-                        first=false;
-                        codeCita=curValueId;        
+            if(((JSONObject)obj).get("registered")!=null){ 
+                if(((JSONObject)obj).get("solicitudCancelar")!=null){
+                    boolean curValueCancel = (boolean) ((JSONObject)obj).get("solicitudCancelar");
+                    boolean curValueRegistered = (boolean) ((JSONObject)obj).get("registered");
+                    if(curValueRegistered==true&&curValueCancel==true){
+                        test[i]="Codigo: "+curValueId+" Sucursal:"+curValueSucursal;
+                        if(first==true){
+                            first=false;
+                            codeCita=curValueId;        
+                        }
+                        i++;
                     }
-                    i++;
                 }
             }            
         }
