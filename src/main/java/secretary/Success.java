@@ -17,6 +17,11 @@ public class Success extends javax.swing.JFrame {
         initComponents();
     }
 
+    private static final Success success = new Success();
+    
+    public static Success getInstance(){
+        return success;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

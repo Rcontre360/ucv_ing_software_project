@@ -16,6 +16,12 @@ public class Error extends javax.swing.JFrame {
     public Error() {
         initComponents();
     }
+    
+   private static final Error error = new Error();
+    
+    public static Error getInstance(){
+        return error;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
