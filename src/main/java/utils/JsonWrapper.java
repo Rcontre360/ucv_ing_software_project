@@ -179,11 +179,36 @@ public class JsonWrapper {
 
                 for (Object rawHistory : (JSONArray)patient.get("historial")){
                     JSONObject history = (JSONObject)rawHistory;
-                    history.put("paciente",patient.get("cedula"));
-                    history.put("sucursal",branch.get("nombre"));
-                    result.add(history);
+                    JSONArray dates = _flatHistoryDates((JSONArray)history.get("citas"));
+                    JSONObject newHistory = new JSONObject();
+
+                    newHistory.put("id",history.get("id"));
+                    newHistory.put("paciente",patient.get("cedula"));
+                    newHistory.put("sucursal",branch.get("nombre"));
+                    newHistory.put("dates",dates);
+                    result.add(newHistory);
                 }
             }
+        }
+        return result;
+    }
+
+    private static JSONArray _flatHistoryDates(JSONArray dates) {
+        JSONArray result = new JSONArray();
+        for (Object rawDate:dates){
+            JSONObject date = (JSONObject)rawDate;
+            JSONObject values = (JSONObject)date.get("valores");
+            JSONObject tension = (JSONObject)values.get("tension");
+            JSONObject newDate = new JSONObject();
+
+            newDate.put("id",(String)date.get("id"));
+            newDate.put("peso",(String)values.get("peso"));
+            newDate.put("talla",(String)values.get("talla"));
+            newDate.put("pesoTalla",(String)values.get("pesoTalla"));
+            newDate.put("maxima",(String)tension.get("maxima"));
+            newDate.put("minima",(String)tension.get("minima"));
+
+            result.add(newDate);
         }
         return result;
     }
@@ -223,23 +248,29 @@ public class JsonWrapper {
     }
     
     public static void setUniversal(JSONObject newObject, String field, String idKeyName, String id){
+        System.out.print("a \n");
         JSONObject json = _getJson(DB_NAME);
         JSONArray arrayToModify =(JSONArray) json.get(field);
         int index = 0,found = 0;
+        System.out.print(field+" "+json.get(field)+"\n");
 
         for (Object obj : arrayToModify) {
             String curValue = (String) ((JSONObject)obj).get(idKeyName);  
+            System.out.print(obj);
             if (curValue != null && curValue.equals(id)){
                 found = 1;
                 break;
             }
             index++;
         }
+        
+        System.out.print("c \n");
 
         if (found == 1)
             arrayToModify.set(index,newObject);
         else 
             arrayToModify.add(newObject);
+        System.out.print("e \n");
         json.put(field, arrayToModify);
 
         try {
