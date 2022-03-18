@@ -223,23 +223,29 @@ public class JsonWrapper {
     }
     
     public static void setUniversal(JSONObject newObject, String field, String idKeyName, String id){
+        System.out.print("a \n");
         JSONObject json = _getJson(DB_NAME);
         JSONArray arrayToModify =(JSONArray) json.get(field);
         int index = 0,found = 0;
+        System.out.print(field+" "+json.get(field)+"\n");
 
         for (Object obj : arrayToModify) {
             String curValue = (String) ((JSONObject)obj).get(idKeyName);  
+            System.out.print(obj);
             if (curValue != null && curValue.equals(id)){
                 found = 1;
                 break;
             }
             index++;
         }
+        
+        System.out.print("c \n");
 
         if (found == 1)
             arrayToModify.set(index,newObject);
         else 
             arrayToModify.add(newObject);
+        System.out.print("e \n");
         json.put(field, arrayToModify);
 
         try {

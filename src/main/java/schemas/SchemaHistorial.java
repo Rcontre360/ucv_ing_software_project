@@ -81,6 +81,6 @@ public class SchemaHistorial {
         historial.put("indiceMasaCorporal",indiceMasaCorporal);
         historial.put("tensionDiastolica",tensionDiastolica);
         historial.put("tensionSistolica",tensionSistolica);
-        JsonWrapper.setUniversal(historial, "historiales_medicos", "ID", ID);
+        JsonWrapper.setUniversal(historial, "historial", "id", ID);
     }
 }
