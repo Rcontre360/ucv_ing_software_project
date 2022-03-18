@@ -139,6 +139,8 @@ public class SolicitarReservacionCita1 extends javax.swing.JFrame {
             error.setVisible(true);
             e.printStackTrace();
         }
+
+        this.setVisible(false);
     }//GEN-LAST:event_jButton1MouseClicked
 
     /**

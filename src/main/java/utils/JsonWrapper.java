@@ -1,8 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
- 
 package utils;
 
 import java.util.*;
@@ -202,7 +197,7 @@ public class JsonWrapper {
 
         for (Object obj : fieldJson) {
             String curValue = (String) ((JSONObject)obj).get(key);  
-            if (curValue.equals(value)){
+            if (curValue != null && curValue.equals(value)){
                 return ((JSONObject)obj);
             }
         }

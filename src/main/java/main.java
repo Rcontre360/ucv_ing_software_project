@@ -7,8 +7,8 @@ import InterfacesMédico.registrarDatosEnHistoria;
 
 public class main {
     public static void main(String[] args) {
-        PaginaPrincipal instance = new PaginaPrincipal();
-        instance.setVisible(true);
         JsonWrapper.loadJson();
+        PaginaPrincipal instance = PaginaPrincipal.getInstance();
+        instance.setVisible(true);
     }
 }

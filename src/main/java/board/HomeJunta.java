@@ -4,6 +4,7 @@
  */
 package board;
 
+import home.*;
 import patient.*;
 
 /**
@@ -41,6 +42,7 @@ public class HomeJunta extends javax.swing.JFrame {
         RegistrarSucursalButton = new javax.swing.JButton();
         AsignarMedicoButton = new javax.swing.JButton();
         RegistrarMedicoButton = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         jLabel2.setText("jLabel2");
 
@@ -49,10 +51,37 @@ public class HomeJunta extends javax.swing.JFrame {
         jLabel1.setText("HOSPITAL XYZ");
 
         RegistrarSucursalButton.setText("Registrar Sucursal");
+        RegistrarSucursalButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RegistrarSucursalButtonMouseClicked(evt);
+            }
+        });
+        RegistrarSucursalButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegistrarSucursalButtonActionPerformed(evt);
+            }
+        });
 
         AsignarMedicoButton.setText("Asignar Médico a Sucursal");
+        AsignarMedicoButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AsignarMedicoButtonMouseClicked(evt);
+            }
+        });
 
         RegistrarMedicoButton.setText("Registrar Médico");
+        RegistrarMedicoButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RegistrarMedicoButtonMouseClicked(evt);
+            }
+        });
+
+        jButton1.setText("Atrás");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -70,7 +99,10 @@ public class HomeJunta extends javax.swing.JFrame {
                             .addComponent(RegistrarMedicoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(223, 223, 223)
-                        .addComponent(jLabel1)))
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(227, 227, 227)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(172, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -80,18 +112,46 @@ public class HomeJunta extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(RegistrarSucursalButton, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(RegistrarMedicoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(AsignarMedicoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addComponent(RegistrarSucursalButton, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(RegistrarMedicoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(AsignarMedicoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addGap(18, 18, 18)
                 .addComponent(jProgressBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void RegistrarSucursalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarSucursalButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RegistrarSucursalButtonActionPerformed
+
+    private void RegistrarSucursalButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegistrarSucursalButtonMouseClicked
+        RegistrarSucursal_IngresarDatos datosSucursal = RegistrarSucursal_IngresarDatos.getInstance();
+        datosSucursal.setVisible(true);
+    }//GEN-LAST:event_RegistrarSucursalButtonMouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        PaginaPrincipal home = PaginaPrincipal.getInstance();
+        home.setVisible(true);
+        this.home.setVisible(false);
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void RegistrarMedicoButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegistrarMedicoButtonMouseClicked
+        RegistrarMedico_IngresarDatos registrarMedico = RegistrarMedico_IngresarDatos.getInstance();
+        registrarMedico.setVisible(true);
+    }//GEN-LAST:event_RegistrarMedicoButtonMouseClicked
+
+    private void AsignarMedicoButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AsignarMedicoButtonMouseClicked
+        AsignarMedico_IngresarDatos asignarMedico = AsignarMedico_IngresarDatos.getInstance();
+        asignarMedico.setVisible(true);
+    }//GEN-LAST:event_AsignarMedicoButtonMouseClicked
+
+    
     /**
      * @param args the command line arguments
      */
@@ -134,6 +194,7 @@ public class HomeJunta extends javax.swing.JFrame {
     private javax.swing.JButton AsignarMedicoButton;
     private javax.swing.JButton RegistrarMedicoButton;
     private javax.swing.JButton RegistrarSucursalButton;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JProgressBar jProgressBar1;
