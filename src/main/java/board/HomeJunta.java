@@ -133,6 +133,7 @@ public class HomeJunta extends javax.swing.JFrame {
     private void RegistrarSucursalButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegistrarSucursalButtonMouseClicked
         RegistrarSucursal_IngresarDatos datosSucursal = RegistrarSucursal_IngresarDatos.getInstance();
         datosSucursal.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_RegistrarSucursalButtonMouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
@@ -144,11 +145,13 @@ public class HomeJunta extends javax.swing.JFrame {
     private void RegistrarMedicoButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegistrarMedicoButtonMouseClicked
         RegistrarMedico_IngresarDatos registrarMedico = RegistrarMedico_IngresarDatos.getInstance();
         registrarMedico.setVisible(true);
+        home.setVisible(false);
     }//GEN-LAST:event_RegistrarMedicoButtonMouseClicked
 
     private void AsignarMedicoButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AsignarMedicoButtonMouseClicked
         AsignarMedico_IngresarDatos asignarMedico = AsignarMedico_IngresarDatos.getInstance();
         asignarMedico.setVisible(true);
+        home.setVisible(false);
     }//GEN-LAST:event_AsignarMedicoButtonMouseClicked
 
     

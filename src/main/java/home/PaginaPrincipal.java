@@ -158,21 +158,25 @@ public class PaginaPrincipal extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Secretary mainSecretary = Secretary.getInstance();
         mainSecretary.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
                    
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         InterfazHome home = InterfazHome.getInstance();
         home.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         HomePaciente mainPatient = HomePaciente.getInstance();
         mainPatient.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
         HomeJunta home = HomeJunta.getInstance();
         home.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton4MouseClicked
 
     /**

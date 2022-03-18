@@ -86,15 +86,51 @@ public class RegistrarMedico_IngresarDatos extends javax.swing.JFrame {
 
         jLabel3.setText("Ingrese los datos requeridos");
 
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField1KeyTyped(evt);
+            }
+        });
+
         jLabel4.setText("Nombres:");
+
+        jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField2KeyTyped(evt);
+            }
+        });
 
         jLabel5.setText("Apellidos:");
 
+        jTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField3KeyTyped(evt);
+            }
+        });
+
         jLabel6.setText("Cédula de identidad:");
+
+        jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField4KeyTyped(evt);
+            }
+        });
 
         jLabel7.setText("Sexo:");
 
+        jTextField5.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField5KeyTyped(evt);
+            }
+        });
+
         jLabel8.setText("Lugar de nacimiento:");
+
+        jTextField6.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField6KeyTyped(evt);
+            }
+        });
 
         jLabel9.setText("Fecha de nacimiento:");
 
@@ -103,12 +139,22 @@ public class RegistrarMedico_IngresarDatos extends javax.swing.JFrame {
                 jTextField8ActionPerformed(evt);
             }
         });
+        jTextField8.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField8KeyTyped(evt);
+            }
+        });
 
         jLabel11.setText("Dirección de habitación:");
 
         jTextField9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField9ActionPerformed(evt);
+            }
+        });
+        jTextField9.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField9KeyTyped(evt);
             }
         });
 
@@ -256,6 +302,71 @@ public class RegistrarMedico_IngresarDatos extends javax.swing.JFrame {
        datosMedico.setVisible(false);
     }//GEN-LAST:event_jButton1MouseClicked
 
+    /**
+     * Validación de Nombre
+     */
+    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+        char c = evt.getKeyChar();
+        if((c<'a' || c>'z') && (c<'A' || c>'Z') && c==' ') evt.consume();
+    }//GEN-LAST:event_jTextField1KeyTyped
+
+     /**
+     * Validación de Apellido
+     */
+    private void jTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyTyped
+        char c = evt.getKeyChar();
+        if((c<'a' || c>'z') && (c<'A' || c>'Z') && c==' ') evt.consume();
+    }//GEN-LAST:event_jTextField2KeyTyped
+    /**
+     * Validación de CI
+     */
+    private void jTextField3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyTyped
+        char c = evt.getKeyChar();
+        if(c<'0' || c>'9') evt.consume();
+    }//GEN-LAST:event_jTextField3KeyTyped
+
+    /**
+     * Validación de Sexo
+     */
+    private void jTextField4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyTyped
+        char c = evt.getKeyChar();
+        if(c!='F' && c!='f' && c!='M' && c!='m') evt.consume();
+    }//GEN-LAST:event_jTextField4KeyTyped
+
+    /**
+     * Validación de Lugar de Nacimiento
+     */
+    private void jTextField5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyTyped
+        char c = evt.getKeyChar();
+        if((c<'a' || c>'z') && (c<'A' || c>'Z') && c==' ') evt.consume();
+    }//GEN-LAST:event_jTextField5KeyTyped
+
+    /**
+     * Validación de Fecha de Nacimiento
+     */
+    private void jTextField6KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField6KeyTyped
+        char c = evt.getKeyChar();
+        if((c<'a' || c>'z') && (c<'A' || c>'Z') && c=='/') evt.consume();
+    }//GEN-LAST:event_jTextField6KeyTyped
+
+    /**
+     * Validación de Dirección de Habitación
+     */
+    private void jTextField8KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField8KeyTyped
+        char c = evt.getKeyChar();
+        if((c<'a' || c>'z') && (c<'A' || c>'Z') && c==' ') evt.consume();
+    }//GEN-LAST:event_jTextField8KeyTyped
+
+    /**
+     * Validación de Teléfono
+     */
+    private void jTextField9KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField9KeyTyped
+        char c = evt.getKeyChar();
+        if(c<'0' || c>'9') evt.consume();
+    }//GEN-LAST:event_jTextField9KeyTyped
+
+    
+    
     /**
      * @param args the command line arguments
      */

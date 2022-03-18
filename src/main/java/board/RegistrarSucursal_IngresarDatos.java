@@ -73,7 +73,19 @@ public class RegistrarSucursal_IngresarDatos extends javax.swing.JFrame {
 
         jLabel3.setText("Ingrese los datos requeridos");
 
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField1KeyTyped(evt);
+            }
+        });
+
         jLabel4.setText("Ubicación:");
+
+        jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField2KeyTyped(evt);
+            }
+        });
 
         jLabel5.setText("Capacidad:");
 
@@ -170,6 +182,21 @@ public class RegistrarSucursal_IngresarDatos extends javax.swing.JFrame {
         cancelar.setVisible(true);
         formDatosSucursal.setVisible(false);
     }//GEN-LAST:event_jButton2MouseClicked
+
+     /**
+     * Validación de Capacidad
+     */
+    private void jTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyTyped
+        char c = evt.getKeyChar();
+        if(c<'0' || c>'9') evt.consume();
+    }//GEN-LAST:event_jTextField2KeyTyped
+    /**
+     * Validación de Ubicación
+     */
+    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+        char c = evt.getKeyChar();
+        if((c<'a' || c>'z') && (c<'A' || c>'Z')) evt.consume();
+    }//GEN-LAST:event_jTextField1KeyTyped
 
     /**
      * @param args the command line arguments
