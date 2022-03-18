@@ -307,7 +307,7 @@ public class RegistrarMedico_IngresarDatos extends javax.swing.JFrame {
      */
     private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
         char c = evt.getKeyChar();
-        if((c<'a' || c>'z') && (c<'A' || c>'Z') && c==' ') evt.consume();
+        if((c<'a' || c>'z') && (c<'A' || c>'Z') && c!=' ') evt.consume();
     }//GEN-LAST:event_jTextField1KeyTyped
 
      /**
@@ -315,7 +315,7 @@ public class RegistrarMedico_IngresarDatos extends javax.swing.JFrame {
      */
     private void jTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyTyped
         char c = evt.getKeyChar();
-        if((c<'a' || c>'z') && (c<'A' || c>'Z') && c==' ') evt.consume();
+        if((c<'a' || c>'z') && (c<'A' || c>'Z') && c!=' ') evt.consume();
     }//GEN-LAST:event_jTextField2KeyTyped
     /**
      * Validación de CI
@@ -338,7 +338,7 @@ public class RegistrarMedico_IngresarDatos extends javax.swing.JFrame {
      */
     private void jTextField5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyTyped
         char c = evt.getKeyChar();
-        if((c<'a' || c>'z') && (c<'A' || c>'Z') && c==' ') evt.consume();
+        if((c<'a' || c>'z') && (c<'A' || c>'Z') && c!=' ') evt.consume();
     }//GEN-LAST:event_jTextField5KeyTyped
 
     /**
@@ -346,7 +346,7 @@ public class RegistrarMedico_IngresarDatos extends javax.swing.JFrame {
      */
     private void jTextField6KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField6KeyTyped
         char c = evt.getKeyChar();
-        if((c<'a' || c>'z') && (c<'A' || c>'Z') && c=='/') evt.consume();
+        if((c<'0' || c>'9') && c!='/') evt.consume();
     }//GEN-LAST:event_jTextField6KeyTyped
 
     /**
@@ -354,7 +354,7 @@ public class RegistrarMedico_IngresarDatos extends javax.swing.JFrame {
      */
     private void jTextField8KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField8KeyTyped
         char c = evt.getKeyChar();
-        if((c<'a' || c>'z') && (c<'A' || c>'Z') && c==' ') evt.consume();
+        if((c<'a' || c>'z') && (c<'A' || c>'Z') && c!=' ') evt.consume();
     }//GEN-LAST:event_jTextField8KeyTyped
 
     /**
