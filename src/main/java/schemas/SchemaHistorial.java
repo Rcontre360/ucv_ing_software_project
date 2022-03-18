@@ -21,9 +21,13 @@ public class SchemaHistorial {
     int  tensionDiastolica;
     int tensionSistolica;
     int pulso;    
+    String paciente;
+    JSONArray citas;
     
-    public SchemaHistorial(String historialID){
-        
+    public SchemaHistorial(String historialID, String cedulaPaciente){
+        ID = historialID;
+        paciente = cedulaPaciente;
+        citas = new JSONArray();
     }
 
     public float getPeso(){
@@ -74,13 +78,31 @@ public class SchemaHistorial {
         pulso = _pulso;
     }
     
+    public void pushCita(String date,String cod, String pac, String med, String suc){
+        JSONObject cita = new JSONObject(); 
+        cita.put("fecha",date);
+        cita.put("codigo",cod);
+        cita.put("paciente",pac);
+        cita.put("medico",med);
+        cita.put("sucursal",suc);
+        citas.add(cita);
+    }
+    
+    public JSONArray getCitas(){
+        return citas;
+    }
+    
     public void commit(){
         JSONObject historial = new JSONObject(); 
+        historial.put("id", ID);
+        historial.put("paciente", paciente);
         historial.put("peso",peso);
         historial.put("talla",talla);
         historial.put("indiceMasaCorporal",indiceMasaCorporal);
         historial.put("tensionDiastolica",tensionDiastolica);
         historial.put("tensionSistolica",tensionSistolica);
-        JsonWrapper.setUniversal(historial, "historial", "id", ID);
+        historial.put("pulso",pulso);
+        historial.put("citas",citas);
+        JsonWrapper.setUniversal(historial, "historial", "paciente", paciente);
     }
 }

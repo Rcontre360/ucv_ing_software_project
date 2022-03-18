@@ -21,8 +21,18 @@ public class registrarDatosEnHistoria extends javax.swing.JFrame {
         initComponents();
     }
     
+    public static String ID;
+    public static String paciente;
+    public static int peso;
+    public static float talla;
+    public static float indiceMasaCorporal;
+    public static String tensionDiastolica;
+    public static String tensionSistolica;
+    public static float pulso;   
+    
 
-    public static registrarDatosEnHistoria getInstance() {
+    public static registrarDatosEnHistoria getInstance(String _paciente) {
+        paciente = _paciente;
         return registro; 
     }
 
@@ -435,13 +445,7 @@ public class registrarDatosEnHistoria extends javax.swing.JFrame {
         json.put("peso", peso);
         db.setUniversal(json,"historiales_medicos");
     }*/
-    public static String ID;
-    public static int peso;
-    public static float talla;
-    public static float indiceMasaCorporal;
-    public static String tensionDiastolica;
-    public static String tensionSistolica;
-    public static float pulso;    
+ 
     
     private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
         // TODO add your handling code here:
@@ -484,7 +488,7 @@ public class registrarDatosEnHistoria extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
     
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-    SchemaHistorial historial= new SchemaHistorial("");
+    SchemaHistorial historial= new SchemaHistorial(paciente, paciente);
     historial.setPeso(Float.parseFloat(jTextField13.getText()));
     historial.setTalla(Float.parseFloat(jTextField14.getText()));
     historial.setIMC(Float.parseFloat(jTextField15.getText())); 
