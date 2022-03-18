@@ -1,8 +1,4 @@
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
  
 package schemas;
 
@@ -28,9 +24,11 @@ public class SchemaDate {
         codigo =  _codigo;
         if (_codigo.length() > 0) {
             JSONObject date = JsonWrapper.getUniversal("citas","id",_codigo);
-            System.out.print(date);
             if (date != null){
                 fecha = LocalDate.parse(((String)date.get("fecha")),SchemaDate.dateFormat);
+                paciente = (String)date.get("paciente");
+                sucursal = (String)date.get("sucursal");
+                medico = (String)date.get("medico");
             }
         }
     }
@@ -86,8 +84,6 @@ public class SchemaDate {
             String curFecha = (String) curDate.get("fecha");  
             if (curFecha.equals(rawFecha)){
                 freeDoctors.remove((String)curDate.get("medico"));
-                System.out.println("REMOVED");
-                System.out.println(freeDoctors);
             }
         }
 
@@ -102,6 +98,8 @@ public class SchemaDate {
         date.put("medico",freeDoctors.get(0)); 
         date.put("sucursal",(String)doctor.get("sucursal")); 
         date.put("paciente",paciente); 
+
+        //TODO remove date id from patient too
 
         JsonWrapper.setUniversal(date, "citas", "id", codigo);
     }
