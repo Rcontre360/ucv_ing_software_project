@@ -162,11 +162,13 @@ public class RegistrarSucursal_IngresarDatos extends javax.swing.JFrame {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         RegistrarSucursal_Exito exito = RegistrarSucursal_Exito.getInstance();
         exito.setVisible(true);
+        formDatosSucursal.setVisible(false);
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         HomeJunta cancelar = HomeJunta.getInstance();
         cancelar.setVisible(true);
+        formDatosSucursal.setVisible(false);
     }//GEN-LAST:event_jButton2MouseClicked
 
     /**

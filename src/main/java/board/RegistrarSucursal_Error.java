@@ -12,11 +12,16 @@ import patient.*;
  */
 public class RegistrarSucursal_Error extends javax.swing.JFrame {
 
-    /**
-     * Creates new form SolicitarReservacionCita4
-     */
-    public RegistrarSucursal_Error() {
+    /*Singlenton*/
+    
+    private static final RegistrarSucursal_Error e = new RegistrarSucursal_Error();
+            
+    private RegistrarSucursal_Error() {
         initComponents();
+    }
+    
+    public static RegistrarSucursal_Error getInstance(){
+        return e;
     }
 
     /**
@@ -106,6 +111,7 @@ public class RegistrarSucursal_Error extends javax.swing.JFrame {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         RegistrarSucursal_IngresarDatos reintentar = RegistrarSucursal_IngresarDatos.getInstance();
         reintentar.setVisible(true);
+        e.setVisible(false);
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

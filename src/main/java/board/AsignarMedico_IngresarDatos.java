@@ -193,11 +193,13 @@ public class AsignarMedico_IngresarDatos extends javax.swing.JFrame {
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         HomeJunta cancelar = HomeJunta.getInstance();
         cancelar.setVisible(true);
+        asignar.setVisible(false);
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         AsignarMedico_Exito exito = AsignarMedico_Exito.getInstance();
         exito.setVisible(true);
+        asignar.setVisible(false);
     }//GEN-LAST:event_jButton1MouseClicked
 
     /**
