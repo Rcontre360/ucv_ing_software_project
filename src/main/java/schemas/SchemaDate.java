@@ -12,13 +12,15 @@ import utils.JsonWrapper;
 
 public class SchemaDate {
 
-    private static DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy"); 
+    public static DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy"); 
     private LocalDate fecha;
     private String codigo = "";
-
     private String medico = "";
     private String sucursal = "";
+    private LocalDate fechaModificacion;
+    private boolean solicitudCancelar = false;
     private String paciente = "";
+     private boolean registered = false;
     
     public SchemaDate(String _codigo){
         codigo =  _codigo;
@@ -26,9 +28,14 @@ public class SchemaDate {
             JSONObject date = JsonWrapper.getUniversal("citas","id",_codigo);
             if (date != null){
                 fecha = LocalDate.parse(((String)date.get("fecha")),SchemaDate.dateFormat);
+                if((String)date.get("fechaModificacion")!=null){
+                    fechaModificacion = LocalDate.parse(((String)date.get("fechaModificacion")),SchemaDate.dateFormat);
+                } 
                 paciente = (String)date.get("paciente");
                 sucursal = (String)date.get("sucursal");
                 medico = (String)date.get("medico");
+                solicitudCancelar = (boolean)date.get("solicitudCancelar");
+                registered = (boolean)date.get("registered");
             }
         }
     }
@@ -64,7 +71,30 @@ public class SchemaDate {
     public void setSucursal(String _sucursal){
         sucursal = _sucursal;
     }
+    
+    public boolean getRegistered(){
+        return registered; 
+    }
 
+    public void setRegistered(boolean _registered){
+        registered = _registered;
+    }
+    public boolean getSolicitudCancelar(){
+        return solicitudCancelar; 
+    }
+
+    public void setSolicitudCancelar(boolean _solicitudCancelar){
+        solicitudCancelar = _solicitudCancelar;
+    }
+
+    public LocalDate getFechaModificacion(){
+        return fechaModificacion; 
+    }
+
+    public void setFechaModificacion(LocalDate _fechaModificacion){
+        fechaModificacion = _fechaModificacion;
+    }
+    
     public String getPaciente(){
         return paciente; 
     }
@@ -98,6 +128,7 @@ public class SchemaDate {
         date.put("medico",freeDoctors.get(0)); 
         date.put("sucursal",(String)doctor.get("sucursal")); 
         date.put("paciente",paciente); 
+        date.put("registered", registered); 
 
         //TODO remove date id from patient too
 
