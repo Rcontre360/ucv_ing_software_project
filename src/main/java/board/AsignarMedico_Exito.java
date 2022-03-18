@@ -118,6 +118,7 @@ public class AsignarMedico_Exito extends javax.swing.JFrame {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         HomeJunta returnHome = HomeJunta.getInstance();
         returnHome.setVisible(true);
+        asignar.setVisible(false);
     }//GEN-LAST:event_jButton1MouseClicked
 
     /**

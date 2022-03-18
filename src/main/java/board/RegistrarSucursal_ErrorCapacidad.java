@@ -12,11 +12,14 @@ import patient.*;
  */
 public class RegistrarSucursal_ErrorCapacidad extends javax.swing.JFrame {
 
-    /**
-     * Creates new form SolicitarReservacionCita4
-     */
-    public RegistrarSucursal_ErrorCapacidad() {
+    private static final RegistrarSucursal_ErrorCapacidad e2 = new RegistrarSucursal_ErrorCapacidad();
+    
+    private RegistrarSucursal_ErrorCapacidad() {
         initComponents();
+    }
+    
+    public static RegistrarSucursal_ErrorCapacidad getInstance(){
+        return e2;
     }
 
     /**
@@ -101,6 +104,7 @@ public class RegistrarSucursal_ErrorCapacidad extends javax.swing.JFrame {
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         HomeJunta cancelar = HomeJunta.getInstance();
         cancelar.setVisible(true);
+        e2.setVisible(false);   
     }//GEN-LAST:event_jButton2MouseClicked
 
     /**

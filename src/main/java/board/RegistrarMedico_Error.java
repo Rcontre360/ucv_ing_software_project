@@ -12,11 +12,14 @@ import patient.*;
  */
 public class RegistrarMedico_Error extends javax.swing.JFrame {
 
-    /**
-     * Creates new form SolicitarReservacionCita4
-     */
-    public RegistrarMedico_Error() {
+    private static final RegistrarMedico_Error em = new RegistrarMedico_Error();
+    
+    private RegistrarMedico_Error() {
         initComponents();
+    }
+    
+    public static RegistrarMedico_Error getInstance(){
+        return em;
     }
 
     /**
@@ -105,6 +108,7 @@ public class RegistrarMedico_Error extends javax.swing.JFrame {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         RegistrarMedico_IngresarDatos reintentar = RegistrarMedico_IngresarDatos.getInstance();
         reintentar.setVisible(true);
+        em.setVisible(false);
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

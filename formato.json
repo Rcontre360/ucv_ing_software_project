@@ -34,10 +34,7 @@
               "citas": [
                 {
                   "valores": {
-                    "tension": {
-                      "minima": "180",
-                      "maxima": "200"
-                    },
+                    "tension": { "minima": "180", "maxima": "200" },
                     "pulso": "50",
                     "talla": "85",
                     "peso": "80",
@@ -56,11 +53,7 @@
       ],
       "nombre": "sucursal uno"
     },
-    {
-      "medicos": [],
-      "pacientes": [],
-      "nombre": "sucursal dos"
-    },
+    { "medicos": [], "pacientes": [], "nombre": "sucursal dos" },
     {
       "medicos": [
         {
@@ -74,12 +67,5 @@
       "nombre": "XYZ ciudad universitaria"
     }
   ],
-  "juntaDirectiva": [
-    {
-      "nombre": "directivo 1"
-    },
-    {
-      "nombre": "directivo 2"
-    }
-  ]
+  "juntaDirectiva": [{ "nombre": "directivo 1" }, { "nombre": "directivo 2" }]
 }
