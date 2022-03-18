@@ -12,11 +12,14 @@ import patient.*;
  */
 public class AsignarMedico_Error extends javax.swing.JFrame {
 
-    /**
-     * Creates new form SolicitarReservacionCita4
-     */
-    public AsignarMedico_Error() {
+    private static final AsignarMedico_Error ame = new AsignarMedico_Error();
+    
+    private AsignarMedico_Error() {
         initComponents();
+    }
+    
+    public static AsignarMedico_Error getInstance(){
+        return ame;
     }
 
     /**
@@ -106,6 +109,7 @@ public class AsignarMedico_Error extends javax.swing.JFrame {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         AsignarMedico_IngresarDatos reintentar = AsignarMedico_IngresarDatos.getInstance();
         reintentar.setVisible(true);
+        ame.setVisible(false);
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
