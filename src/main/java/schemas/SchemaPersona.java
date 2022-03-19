@@ -9,6 +9,8 @@ package schemas;
 import java.util.*;
 
 import utils.JsonWrapper;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 public class SchemaPersona {
     
@@ -112,6 +114,21 @@ public class SchemaPersona {
 
     public void setOcupacion(String _ocupacion) {
         ocupacion = _ocupacion;
+    }
+    
+    public void commit(){
+        JSONObject medico = new JSONObject(); 
+        medico.put("nombre", nombre);
+        medico.put("apellido", apellido);
+        medico.put("cedula",cedula);
+        medico.put("sexo",sexo);
+        medico.put("lugarDeNacimiento",lugarDeNacimiento);
+        medico.put("estadoCivil",estadoCivil);
+        medico.put("direccionDeHabitacion",direccionDeHabitacion);
+        medico.put("telefono",telefono);
+        medico.put("profesion",profesion);
+        medico.put("ocupacion",ocupacion);
+        JsonWrapper.setUniversal(medico, "medico", "ciMedico", cedula);
     }
     
 }

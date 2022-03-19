@@ -131,6 +131,9 @@ public class HomeJunta extends javax.swing.JFrame {
     }//GEN-LAST:event_RegistrarSucursalButtonActionPerformed
 
     private void RegistrarSucursalButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegistrarSucursalButtonMouseClicked
+        
+        
+        
         RegistrarSucursal_IngresarDatos datosSucursal = RegistrarSucursal_IngresarDatos.getInstance();
         datosSucursal.setVisible(true);
         this.setVisible(false);
