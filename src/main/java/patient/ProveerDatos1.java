@@ -4,18 +4,32 @@
  */
 package patient;
 
+import java.util.*;
+import java.time.*;
+import java.time.format.*;
+import patient.SolicitarReservacionCita3;
+import patient.ProveerDatos4;
+import schemas.SchemaPaciente;
+import schemas.SchemaDate;
 /**
  *
  * @author ラファエル・コントレラス
  */
 public class ProveerDatos1 extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ProveerDatos1
-     */
-    public ProveerDatos1() {
+    //singleton, duh
+    private String _date;
+    private static final ProveerDatos1 ui = new ProveerDatos1();
+
+    private ProveerDatos1() {
         initComponents();
     }
+
+    public static ProveerDatos1 getInstance() {
+        return ui; 
+    }
+
+    private SchemaPaciente patient = new SchemaPaciente();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -37,29 +51,27 @@ public class ProveerDatos1 extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
-        jLabel15 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jTextField13 = new javax.swing.JTextField();
+        jTextField14 = new javax.swing.JTextField();
+        jTextField15 = new javax.swing.JTextField();
+        jTextField16 = new javax.swing.JTextField();
+        jTextField17 = new javax.swing.JTextField();
+        jTextField18 = new javax.swing.JTextField();
+        jTextField19 = new javax.swing.JTextField();
+        jTextField20 = new javax.swing.JTextField();
+        jTextField21 = new javax.swing.JTextField();
+        jTextField22 = new javax.swing.JTextField();
 
         jLabel1.setText("jLabel1");
 
@@ -84,108 +96,95 @@ public class ProveerDatos1 extends javax.swing.JFrame {
 
         jLabel4.setText("Nombres:");
 
-        jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                phoneNumberKeyTyped(evt);
-            }
-        });
-
         jLabel5.setText("Apellidos:");
-
-        jTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                phoneNumberKeyTyped(evt);
-            }
-        });
 
         jLabel6.setText("Cédula de identidad:");
 
-        jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                phoneNumberKeyTyped(evt);
-            }
-        });
-
         jLabel7.setText("Sexo:");
-
-        jTextField5.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                phoneNumberKeyTyped(evt);
-            }
-        });
 
         jLabel8.setText("Lugar de nacimiento:");
 
-        jTextField6.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                phoneNumberKeyTyped(evt);
-            }
-        });
-
         jLabel9.setText("Fecha de nacimiento:");
-
-        jTextField7.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                phoneNumberKeyTyped(evt);
-            }
-        });
 
         jLabel10.setText("Estado civil:");
 
-        jTextField8.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                phoneNumberKeyTyped(evt);
-            }
-        });
-
         jLabel11.setText("Dirección de habitación:");
-
-        jTextField9.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                phoneNumberKeyTyped(evt);
-            }
-        });
 
         jLabel12.setText("Teléfono:");
 
-        jTextField10.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                phoneNumberKeyTyped(evt);
-            }
-        });
-
         jLabel13.setText("Profesión:");
 
-        jTextField11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField11ActionPerformed(evt);
-            }
-        });
-        jTextField11.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                phoneNumberKeyTyped(evt);
-            }
-        });
-
         jLabel14.setText("Ocupación:");
-
-        jTextField12.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                phoneNumberKeyTyped(evt);
-            }
-        });
-
-        jLabel15.setText("Teléfono de persona relacionada:");
 
         jButton1.setText("Enviar");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                sendClick(evt);
             }
         });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        jTextField13.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                secondNameKeyTyped(evt);
+            }
+        });
+
+        jTextField14.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ciKeyTyped(evt);
+            }
+        });
+
+        jTextField15.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                sexKeyTyped(evt);
+            }
+        });
+
+        jTextField16.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                bornPlaceKeyTyped(evt);
+            }
+        });
+
+        jTextField17.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                birthDateKeyTyped(evt);
+            }
+        });
+
+        jTextField18.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                civilStateKeyTyped(evt);
+            }
+        });
+
+        jTextField19.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                directionKeyTyped(evt);
+            }
+        });
+
+        jTextField20.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                phoneKeyTyped(evt);
+            }
+        });
+
+        jTextField21.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                professionKeyTyped(evt);
+            }
+        });
+
+        jTextField22.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jobKeyTyped(evt);
             }
         });
 
@@ -196,7 +195,7 @@ public class ProveerDatos1 extends javax.swing.JFrame {
             .addComponent(jProgressBar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jProgressBar3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(61, Short.MAX_VALUE)
+                .addContainerGap(117, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -208,24 +207,22 @@ public class ProveerDatos1 extends javax.swing.JFrame {
                     .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jTextField12, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTextField11, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTextField10, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTextField9, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTextField8, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTextField7, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE))
+                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
+                        .addComponent(jTextField13, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jTextField14, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jTextField15, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jTextField16, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jTextField17, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jTextField18, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jTextField19, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jTextField20, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jTextField21, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jTextField22, javax.swing.GroupLayout.Alignment.LEADING))
                     .addComponent(jLabel3)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(19, 19, 19)
@@ -246,50 +243,46 @@ public class ProveerDatos1 extends javax.swing.JFrame {
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
+                    .addComponent(jLabel5)
+                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
+                    .addComponent(jLabel6)
+                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
+                    .addComponent(jLabel7)
+                    .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
+                    .addComponent(jLabel8)
+                    .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
+                    .addComponent(jLabel9)
+                    .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10))
+                    .addComponent(jLabel10)
+                    .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11))
+                    .addComponent(jLabel11)
+                    .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12))
+                    .addComponent(jLabel12)
+                    .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13))
+                    .addComponent(jLabel13)
+                    .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                    .addComponent(jLabel14)
+                    .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
+                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jProgressBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -297,25 +290,98 @@ public class ProveerDatos1 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField11ActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void nameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nameKeyTyped
-        // TODO add your handling code here:
+        String name = ((javax.swing.JTextField)evt.getSource()).getText() + String.valueOf(evt.getKeyChar());
+        name = name.replace("\n","").replace("\r","").replace(" ","");
+        patient.setNombre(name);
     }//GEN-LAST:event_nameKeyTyped
 
-    private void phoneNumberKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_phoneNumberKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_phoneNumberKeyTyped
+    private void sendClick(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sendClick
+        SolicitarReservacionCita3 success = SolicitarReservacionCita3.getInstance();
+        ProveerDatos4 error = ProveerDatos4.getInstance();
+        SchemaDate myDate = new SchemaDate("");
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1MouseClicked
+        try {
+            String code = UUID.randomUUID().toString().replace("-","").substring(0,8);
+            myDate.setCodigo(code);
+            myDate.setFecha(_date);
+            myDate.setPaciente(patient.getCedula());
+            myDate.commit();
+
+            patient.addDate(code);
+            patient.commit();
+
+            success.setCode(code);
+            success.setVisible(true);
+        }catch(java.lang.Exception e){
+            error.setVisible(true);
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_sendClick
+
+    private void secondNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_secondNameKeyTyped
+        String secondName = ((javax.swing.JTextField)evt.getSource()).getText() + String.valueOf(evt.getKeyChar());
+        secondName = secondName.replace("\n","").replace("\r","").replace(" ","");
+        patient.setApellido(secondName);
+    }//GEN-LAST:event_secondNameKeyTyped
+
+    private void ciKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ciKeyTyped
+        String ci = ((javax.swing.JTextField)evt.getSource()).getText() + String.valueOf(evt.getKeyChar());
+        ci = ci.replace("\n","").replace("\r","").replace(" ","");
+        patient.setCedula(ci);
+    }//GEN-LAST:event_ciKeyTyped
+
+    private void sexKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sexKeyTyped
+        String sex = ((javax.swing.JTextField)evt.getSource()).getText() + String.valueOf(evt.getKeyChar());
+        sex = sex.replace("\n","").replace("\r","").replace(" ","");
+        patient.setSexo(sex.charAt(0));
+    }//GEN-LAST:event_sexKeyTyped
+
+    private void bornPlaceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bornPlaceKeyTyped
+        String bornPlace = ((javax.swing.JTextField)evt.getSource()).getText() + String.valueOf(evt.getKeyChar());
+        bornPlace = bornPlace.replace("\n","").replace("\r","").replace(" ","");
+        patient.setLugarDeNacimiento(bornPlace);
+    }//GEN-LAST:event_bornPlaceKeyTyped
+
+    private void birthDateKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_birthDateKeyTyped
+        String birthDate = ((javax.swing.JTextField)evt.getSource()).getText() + String.valueOf(evt.getKeyChar());
+        birthDate = birthDate.replace("\n","").replace("\r","").replace(" ","");
+        patient.setFechaDeNacimiento(birthDate);
+    }//GEN-LAST:event_birthDateKeyTyped
+
+    private void civilStateKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_civilStateKeyTyped
+        String civilState = ((javax.swing.JTextField)evt.getSource()).getText() + String.valueOf(evt.getKeyChar());
+        civilState = civilState.replace("\n","").replace("\r","").replace(" ","");
+        patient.setEstadoCivil(civilState);
+    }//GEN-LAST:event_civilStateKeyTyped
+
+    private void directionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_directionKeyTyped
+        String direction = ((javax.swing.JTextField)evt.getSource()).getText() + String.valueOf(evt.getKeyChar());
+        direction = direction.replace("\n","").replace("\r","").replace(" ","");
+        patient.setDireccionDeHabitacion(direction);
+    }//GEN-LAST:event_directionKeyTyped
+
+    private void phoneKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_phoneKeyTyped
+        String phone = ((javax.swing.JTextField)evt.getSource()).getText() + String.valueOf(evt.getKeyChar());
+        phone = phone.replace("\n","").replace("\r","").replace(" ","");
+        patient.setTelefono(phone);
+    }//GEN-LAST:event_phoneKeyTyped
+
+    private void professionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_professionKeyTyped
+        String profession = ((javax.swing.JTextField)evt.getSource()).getText() + String.valueOf(evt.getKeyChar());
+        profession = profession.replace("\n","").replace("\r","").replace(" ","");
+        patient.setProfesion(profession);
+    }//GEN-LAST:event_professionKeyTyped
+
+    private void jobKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jobKeyTyped
+        String job = ((javax.swing.JTextField)evt.getSource()).getText() + String.valueOf(evt.getKeyChar());
+        job = job.replace("\n","").replace("\r","").replace(" ","");
+        patient.setOcupacion(job);
+    }//GEN-LAST:event_jobKeyTyped
 
     /**
      * @param args the command line arguments
@@ -352,6 +418,8 @@ public class ProveerDatos1 extends javax.swing.JFrame {
         });
     }
 
+    public void setFecha(String date){_date = date;}
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -360,7 +428,6 @@ public class ProveerDatos1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -376,16 +443,15 @@ public class ProveerDatos1 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField jTextField13;
+    private javax.swing.JTextField jTextField14;
+    private javax.swing.JTextField jTextField15;
+    private javax.swing.JTextField jTextField16;
+    private javax.swing.JTextField jTextField17;
+    private javax.swing.JTextField jTextField18;
+    private javax.swing.JTextField jTextField19;
+    private javax.swing.JTextField jTextField20;
+    private javax.swing.JTextField jTextField21;
+    private javax.swing.JTextField jTextField22;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,7 +4,9 @@
  */
 package schemas;
 
+import java.util.*;
 import org.json.simple.JSONObject;
+import org.json.simple.JSONArray;
 import utils.JsonWrapper;
 
 /**
@@ -13,28 +15,60 @@ import utils.JsonWrapper;
  */
 public class SchemaPaciente extends SchemaPersona {
     
-    private String ID;
-    private int tlfPersonaRelacionada;
+    private String tlfPersonaRelacionada;
+    private JSONArray citas = new JSONArray();
     
-    public SchemaPaciente(String pacienteID){
+    public SchemaPaciente(){
         super();
     }
 
-    public int gettlfPersonaRelacionada(){
+    public String gettlfPersonaRelacionada(){
         return tlfPersonaRelacionada;
     }
 
-    public void settlfPersonaRelacionada(int _tlfPersonaRelacionada){
+    public void settlfPersonaRelacionada(String _tlfPersonaRelacionada){
         tlfPersonaRelacionada = _tlfPersonaRelacionada;
     }
+
+    public JSONArray getDates(){
+        return citas;
+    }
     
+    public void addDate(String dateID){
+        citas.add(dateID);
+    }
+
     public void commit(){
-        JSONObject paciente = new JSONObject(); 
+        JSONObject paciente = JsonWrapper.getUniversal("pacientes","cedula",this.getCedula());
+        
+        if (paciente == null){
+            JSONObject historial = new JSONObject();
+            JSONArray patientHistory = new JSONArray();
+            String id = UUID.randomUUID().toString().replace("-","").substring(0,8);
+            paciente = new JSONObject();
+
+            patientHistory.add(id);
+
+            historial.put("paciente",this.getCedula());
+            historial.put("sucursal","");
+            historial.put("id",id);
+            historial.put("dates",new JSONArray());
+            paciente.put("citas",getDates());
+            paciente.put("historial",patientHistory);
+            JsonWrapper.setUniversal(historial, "historial", "id", id);
+        }else{
+            JSONArray dates = (JSONArray)paciente.get("citas");
+            JSONArray localDates = getDates();
+            for (Object rawDate : localDates)dates.add((String)rawDate);
+
+            paciente.put("citas",dates);
+        }
+
         paciente.put("tlfPersonaRelacionada",tlfPersonaRelacionada);
         paciente.put("nombre",getNombre());
         paciente.put("apellido",getApellido());
         paciente.put("cedula",getCedula());
-        paciente.put("sexo",getSexo());
+        paciente.put("sexo",Character.toString(getSexo()));
         paciente.put("lugarDeNacimiento",getLugarDeNacimiento());
         paciente.put("fechaDeNacimiento",getFechaDeNacimiento());
         paciente.put("estadoCivil",getEstadoCivil());
@@ -42,6 +76,6 @@ public class SchemaPaciente extends SchemaPersona {
         paciente.put("telefono",getTelefono());
         paciente.put("profesion",getProfesion());
         paciente.put("ocupacion",getOcupacion());
-        JsonWrapper.setUniversal(paciente, "pacientes", "ID", ID);
+        JsonWrapper.setUniversal(paciente, "pacientes", "cedula", this.getCedula());
     }
 }

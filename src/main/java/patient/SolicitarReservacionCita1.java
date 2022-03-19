@@ -5,12 +5,8 @@
 package patient;
 
 import java.util.*;
-import java.time.*;
-import java.time.format.*;
 
-import patient.SolicitarReservacionCita3;
-import patient.SolicitarReservacionCita4;
-import schemas.SchemaDate;
+import patient.ProveerDatos1;
 
 public class SolicitarReservacionCita1 extends javax.swing.JFrame {
 
@@ -123,23 +119,9 @@ public class SolicitarReservacionCita1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1KeyTyped
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        SolicitarReservacionCita3 success = SolicitarReservacionCita3.getInstance();
-        SolicitarReservacionCita4 error = SolicitarReservacionCita4.getInstance();
-        SchemaDate myDate = new SchemaDate("");
-
-        try {
-            String code = UUID.randomUUID().toString().replace("-","").substring(0,8);
-            myDate.setCodigo(code);
-            myDate.setFecha(_rawDate);
-            myDate.commit();
-
-            success.setCode(code);
-            success.setVisible(true);
-        }catch(java.lang.Exception e){
-            error.setVisible(true);
-            e.printStackTrace();
-        }
-
+        ProveerDatos1 userData = ProveerDatos1.getInstance();
+        userData.setFecha(_rawDate);
+        userData.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1MouseClicked
 
