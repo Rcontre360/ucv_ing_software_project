@@ -161,12 +161,9 @@ public class ingresarCédulaPacienteRegistrarHistoria extends javax.swing.JFrame
         if(JsonWrapper.getUniversal("pacientes","cedula",cedula)!=null){
             registrarDatosEnHistoria registro= registrarDatosEnHistoria.getInstance(cedula);
             registro.setVisible(true);
-            System.out.println("Hola Mundo!");
         }else{
             pacienteNoEncontradoRegistro noEncontrado= pacienteNoEncontradoRegistro.getinstance();
-            noEncontrado.setVisible(true);
-            System.out.println("Hola Mundo!");
-            
+            noEncontrado.setVisible(true);  
         }
     }//GEN-LAST:event_button1MouseClicked
 
