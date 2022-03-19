@@ -303,9 +303,8 @@ public class RegistrarMedico_IngresarDatos extends javax.swing.JFrame {
             error.setVisible(true);
            
        }else{
-           System.out.println("Estoy en el else");
            
-           //Guardando datos en DB:
+           //Guardando datos ingresados
            String random = UUID.randomUUID().toString().replace("-","").substring(0,8);
            SchemaDoctor medico = new SchemaDoctor(random);
            medico.setNombre(jTextField1.getText());
@@ -316,7 +315,6 @@ public class RegistrarMedico_IngresarDatos extends javax.swing.JFrame {
            medico.setFechaDeNacimiento(jTextField6.getText());
            medico.setTelefono(jTextField9.getText());
            medico.commit();
-           System.out.println("Se guardaron los datos");
            
             //Desplegando interfaz exitosa
             RegistrarMedico_Exito exito = RegistrarMedico_Exito.getInstance();
