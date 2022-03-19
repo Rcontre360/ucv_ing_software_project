@@ -10,12 +10,16 @@ package InterfacesMédico;
  * @author pc
  */
 public class verHistorialMédico extends javax.swing.JFrame {
-
+    private static final verHistorialMédico verHistorial= new verHistorialMédico();
     /**
      * Creates new form verHistorialMédico
      */
     public verHistorialMédico() {
         initComponents();
+    }
+    
+    public static verHistorialMédico getInstance(){
+        return verHistorial;
     }
 
     /**
