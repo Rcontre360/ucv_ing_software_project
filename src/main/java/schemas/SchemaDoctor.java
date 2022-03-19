@@ -10,7 +10,7 @@ import java.util.*;
 
 import utils.JsonWrapper;
 
-public class SchemaDoctor {
+public class SchemaDoctor extends SchemaPersona{
     
     public SchemaDoctor(String doctorId){
         
