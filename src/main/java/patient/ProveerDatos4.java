@@ -10,11 +10,15 @@ package patient;
  */
 public class ProveerDatos4 extends javax.swing.JFrame {
 
-    /**
-     * Creates new form SolicitarReservacionCita4
-     */
-    public ProveerDatos4() {
+    //singleton, duh
+    private static final ProveerDatos4 ui = new ProveerDatos4();
+
+    private ProveerDatos4() {
         initComponents();
+    }
+
+    public static ProveerDatos4 getInstance() {
+        return ui; 
     }
 
     /**
