@@ -24,15 +24,7 @@ public class RegistrarMedico_IngresarDatos extends javax.swing.JFrame {
     public static RegistrarMedico_IngresarDatos getInstance() {
         return datosMedico;
     }
-
-    /**
-     * Creates new form ProveerDatos1
-     * public RegistrarMedico_IngresarDatos() {
-        initComponents();
-    }
-     */
     
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -297,9 +289,19 @@ public class RegistrarMedico_IngresarDatos extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-       RegistrarMedico_Exito exito = RegistrarMedico_Exito.getInstance();
-       exito.setVisible(true);
-       datosMedico.setVisible(false);
+       
+       if(jTextField1.getText().isEmpty() || jTextField2.getText().isEmpty() || jTextField3.getText().isEmpty() ||
+          jTextField4.getText().isEmpty() || jTextField5.getText().isEmpty() || jTextField6.getText().isEmpty() ||
+          jTextField8.getText().isEmpty() || jTextField9.getText().isEmpty()){
+           
+            RegistrarMedico_Error error = RegistrarMedico_Error.getInstance();
+            error.setVisible(true);
+           
+       }else{
+            RegistrarMedico_Exito exito = RegistrarMedico_Exito.getInstance();
+            exito.setVisible(true);
+            datosMedico.setVisible(false);
+       }   
     }//GEN-LAST:event_jButton1MouseClicked
 
     /**
@@ -365,8 +367,6 @@ public class RegistrarMedico_IngresarDatos extends javax.swing.JFrame {
         if(c<'0' || c>'9') evt.consume();
     }//GEN-LAST:event_jTextField9KeyTyped
 
-    
-    
     /**
      * @param args the command line arguments
      */
