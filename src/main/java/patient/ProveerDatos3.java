@@ -63,7 +63,7 @@ public class ProveerDatos3 extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("HOSPITAL XYZ");
 
-        jButton1.setText("Regresar");
+        jButton1.setText("Siguiente");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
@@ -103,8 +103,8 @@ public class ProveerDatos3 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        HomePaciente home = HomePaciente.getInstance();
-        home.setVisible(true);
+        SolicitarReservacionCita3 src3 = SolicitarReservacionCita3.getInstance();
+        src3.setVisible(true);
         pd3.setVisible(false);
     }//GEN-LAST:event_jButton1MouseClicked
 

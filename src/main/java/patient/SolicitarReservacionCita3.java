@@ -72,7 +72,7 @@ public class SolicitarReservacionCita3 extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("HOSPITAL XYZ");
 
-        jButton1.setText("Proveer Datos");
+        jButton1.setText("Regresar");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
@@ -118,8 +118,8 @@ public class SolicitarReservacionCita3 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        ProveerDatos1 pd1 = ProveerDatos1.getInstance();
-        pd1.setVisible(true);
+        HomePaciente home = HomePaciente.getInstance();
+        home.setVisible(true);
         ui.setVisible(false);
     }//GEN-LAST:event_jButton1MouseClicked
 
