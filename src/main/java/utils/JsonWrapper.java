@@ -19,6 +19,13 @@ public class JsonWrapper {
         JSONArray board = (JSONArray) json.get("juntaDirectiva");
         return board;
     }
+    
+    /*agregado por joiner*/
+    public static JSONArray getHistory() {
+        JSONObject json = _getJson(DB_NAME);
+        JSONArray historial = (JSONArray) json.get("historial");
+        return historial;
+    }
 
     public static JSONObject getBranchOffice(String name) {
         JSONObject json = _getJson(DB_NAME);

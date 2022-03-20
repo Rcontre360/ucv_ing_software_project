@@ -38,12 +38,22 @@ public class verHistorialMédico extends javax.swing.JFrame {
     }
 
     public void cargarDatos(){
-    JSONObject Historial;
-    Historial=JsonWrapper.getUniversal("historial","paciente",cedula);
-    JSONObject citas = (JSONObject)Historial.get("citas");
-    JSONObject cita = (JSONObject)citas.get(0);
+    JSONArray Historial=JsonWrapper.getHistory();
+    System.out.println("aja");
+    System.out.println(Historial);
     
+    JSONObject cita = (JSONObject)Historial.get(0);
+    System.out.println("de aqui pa abajo");
     System.out.println(cita);
+    System.out.println(cita.get("paciente"));
+    System.out.println(Historial.size());
+    System.out.println("ya");
+    
+    
+    
+    for(int i=0;i<Historial.size();i+=1){
+    System.out.println("test");
+    }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -60,7 +70,6 @@ public class verHistorialMédico extends javax.swing.JFrame {
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -69,7 +78,6 @@ public class verHistorialMédico extends javax.swing.JFrame {
         label3 = new java.awt.Label();
         label4 = new java.awt.Label();
         label5 = new java.awt.Label();
-        label6 = new java.awt.Label();
         label7 = new java.awt.Label();
         button1 = new java.awt.Button();
         jLabel19 = new javax.swing.JLabel();
@@ -81,20 +89,18 @@ public class verHistorialMédico extends javax.swing.JFrame {
 
         label1.setAlignment(java.awt.Label.CENTER);
         label1.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        label1.setForeground(new java.awt.Color(222, 222, 222));
+        label1.setForeground(new java.awt.Color(0, 0, 0));
         label1.setText("Historia Médica");
 
         jLabel21.setText("Talla (m):");
 
-        jLabel22.setText("Índice de Masa Corporal (kg/m^2):");
+        jLabel22.setText("peso:");
 
-        jLabel23.setText("Tensión Arterial Sistólica (mmHg):");
+        jLabel23.setText("maxima:");
 
-        jLabel24.setText("Tensión Arterial Diastólica (mmHg):");
+        jLabel24.setText("pesoTalla:");
 
-        jLabel25.setText("Pulso (pulsasiones por minuto):");
-
-        jLabel20.setText("Peso (kg):");
+        jLabel20.setText("minima:");
 
         jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel26.setText("Citas");
@@ -107,22 +113,20 @@ public class verHistorialMédico extends javax.swing.JFrame {
         jList2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jScrollPane3.setViewportView(jList2);
 
-        label2.setForeground(new java.awt.Color(222, 222, 222));
+        label2.setBackground(new java.awt.Color(255, 255, 255));
+        label2.setForeground(new java.awt.Color(0, 0, 0));
         label2.setText("130/75");
 
-        label3.setForeground(new java.awt.Color(222, 222, 222));
+        label3.setForeground(new java.awt.Color(0, 0, 0));
         label3.setText("124/70");
 
-        label4.setForeground(new java.awt.Color(222, 222, 222));
+        label4.setForeground(new java.awt.Color(0, 0, 0));
         label4.setText("25,2");
 
-        label5.setForeground(new java.awt.Color(222, 222, 222));
+        label5.setForeground(new java.awt.Color(0, 0, 0));
         label5.setText("80");
 
-        label6.setForeground(new java.awt.Color(222, 222, 222));
-        label6.setText("90");
-
-        label7.setForeground(new java.awt.Color(222, 222, 222));
+        label7.setForeground(new java.awt.Color(0, 0, 0));
         label7.setText("1.75");
 
         button1.setLabel("Volver al menú");
@@ -148,27 +152,21 @@ public class verHistorialMédico extends javax.swing.JFrame {
                         .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel22, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addGap(10, 10, 10)
                                     .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(1, 1, 1)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel24)
+                                            .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jLabel22, javax.swing.GroupLayout.Alignment.LEADING))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(10, 10, 10)
-                                            .addComponent(label6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                .addGap(11, 11, 11)
+                                .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(118, 118, 118))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -220,15 +218,11 @@ public class verHistorialMédico extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel24)
+                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(9, 9, 9)
-                        .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel25))
+                        .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(label6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(63, 63, 63)
                 .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(26, Short.MAX_VALUE))
         );
@@ -285,7 +279,6 @@ public class verHistorialMédico extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JList<String> jList2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -294,7 +287,6 @@ public class verHistorialMédico extends javax.swing.JFrame {
     private java.awt.Label label3;
     private java.awt.Label label4;
     private java.awt.Label label5;
-    private java.awt.Label label6;
     private java.awt.Label label7;
     // End of variables declaration//GEN-END:variables
 }
