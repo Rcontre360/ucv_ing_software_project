@@ -122,6 +122,7 @@ public class RegistrarMedico_IngresarDatos extends javax.swing.JFrame {
 
         jLabel8.setText("Lugar de nacimiento:");
 
+        jTextField6.setText("dd-MM-yyyy");
         jTextField6.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField6KeyTyped(evt);
