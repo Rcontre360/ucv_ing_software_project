@@ -391,7 +391,7 @@ public class RegistrarMedico_IngresarDatos extends javax.swing.JFrame {
      */
     private void jTextField6KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField6KeyTyped
         char c = evt.getKeyChar();
-        if((c<'0' || c>'9') && c!='/') evt.consume();
+        if((c<'0' || c>'9') && c!='-') evt.consume();
     }//GEN-LAST:event_jTextField6KeyTyped
 
     /**
