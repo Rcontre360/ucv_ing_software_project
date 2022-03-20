@@ -23,7 +23,6 @@ public class SchemaHistorial {
     public SchemaHistorial(String historialID, String cedulaPaciente){
         ID = historialID;
         String _sucursal="";
-       
         System.out.print(JsonWrapper.getUniversal("pacientes","cedula",cedulaPaciente));
         if (historialID.length() > 0) {
             JSONObject historial = JsonWrapper.getUniversal("historial","id",historialID);

@@ -17,7 +17,7 @@ public class SchemaPersona {
     private String nombre;
     private String apellido;
     private String cedula;
-    private char sexo;
+    private String sexo;
     private String lugarDeNacimiento;
     private String fechaDeNacimiento;
     private String estadoCivil;
@@ -40,7 +40,7 @@ public class SchemaPersona {
         return cedula;
     }
     
-    public char getSexo(){
+    public String getSexo(){
         return sexo;
     }
     
@@ -84,7 +84,7 @@ public class SchemaPersona {
         cedula = _cedula;
     }
 
-    public void setSexo(char _sexo) {
+    public void setSexo(String _sexo) {
         sexo = _sexo;
     }
 
