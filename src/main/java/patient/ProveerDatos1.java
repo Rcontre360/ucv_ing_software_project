@@ -337,7 +337,7 @@ public class ProveerDatos1 extends javax.swing.JFrame {
     private void sexKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sexKeyTyped
         String sex = ((javax.swing.JTextField)evt.getSource()).getText() + String.valueOf(evt.getKeyChar());
         sex = sex.replace("\n","").replace("\r","").replace(" ","");
-        patient.setSexo(sex.charAt(0));
+        patient.setSexo(sex);
     }//GEN-LAST:event_sexKeyTyped
 
     private void bornPlaceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bornPlaceKeyTyped

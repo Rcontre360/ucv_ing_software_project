@@ -68,7 +68,7 @@ public class SchemaPaciente extends SchemaPersona {
         paciente.put("nombre",getNombre());
         paciente.put("apellido",getApellido());
         paciente.put("cedula",getCedula());
-        paciente.put("sexo",Character.toString(getSexo()));
+        paciente.put("sexo",getSexo());
         paciente.put("lugarDeNacimiento",getLugarDeNacimiento());
         paciente.put("fechaDeNacimiento",getFechaDeNacimiento());
         paciente.put("estadoCivil",getEstadoCivil());
