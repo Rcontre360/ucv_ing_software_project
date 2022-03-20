@@ -6,6 +6,7 @@
  
 package schemas;
 
+import java.time.LocalDate;
 import java.util.*;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -14,77 +15,55 @@ import utils.JsonWrapper;
 
 public class SchemaHistorial {
     
-    String ID;
-    float peso;
-    float talla;
-    float indiceMasaCorporal;
-    int  tensionDiastolica;
-    int tensionSistolica;
-    int pulso;    
-    String paciente;
-    JSONArray citas;
+    private String ID;
+    private String paciente;
+    private String sucursal;
+    private JSONArray citas;
     
     public SchemaHistorial(String historialID, String cedulaPaciente){
         ID = historialID;
-        paciente = cedulaPaciente;
-        citas = new JSONArray();
+        String _sucursal="";
+       
+        System.out.print(JsonWrapper.getUniversal("pacientes","cedula",cedulaPaciente));
+        if (historialID.length() > 0) {
+            JSONObject historial = JsonWrapper.getUniversal("historial","id",historialID);
+            if (historial != null){
+                paciente = (String)historial.get("paciente");
+                sucursal = (String)historial.get("sucursal");
+                citas = (JSONArray)historial.get("dates");
+            }else{
+                paciente = cedulaPaciente;
+                citas = new JSONArray();
+                sucursal = _sucursal;
+            }
+        }else{
+            paciente = cedulaPaciente;
+            citas = new JSONArray();
+            sucursal = _sucursal;
+        }
+    }
+    
+    public String getPaciente(){ 
+        return paciente; 
     }
 
-    public float getPeso(){
-        return peso;
+    public String getSucursal(){
+        return sucursal; 
     }
 
-    public void setPeso(float _peso){
-        peso = _peso;
-    }
-    
-    public float getTalla(){
-        return talla;
+    public void setSucursal(String _sucursal){
+        sucursal = _sucursal;
     }
 
-    public void setTalla(float _talla){
-        talla = _talla;
-    }
-    
-    public float getIMC(){
-        return indiceMasaCorporal;
-    }
-
-    public void setIMC(float _IMC){
-        indiceMasaCorporal = _IMC;
-    }
-    
-    public int getTensionDiastolica(){
-        return tensionDiastolica;
-    }
-
-    public void setTensionDiastolica(int _tensionDiastolica){
-        tensionDiastolica = _tensionDiastolica;
-    }
-    
-    public int getTensionSistolica(){
-        return tensionSistolica;
-    }
-    
-    public void setTensionSistolica(int _tensionSistolica){
-        tensionSistolica = _tensionSistolica;
-    }
-    
-    public int getPulso(){
-        return pulso;
-    }
-
-    public void setPulso(int _pulso){
-        pulso = _pulso;
-    }
-    
-    public void pushCita(String date,String cod, String pac, String med, String suc){
+    public void pushCita(String minima, String maxima, String peso, String pesoTalla, String talla){
         JSONObject cita = new JSONObject(); 
-        cita.put("fecha",date);
-        cita.put("codigo",cod);
-        cita.put("paciente",pac);
-        cita.put("medico",med);
-        cita.put("sucursal",suc);
+        
+        cita.put("id",Integer.toString(citas.size()));
+        cita.put("minima",minima);
+        cita.put("maxima",maxima);
+        cita.put("peso",peso);
+        cita.put("pesoTalla",pesoTalla);
+        cita.put("talla",talla);
         citas.add(cita);
     }
     
@@ -96,13 +75,8 @@ public class SchemaHistorial {
         JSONObject historial = new JSONObject(); 
         historial.put("id", ID);
         historial.put("paciente", paciente);
-        historial.put("peso",peso);
-        historial.put("talla",talla);
-        historial.put("indiceMasaCorporal",indiceMasaCorporal);
-        historial.put("tensionDiastolica",tensionDiastolica);
-        historial.put("tensionSistolica",tensionSistolica);
-        historial.put("pulso",pulso);
-        historial.put("citas",citas);
+        historial.put("sucursal", sucursal);
+        historial.put("dates",citas);
         JsonWrapper.setUniversal(historial, "historial", "paciente", paciente);
     }
 }

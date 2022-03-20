@@ -46,7 +46,7 @@ public class SchemaPaciente extends SchemaPersona {
     public void addDate(String dateID){
         citas.add(dateID);
     }
-
+  
     public void commit(){
         JSONObject paciente = JsonWrapper.getUniversal("pacientes","cedula",this.getCedula());
         
