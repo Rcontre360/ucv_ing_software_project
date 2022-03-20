@@ -152,6 +152,8 @@ public class ingresarCédulaPacienteConsultarHistoria1 extends javax.swing.JFram
         cedula = jTextField19.getText();
         if(JsonWrapper.getUniversal("pacientes","cedula",cedula)!=null){
             verHistorialMédico verHistorial= verHistorialMédico.getInstance();
+            verHistorial.setCedula(cedula);
+            verHistorial.cargarDatos();
             verHistorial.setVisible(true);
         }else{
             pacienteNoEncontradoConsulta noEncontrado= pacienteNoEncontradoConsulta.getinstance();
