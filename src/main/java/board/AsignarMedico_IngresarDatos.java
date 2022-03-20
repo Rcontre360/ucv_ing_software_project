@@ -4,6 +4,7 @@
  */
 package board;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import utils.JsonWrapper;
 import patient.*;
@@ -216,13 +217,34 @@ public class AsignarMedico_IngresarDatos extends javax.swing.JFrame {
                 error.setVisible(true);
 
             }else{ 
-                JSONObject medico = JsonWrapper.getUniversal("medicos","cedula",jTextField3.getText());
-                JSONObject sucursal = JsonWrapper.getUniversal("sucursales","nombre",jTextField4.getText());
-                System.out.print(medico+"\n");
-                System.out.print(sucursal+"\n");
-                AsignarMedico_Exito exito = AsignarMedico_Exito.getInstance();
-                exito.setVisible(true);
-                asignar.setVisible(false);
+                String id = jTextField3.getText();
+                String sucursalNombre = jTextField4.getText();
+                JSONObject medico = JsonWrapper.getUniversal("medicos","id",id);
+                JSONObject sucursal = JsonWrapper.getUniversal("sucursales","nombre",sucursalNombre);
+                JSONArray medicosSucursal = (JSONArray) sucursal.get("medicos");
+                JSONArray sucursales = JsonWrapper.getField("sucursales");
+                boolean medicoExiste = false;
+                for(Object obj: sucursales){
+                    JSONObject sucursalAComparar = (JSONObject) obj;
+                    System.out.print(sucursalAComparar+" Sucursal\n");
+                    JSONArray medicosAComparar = (JSONArray)sucursalAComparar.get("medicos");
+                    System.out.print(medicosAComparar+" Medico\n");
+                    if(medicosAComparar.contains(id)){
+                        medicoExiste=true;
+                    }
+                }
+                if(medicoExiste){ 
+                    AsignarMedico_Error1 error = AsignarMedico_Error1.getInstance();
+                    error.setVisible(true);
+                }else{
+                    medicosSucursal.add(id);
+                    JsonWrapper.setUniversal(sucursal, "sucursales", "nombre", sucursalNombre);
+                    System.out.print(medicosSucursal+" a \n");
+                    AsignarMedico_Exito exito = AsignarMedico_Exito.getInstance();
+                    exito.setVisible(true);
+                    asignar.setVisible(false);
+                }
+                
             }
         }catch(Exception e){
             AsignarMedico_Error error = AsignarMedico_Error.getInstance();
@@ -235,7 +257,7 @@ public class AsignarMedico_IngresarDatos extends javax.swing.JFrame {
      */
     private void jTextField3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyTyped
         char c = evt.getKeyChar();
-        if(c<'0' || c>'9') evt.consume();
+        if((c<'a' || c>'z') && (c<'A' || c>'Z') && (c<'0' || c>'9')) evt.consume();
     }//GEN-LAST:event_jTextField3KeyTyped
 
      /**
@@ -243,7 +265,7 @@ public class AsignarMedico_IngresarDatos extends javax.swing.JFrame {
      */
     private void jTextField4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyTyped
         //char c = evt.getKeyChar();
-       // if((c<'a' || c>'z') && (c<'A' || c>'Z') && (c<'0' || c>'9')) evt.consume();
+       // 
     }//GEN-LAST:event_jTextField4KeyTyped
 
     /**
