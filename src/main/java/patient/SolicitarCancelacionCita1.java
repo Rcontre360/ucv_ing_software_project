@@ -139,9 +139,10 @@ public class SolicitarCancelacionCita1 extends javax.swing.JFrame {
         try {
             SchemaDate date = new SchemaDate(_code); 
             date.getFecha(); //if there's a date no error is thrown
-            date.removeJson();
+            date.setSolicitudCancelar(true);
+            date.commit();
             success.setVisible(true);
-        }catch(java.lang.NullPointerException e){
+        }catch(java.lang.Exception e){
             error.setVisible(true);
             e.printStackTrace();
         }

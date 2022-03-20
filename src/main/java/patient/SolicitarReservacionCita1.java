@@ -51,7 +51,7 @@ public class SolicitarReservacionCita1 extends javax.swing.JFrame {
 
         jLabel2.setText("Ingrese la fecha de su reservación:");
 
-        jTextField1.setText("dd/MM/yyyy HH:mm");
+        jTextField1.setText("dd-MM-yyyy");
         jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField1KeyTyped(evt);

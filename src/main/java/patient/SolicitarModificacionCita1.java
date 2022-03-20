@@ -179,7 +179,8 @@ public class SolicitarModificacionCita1 extends javax.swing.JFrame {
 
         try {
             SchemaDate myDate = new SchemaDate(_code);
-            myDate.setFecha(_newDate);
+            System.out.println(_code);
+            myDate.setFechaModificacion(_newDate);
             myDate.commit();
 
             success.setVisible(true);
