@@ -14,6 +14,16 @@ import utils.JsonWrapper;
 
 public class SchemaDoctor extends SchemaPersona{
     
+    private String sucursal;
+    
+    public String getSucursal(){
+        return sucursal;
+    }
+    
+    public void setSucursal(String _sucursal){
+        sucursal = _sucursal;
+    }
+    
     public SchemaDoctor(String doctorId){
         
     }
@@ -33,6 +43,7 @@ public class SchemaDoctor extends SchemaPersona{
         medico.put("telefono",this.getTelefono()); 
         medico.put("profesion",this.getProfesion()); 
         medico.put("ocupacion",this.getOcupacion()); 
+        medico.put("sucursal", this.getSucursal());
         JsonWrapper.setUniversal(medico, "medicos", "ciMedico", this.getCedula()); 
     } 
 }
