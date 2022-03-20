@@ -24,15 +24,7 @@ public class RegistrarSucursal_IngresarDatos extends javax.swing.JFrame {
     public static RegistrarSucursal_IngresarDatos getInstance() {
         return formDatosSucursal;
     }
-
-    /**
-     * Creates new form ProveerDatos1
-     * public RegistrarSucursal_IngresarDatos() {
-        initComponents();
-    }
-     */
     
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -172,9 +164,17 @@ public class RegistrarSucursal_IngresarDatos extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        RegistrarSucursal_Exito exito = RegistrarSucursal_Exito.getInstance();
-        exito.setVisible(true);
-        formDatosSucursal.setVisible(false);
+        
+        if(jTextField1.getText().isEmpty() || jTextField2.getText().isEmpty()){
+            
+           RegistrarSucursal_Error error = RegistrarSucursal_Error.getInstance();
+           error.setVisible(true);
+           
+        }else{
+            RegistrarSucursal_Exito exito = RegistrarSucursal_Exito.getInstance();
+            exito.setVisible(true);
+            formDatosSucursal.setVisible(false);
+        } 
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked

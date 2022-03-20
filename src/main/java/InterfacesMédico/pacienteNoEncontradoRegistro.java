@@ -12,12 +12,11 @@ package InterfacesMédico;
 public class pacienteNoEncontradoRegistro extends javax.swing.JFrame {
 
     /**
-     * Creates new form pacienteNoEncontrado
+     * Singlenton
      */
+    private static final pacienteNoEncontradoRegistro noEncontrado = new pacienteNoEncontradoRegistro();
     
-    private static pacienteNoEncontradoRegistro noEncontrado= new pacienteNoEncontradoRegistro();
-    
-    public pacienteNoEncontradoRegistro() {
+    private pacienteNoEncontradoRegistro(){
         initComponents();
     }
     
@@ -101,7 +100,7 @@ public class pacienteNoEncontradoRegistro extends javax.swing.JFrame {
     }//GEN-LAST:event_button1ActionPerformed
 
     private void button1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button1MouseClicked
-        InterfazHome Noencontrado= InterfazHome.getInstance();
+        InterfazHome Noencontrado = InterfazHome.getInstance();
         noEncontrado.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_button1MouseClicked

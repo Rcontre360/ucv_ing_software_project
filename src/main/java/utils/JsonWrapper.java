@@ -115,6 +115,7 @@ public class JsonWrapper {
             newBranch.put("nombre",(String)branch.get("nombre"));
             newBranch.put("medicos",doctorList);
             newBranch.put("pacientes",patientList);
+            newBranch.put("direccion","");
             result.add(newBranch);
         }
         return result;
@@ -127,6 +128,15 @@ public class JsonWrapper {
             for (Object rawDoctor : (JSONArray)branch.get("medicos")){
                 JSONObject doctor = (JSONObject)rawDoctor;
                 doctor.put("sucursal",branch.get("nombre"));
+                doctor.put("apellido", ""); 
+                doctor.put("cedula",""); 
+                doctor.put("sexo",""); 
+                doctor.put("lugarDeNacimiento",""); 
+                doctor.put("estadoCivil",""); 
+                doctor.put("direccionDeHabitacion",""); 
+                doctor.put("telefono",""); 
+                doctor.put("profesion","medico"); 
+                doctor.put("ocupacion","medico"); 
 
                 result.add(doctor);
             }
@@ -144,8 +154,20 @@ public class JsonWrapper {
 
                 newPatient.put("cedula",patient.get("cedula"));
                 newPatient.put("nombre",patient.get("nombre"));
+                newPatient.put("sucursal",branch.get("nombre"));
                 newPatient.put("citas",getOnlyField((JSONArray)patient.get("citas"),"id"));
                 newPatient.put("historial",getOnlyField((JSONArray)patient.get("historial"),"id"));
+                newPatient.put("tlfPersonaRelacionada","");
+                newPatient.put("estadoCivil","");
+                newPatient.put("ocupacion","");
+                newPatient.put("nombre","");
+                newPatient.put("fechaDeNacimiento","");
+                newPatient.put("direccionDeHabitacion","");
+                newPatient.put("apellido","");
+                newPatient.put("lugarDeNacimiento","");
+                newPatient.put("sexo","");
+                newPatient.put("telefono","");
+                newPatient.put("profesion","");
                 result.add(newPatient);
             }
         }
@@ -163,6 +185,9 @@ public class JsonWrapper {
                     JSONObject date = (JSONObject)rawDate;
                     date.put("paciente",patient.get("cedula"));
                     date.put("sucursal",branch.get("nombre"));
+                    date.put("solicitudCancelar",false);
+                    date.put("registered",false);
+                    date.put("fechaModificacion","");
                     result.add(date);
                 }
             }
@@ -222,6 +247,10 @@ public class JsonWrapper {
 
         for (Object obj : fieldJson) {
             String curValue = (String) ((JSONObject)obj).get(key);  
+            System.out.println(curValue);
+            System.out.println(value);
+            System.out.println(curValue.length());
+            System.out.println(value.length());
             if (curValue != null && curValue.equals(value)){
                 return ((JSONObject)obj);
             }

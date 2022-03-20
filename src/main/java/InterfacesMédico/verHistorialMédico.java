@@ -4,20 +4,47 @@
  * and open the template in the editor.
  */
 package InterfacesMédico;
-
+import utils.JsonWrapper;
+import java.util.*;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 /**
  *
  * @author pc
  */
 public class verHistorialMédico extends javax.swing.JFrame {
-
+    private static final verHistorialMédico verHistorial= new verHistorialMédico();
     /**
      * Creates new form verHistorialMédico
      */
     public verHistorialMédico() {
         initComponents();
     }
+    
+    public static verHistorialMédico getInstance(){
+        return verHistorial;
+    }
+    
+    String cedula;
+    
+    public void setCedula(String cedulaPaciente){
+        cedula=cedulaPaciente;
+    }
 
+    public void cargarDatos(){
+    JSONObject Historial;
+    Historial=JsonWrapper.getUniversal("historial","paciente",cedula);
+    JSONObject citas = (JSONObject)Historial.get("citas");
+    JSONObject cita = (JSONObject)citas.get(0);
+    
+    System.out.println(cita);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

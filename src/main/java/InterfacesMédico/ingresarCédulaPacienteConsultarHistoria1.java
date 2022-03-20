@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package InterfacesMédico;
-
+import utils.JsonWrapper;
 /**
  *
  * @author pc
@@ -148,7 +148,17 @@ public class ingresarCédulaPacienteConsultarHistoria1 extends javax.swing.JFram
     }//GEN-LAST:event_button1ActionPerformed
 
     private void button1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button1MouseClicked
-
+        String cedula;
+        cedula = jTextField19.getText();
+        if(JsonWrapper.getUniversal("pacientes","cedula",cedula)!=null){
+            verHistorialMédico verHistorial= verHistorialMédico.getInstance();
+            verHistorial.setCedula(cedula);
+            verHistorial.cargarDatos();
+            verHistorial.setVisible(true);
+        }else{
+            pacienteNoEncontradoConsulta noEncontrado= pacienteNoEncontradoConsulta.getinstance();
+            noEncontrado.setVisible(true);  
+        }
     }//GEN-LAST:event_button1MouseClicked
 
     /**

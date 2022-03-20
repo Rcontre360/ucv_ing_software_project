@@ -9,6 +9,8 @@ package schemas;
 import java.util.*;
 
 import utils.JsonWrapper;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 public class SchemaPersona {
     
@@ -20,7 +22,7 @@ public class SchemaPersona {
     private String fechaDeNacimiento;
     private String estadoCivil;
     private String direccionDeHabitacion;
-    private int telefono;
+    private String telefono;
     private String profesion;
     private String ocupacion;    
     
@@ -58,7 +60,7 @@ public class SchemaPersona {
         return direccionDeHabitacion;
     }
     
-    public int getTelefono(){
+    public String getTelefono(){
         return telefono;
     }
     
@@ -102,7 +104,7 @@ public class SchemaPersona {
         direccionDeHabitacion = _direccionDeHabitacion;
     }
 
-    public void setTelefono(int _telefono) {
+    public void setTelefono(String _telefono) {
         telefono = _telefono;
     }
 
@@ -112,6 +114,5 @@ public class SchemaPersona {
 
     public void setOcupacion(String _ocupacion) {
         ocupacion = _ocupacion;
-    }
-    
+    }    
 }

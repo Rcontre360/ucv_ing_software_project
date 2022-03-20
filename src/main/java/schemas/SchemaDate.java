@@ -17,10 +17,11 @@ public class SchemaDate {
     private String codigo = "";
     private String medico = "";
     private String sucursal = "";
-    private LocalDate fechaModificacion;
-    private boolean solicitudCancelar = false;
     private String paciente = "";
-     private boolean registered = false;
+
+    private LocalDate fechaModificacion =null;
+    private boolean solicitudCancelar = false;
+    private boolean registered = false;
     
     public SchemaDate(String _codigo){
         codigo =  _codigo;
@@ -28,7 +29,7 @@ public class SchemaDate {
             JSONObject date = JsonWrapper.getUniversal("citas","id",_codigo);
             if (date != null){
                 fecha = LocalDate.parse(((String)date.get("fecha")),SchemaDate.dateFormat);
-                if((String)date.get("fechaModificacion")!=null){
+                if((String)date.get("fechaModificacion")!=null && ((String)date.get("fechaModificacion")).length() > 0){
                     fechaModificacion = LocalDate.parse(((String)date.get("fechaModificacion")),SchemaDate.dateFormat);
                 } 
                 paciente = (String)date.get("paciente");
@@ -91,8 +92,8 @@ public class SchemaDate {
         return fechaModificacion; 
     }
 
-    public void setFechaModificacion(LocalDate _fechaModificacion){
-        fechaModificacion = _fechaModificacion;
+    public void setFechaModificacion(String _fechaModificacion){
+        fechaModificacion = LocalDate.parse(_fechaModificacion,SchemaDate.dateFormat);
     }
     
     public String getPaciente(){
@@ -108,27 +109,44 @@ public class SchemaDate {
         String rawFecha = fecha.format(SchemaDate.dateFormat);
         JSONArray allDates = JsonWrapper.getAllUniversal("citas","fecha",rawFecha);
         JSONArray freeDoctors = JsonWrapper.getOnlyField(JsonWrapper.getField("medicos"),"id");
+        String oldDoctor = (String)date.get("medico");
+        boolean hasOldDoctor = (oldDoctor != null && oldDoctor.length() >0);
 
-        for (Object obj : allDates) {
-            JSONObject curDate = (JSONObject)obj;
-            String curFecha = (String) curDate.get("fecha");  
-            if (curFecha.equals(rawFecha)){
-                freeDoctors.remove((String)curDate.get("medico"));
+        if (!hasOldDoctor) 
+            for (Object obj : allDates) {
+                JSONObject curDate = (JSONObject)obj;
+                String curFecha = (String) curDate.get("fecha");  
+                if (curFecha.equals(rawFecha)){
+                    freeDoctors.remove((String)curDate.get("medico"));
+                }
             }
-        }
 
-        if (freeDoctors.size() <= 0)
+        if (freeDoctors.size() <= 0 && !hasOldDoctor)
             throw new Exception("No doctor found");
 
         String doctorId = (String)freeDoctors.get(0);
         JSONObject doctor = JsonWrapper.getUniversal("medicos","id",doctorId);
+        String newSucursal = (String)doctor.get("sucursal");
+        sucursal = newSucursal;
 
         date.put("fecha",rawFecha); 
+        System.out.print("codigo: ");
+        System.out.print(codigo);
         date.put("id",codigo); 
-        date.put("medico",freeDoctors.get(0)); 
-        date.put("sucursal",(String)doctor.get("sucursal")); 
+        if (!hasOldDoctor){
+            String newMedico = (String)freeDoctors.get(0);
+            date.put("medico",newMedico); 
+            medico = newMedico; 
+        }
+        date.put("sucursal",newSucursal); 
         date.put("paciente",paciente); 
         date.put("registered", registered); 
+
+        if (fechaModificacion != null)
+            date.put("fechaModificacion",(String)fechaModificacion.format(SchemaDate.dateFormat));
+
+        date.put("solicitudCancelar",solicitudCancelar);
+        date.put("registered",registered);
 
         //TODO remove date id from patient too
 

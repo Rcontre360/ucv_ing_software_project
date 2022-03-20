@@ -206,9 +206,17 @@ public class AsignarMedico_IngresarDatos extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        AsignarMedico_Exito exito = AsignarMedico_Exito.getInstance();
-        exito.setVisible(true);
-        asignar.setVisible(false);
+        
+        if(jTextField3.getText().isEmpty() || jTextField4.getText().isEmpty()){
+            
+            AsignarMedico_Error error = AsignarMedico_Error.getInstance();
+            error.setVisible(true);
+            
+        }else{   
+            AsignarMedico_Exito exito = AsignarMedico_Exito.getInstance();
+            exito.setVisible(true);
+            asignar.setVisible(false);
+        }
     }//GEN-LAST:event_jButton1MouseClicked
     
     /**
