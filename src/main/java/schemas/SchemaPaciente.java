@@ -27,7 +27,7 @@ public class SchemaPaciente extends SchemaPersona {
     public void settlfPersonaRelacionada(int _tlfPersonaRelacionada){
         tlfPersonaRelacionada = _tlfPersonaRelacionada;
     }
-    
+   
     public void commit(){
         JSONObject paciente = new JSONObject(); 
         paciente.put("tlfPersonaRelacionada",tlfPersonaRelacionada);

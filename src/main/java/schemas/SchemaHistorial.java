@@ -15,13 +15,16 @@ import utils.JsonWrapper;
 
 public class SchemaHistorial {
     
-    String ID;
-    String paciente;
-    String sucursal;
-    JSONArray citas;
+    private String ID;
+    private String paciente;
+    private String sucursal;
+    private JSONArray citas;
     
     public SchemaHistorial(String historialID, String cedulaPaciente){
         ID = historialID;
+        String _sucursal="";
+       
+        System.out.print(JsonWrapper.getUniversal("pacientes","cedula",cedulaPaciente));
         if (historialID.length() > 0) {
             JSONObject historial = JsonWrapper.getUniversal("historial","id",historialID);
             if (historial != null){
@@ -31,11 +34,25 @@ public class SchemaHistorial {
             }else{
                 paciente = cedulaPaciente;
                 citas = new JSONArray();
+                sucursal = _sucursal;
             }
         }else{
             paciente = cedulaPaciente;
             citas = new JSONArray();
+            sucursal = _sucursal;
         }
+    }
+    
+    public String getPaciente(){ 
+        return paciente; 
+    }
+
+    public String getSucursal(){
+        return sucursal; 
+    }
+
+    public void setSucursal(String _sucursal){
+        sucursal = _sucursal;
     }
 
     public void pushCita(String minima, String maxima, String peso, String pesoTalla, String talla){
