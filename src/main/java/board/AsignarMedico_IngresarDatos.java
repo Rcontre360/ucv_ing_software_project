@@ -4,6 +4,9 @@
  */
 package board;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import utils.JsonWrapper;
 import patient.*;
 
 /**
@@ -87,7 +90,7 @@ public class AsignarMedico_IngresarDatos extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setText("Cédula de identidad:");
+        jLabel6.setText("Cédula del médico:");
 
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,7 +103,7 @@ public class AsignarMedico_IngresarDatos extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setText("Código de sucursal:");
+        jLabel7.setText("Nombre de la sucursal:");
 
         jButton1.setText("Enviar");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -131,25 +134,27 @@ public class AsignarMedico_IngresarDatos extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 39, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(56, 56, 56)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(22, 22, 22))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 41, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addGap(102, 102, 102)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(28, 28, 28)
+                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(35, 35, 35))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jLabel6)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(107, 107, 107))
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -174,10 +179,10 @@ public class AsignarMedico_IngresarDatos extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(43, 43, 43)
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -188,7 +193,7 @@ public class AsignarMedico_IngresarDatos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
@@ -206,16 +211,44 @@ public class AsignarMedico_IngresarDatos extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        
-        if(jTextField3.getText().isEmpty() || jTextField4.getText().isEmpty()){
-            
+        try{
+            if(jTextField3.getText().isEmpty() || jTextField4.getText().isEmpty()){
+                AsignarMedico_Error error = AsignarMedico_Error.getInstance();
+                error.setVisible(true);
+
+            }else{ 
+                String id = jTextField3.getText();
+                String sucursalNombre = jTextField4.getText();
+                JSONObject medico = JsonWrapper.getUniversal("medicos","id",id);
+                JSONObject sucursal = JsonWrapper.getUniversal("sucursales","nombre",sucursalNombre);
+                JSONArray medicosSucursal = (JSONArray) sucursal.get("medicos");
+                JSONArray sucursales = JsonWrapper.getField("sucursales");
+                boolean medicoExiste = false;
+                for(Object obj: sucursales){
+                    JSONObject sucursalAComparar = (JSONObject) obj;
+                    System.out.print(sucursalAComparar+" Sucursal\n");
+                    JSONArray medicosAComparar = (JSONArray)sucursalAComparar.get("medicos");
+                    System.out.print(medicosAComparar+" Medico\n");
+                    if(medicosAComparar.contains(id)){
+                        medicoExiste=true;
+                    }
+                }
+                if(medicoExiste){ 
+                    AsignarMedico_Error1 error = AsignarMedico_Error1.getInstance();
+                    error.setVisible(true);
+                }else{
+                    medicosSucursal.add(id);
+                    JsonWrapper.setUniversal(sucursal, "sucursales", "nombre", sucursalNombre);
+                    System.out.print(medicosSucursal+" a \n");
+                    AsignarMedico_Exito exito = AsignarMedico_Exito.getInstance();
+                    exito.setVisible(true);
+                    asignar.setVisible(false);
+                }
+                
+            }
+        }catch(Exception e){
             AsignarMedico_Error error = AsignarMedico_Error.getInstance();
             error.setVisible(true);
-            
-        }else{   
-            AsignarMedico_Exito exito = AsignarMedico_Exito.getInstance();
-            exito.setVisible(true);
-            asignar.setVisible(false);
         }
     }//GEN-LAST:event_jButton1MouseClicked
     
@@ -224,15 +257,15 @@ public class AsignarMedico_IngresarDatos extends javax.swing.JFrame {
      */
     private void jTextField3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyTyped
         char c = evt.getKeyChar();
-        if(c<'0' || c>'9') evt.consume();
+        if((c<'a' || c>'z') && (c<'A' || c>'Z') && (c<'0' || c>'9')) evt.consume();
     }//GEN-LAST:event_jTextField3KeyTyped
 
      /**
      * Validación de Código
      */
     private void jTextField4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyTyped
-        char c = evt.getKeyChar();
-        if((c<'a' || c>'z') && (c<'A' || c>'Z') && (c<'0' || c>'9')) evt.consume();
+        //char c = evt.getKeyChar();
+       // 
     }//GEN-LAST:event_jTextField4KeyTyped
 
     /**
