@@ -242,8 +242,8 @@ public class AsignarMedico_IngresarDatos extends javax.swing.JFrame {
      * Validación de Código
      */
     private void jTextField4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyTyped
-        char c = evt.getKeyChar();
-        if((c<'a' || c>'z') && (c<'A' || c>'Z') && (c<'0' || c>'9')) evt.consume();
+        //char c = evt.getKeyChar();
+       // if((c<'a' || c>'z') && (c<'A' || c>'Z') && (c<'0' || c>'9')) evt.consume();
     }//GEN-LAST:event_jTextField4KeyTyped
 
     /**
