@@ -16,6 +16,7 @@ public class SchemaDoctor extends SchemaPersona{
     
     private String sucursal;
     private String ID;
+    private String especialidad;
     
     public String getSucursal(){
         return sucursal;
@@ -31,6 +32,14 @@ public class SchemaDoctor extends SchemaPersona{
     
     public void setID(String _id){
         ID = _id;
+    }
+    
+    public String getEspecialidad(){
+        return especialidad;
+    }
+    
+    public void setEspecialidad(String _especialidad){
+        especialidad = _especialidad;
     }
     
     public SchemaDoctor(String doctorId){
@@ -53,7 +62,8 @@ public class SchemaDoctor extends SchemaPersona{
         medico.put("telefono",this.getTelefono()); 
         medico.put("profesion",this.getProfesion()); 
         medico.put("ocupacion",this.getOcupacion()); 
-        medico.put("sucursal", this.getSucursal());
+        medico.put("sucursal", sucursal);
+        medico.put("especialidad", especialidad);
         JsonWrapper.setUniversal(medico, "medicos", "id", this.getCedula()); 
     } 
 }
