@@ -16,6 +16,7 @@ import utils.JsonWrapper;
 public class SchemaPaciente extends SchemaPersona {
     
     private String tlfPersonaRelacionada;
+    private String sucursal;
     private JSONArray citas = new JSONArray();
     
     public SchemaPaciente(){
@@ -28,6 +29,14 @@ public class SchemaPaciente extends SchemaPersona {
 
     public void settlfPersonaRelacionada(String _tlfPersonaRelacionada){
         tlfPersonaRelacionada = _tlfPersonaRelacionada;
+    }
+
+    public String getSucursal(){
+        return sucursal;
+    }
+
+    public void setSucursal(String _sucursal){
+        sucursal = _sucursal;
     }
 
     public JSONArray getDates(){
@@ -50,7 +59,7 @@ public class SchemaPaciente extends SchemaPersona {
             patientHistory.add(id);
 
             historial.put("paciente",this.getCedula());
-            historial.put("sucursal","");
+            historial.put("sucursal",sucursal);
             historial.put("id",id);
             historial.put("dates",new JSONArray());
             paciente.put("citas",getDates());
@@ -65,6 +74,7 @@ public class SchemaPaciente extends SchemaPersona {
         }
 
         paciente.put("tlfPersonaRelacionada",tlfPersonaRelacionada);
+        paciente.put("sucursal",sucursal);
         paciente.put("nombre",getNombre());
         paciente.put("apellido",getApellido());
         paciente.put("cedula",getCedula());

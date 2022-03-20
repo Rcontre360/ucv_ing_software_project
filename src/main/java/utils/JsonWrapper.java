@@ -154,6 +154,7 @@ public class JsonWrapper {
 
                 newPatient.put("cedula",patient.get("cedula"));
                 newPatient.put("nombre",patient.get("nombre"));
+                newPatient.put("sucursal",branch.get("nombre"));
                 newPatient.put("citas",getOnlyField((JSONArray)patient.get("citas"),"id"));
                 newPatient.put("historial",getOnlyField((JSONArray)patient.get("historial"),"id"));
                 newPatient.put("tlfPersonaRelacionada","");

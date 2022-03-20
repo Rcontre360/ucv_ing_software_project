@@ -312,6 +312,7 @@ public class ProveerDatos1 extends javax.swing.JFrame {
             myDate.commit();
 
             patient.addDate(code);
+            patient.setSucursal(myDate.getSucursal());
             patient.commit();
 
             success.setCode(code);
