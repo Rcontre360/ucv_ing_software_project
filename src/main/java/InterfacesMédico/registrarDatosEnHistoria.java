@@ -6,6 +6,7 @@ package InterfacesMédico;
 
 import org.json.simple.JSONObject;
 import schemas.SchemaHistorial;
+import utils.JsonWrapper;
 /**
  *
  * @author yaricb
@@ -488,7 +489,9 @@ public class registrarDatosEnHistoria extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
     
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-        SchemaHistorial historial= new SchemaHistorial(paciente, paciente);
+        JSONObject historialPrev = JsonWrapper.getUniversal("historial","paciente",paciente);
+        String historialID = historialPrev.get("id").toString();
+        SchemaHistorial historial= new SchemaHistorial(historialID, paciente);
         historial.pushCita(jTextField16.getText(),jTextField17.getText() ,jTextField13.getText(), jTextField14.getText(), jTextField15.getText());
         try{
            historial.commit();

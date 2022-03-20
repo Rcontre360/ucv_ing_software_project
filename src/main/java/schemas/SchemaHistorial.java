@@ -22,8 +22,15 @@ public class SchemaHistorial {
     
     public SchemaHistorial(String historialID, String cedulaPaciente){
         ID = historialID;
-        String _sucursal="";
-        System.out.print(JsonWrapper.getUniversal("pacientes","cedula",cedulaPaciente));
+        String _sucursal = "";
+        JSONArray sucursales = JsonWrapper.getField("sucursales");
+        for(Object obj: sucursales){
+            JSONObject sucursalAComparar = (JSONObject) obj;
+            JSONArray pacientesAComparar = (JSONArray)sucursalAComparar.get("pacientes");
+            if(pacientesAComparar.contains(cedulaPaciente)){
+                _sucursal = sucursalAComparar.get("nombre").toString();
+            }
+        }        
         if (historialID.length() > 0) {
             JSONObject historial = JsonWrapper.getUniversal("historial","id",historialID);
             if (historial != null){
