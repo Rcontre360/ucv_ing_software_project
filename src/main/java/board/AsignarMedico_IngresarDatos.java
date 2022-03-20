@@ -90,7 +90,7 @@ public class AsignarMedico_IngresarDatos extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setText("ID del médico:");
+        jLabel6.setText("Cédula del médico:");
 
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,7 +103,7 @@ public class AsignarMedico_IngresarDatos extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setText("Código de sucursal:");
+        jLabel7.setText("Nombre de la sucursal:");
 
         jButton1.setText("Enviar");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
