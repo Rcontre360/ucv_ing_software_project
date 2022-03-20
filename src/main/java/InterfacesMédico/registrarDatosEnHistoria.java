@@ -488,18 +488,15 @@ public class registrarDatosEnHistoria extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
     
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-    SchemaHistorial historial= new SchemaHistorial(paciente, paciente);
-    historial.setPeso(Float.parseFloat(jTextField13.getText()));
-    historial.setTalla(Float.parseFloat(jTextField14.getText()));
-    historial.setIMC(Float.parseFloat(jTextField15.getText())); 
-    historial.setTensionSistolica(Integer.parseInt(jTextField16.getText()));
-    historial.setTensionDiastolica(Integer.parseInt(jTextField17.getText())); 
-    historial.setPulso(Integer.parseInt(jTextField18.getText()));  
-    //aqui deberia de ir un error en el maping y un try and cach
-    historial.commit();
-       //si todo ok:
-       historiaGuardada mensajeHistoriaGuardada= historiaGuardada.getinstance();
-       mensajeHistoriaGuardada.setVisible(true);
+        SchemaHistorial historial= new SchemaHistorial(paciente, paciente);
+        historial.pushCita(jTextField16.getText(),jTextField17.getText() ,jTextField13.getText(), jTextField14.getText(), jTextField15.getText());
+        try{
+           historial.commit();
+           historiaGuardada mensajeHistoriaGuardada= historiaGuardada.getinstance();
+           mensajeHistoriaGuardada.setVisible(true);
+        }catch(Exception e){
+            System.out.print(e);
+        }
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jTextField13KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField13KeyTyped

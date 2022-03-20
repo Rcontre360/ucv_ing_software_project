@@ -4,6 +4,7 @@ import schemas.SchemaBranch;
 import schemas.SchemaDate;
 import utils.JsonWrapper ;
 import InterfacesMédico.registrarDatosEnHistoria;
+import schemas.SchemaHistorial;
 
 public class main {
     public static void main(String[] args) {
