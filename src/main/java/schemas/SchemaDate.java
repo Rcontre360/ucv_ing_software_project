@@ -29,7 +29,7 @@ public class SchemaDate {
             JSONObject date = JsonWrapper.getUniversal("citas","id",_codigo);
             if (date != null){
                 fecha = LocalDate.parse(((String)date.get("fecha")),SchemaDate.dateFormat);
-                if((String)date.get("fechaModificacion")!=null){
+                if((String)date.get("fechaModificacion")!=null && ((String)date.get("fechaModificacion")).length() > 0){
                     fechaModificacion = LocalDate.parse(((String)date.get("fechaModificacion")),SchemaDate.dateFormat);
                 } 
                 paciente = (String)date.get("paciente");

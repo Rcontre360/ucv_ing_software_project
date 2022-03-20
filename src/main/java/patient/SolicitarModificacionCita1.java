@@ -165,6 +165,8 @@ public class SolicitarModificacionCita1 extends javax.swing.JFrame {
     private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
         _code = ((javax.swing.JTextField)evt.getSource()).getText() + String.valueOf(evt.getKeyChar());
         _code = _code.replace("\n","").replace("\r","").replace(" ","");
+        System.out.println("length");
+        System.out.println(_code.length());
         
     }//GEN-LAST:event_jTextField1KeyTyped
 
@@ -179,7 +181,6 @@ public class SolicitarModificacionCita1 extends javax.swing.JFrame {
 
         try {
             SchemaDate myDate = new SchemaDate(_code);
-            System.out.println(_code);
             myDate.setFechaModificacion(_newDate);
             myDate.commit();
 

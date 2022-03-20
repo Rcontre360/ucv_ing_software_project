@@ -163,6 +163,9 @@ public class JsonWrapper {
                     JSONObject date = (JSONObject)rawDate;
                     date.put("paciente",patient.get("cedula"));
                     date.put("sucursal",branch.get("nombre"));
+                    date.put("solicitudCancelar",false);
+                    date.put("registered",false);
+                    date.put("fechaModificacion","");
                     result.add(date);
                 }
             }
@@ -222,6 +225,10 @@ public class JsonWrapper {
 
         for (Object obj : fieldJson) {
             String curValue = (String) ((JSONObject)obj).get(key);  
+            System.out.println(curValue);
+            System.out.println(value);
+            System.out.println(curValue.length());
+            System.out.println(value.length());
             if (curValue != null && curValue.equals(value)){
                 return ((JSONObject)obj);
             }
