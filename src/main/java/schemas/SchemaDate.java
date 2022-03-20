@@ -112,7 +112,7 @@ public class SchemaDate {
         String oldDoctor = (String)date.get("medico");
         boolean hasOldDoctor = (oldDoctor != null && oldDoctor.length() >0);
 
-        if (hasOldDoctor) 
+        if (!hasOldDoctor) 
             for (Object obj : allDates) {
                 JSONObject curDate = (JSONObject)obj;
                 String curFecha = (String) curDate.get("fecha");  
@@ -126,14 +126,19 @@ public class SchemaDate {
 
         String doctorId = (String)freeDoctors.get(0);
         JSONObject doctor = JsonWrapper.getUniversal("medicos","id",doctorId);
+        String newSucursal = (String)doctor.get("sucursal");
+        sucursal = newSucursal;
 
         date.put("fecha",rawFecha); 
         System.out.print("codigo: ");
         System.out.print(codigo);
         date.put("id",codigo); 
-        if (!hasOldDoctor)
-            date.put("medico",freeDoctors.get(0)); 
-        date.put("sucursal",(String)doctor.get("sucursal")); 
+        if (!hasOldDoctor){
+            String newMedico = (String)freeDoctors.get(0);
+            date.put("medico",newMedico); 
+            medico = newMedico; 
+        }
+        date.put("sucursal",newSucursal); 
         date.put("paciente",paciente); 
         date.put("registered", registered); 
 
