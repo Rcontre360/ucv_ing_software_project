@@ -314,6 +314,7 @@ public class RegistrarMedico_IngresarDatos extends javax.swing.JFrame {
            medico.setLugarDeNacimiento(jTextField5.getText());
            medico.setFechaDeNacimiento(jTextField6.getText());
            medico.setTelefono(jTextField9.getText());
+           medico.setSucursal(null);
            medico.commit();
            
             //Desplegando interfaz exitosa
