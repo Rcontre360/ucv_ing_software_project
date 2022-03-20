@@ -91,8 +91,6 @@ public class registrarDatosEnHistoria extends javax.swing.JFrame {
         jTextField16 = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
         jTextField17 = new javax.swing.JTextField();
-        jLabel25 = new javax.swing.JLabel();
-        jTextField18 = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
 
         jFrame1.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -265,7 +263,7 @@ public class registrarDatosEnHistoria extends javax.swing.JFrame {
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel19.setText("Ingrese los datos requeridos:");
 
-        jLabel20.setText("Peso (kg):");
+        jLabel20.setText("Minima");
 
         jTextField13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -291,7 +289,7 @@ public class registrarDatosEnHistoria extends javax.swing.JFrame {
             }
         });
 
-        jLabel22.setText("Índice de Masa Corporal (kg/m^2):");
+        jLabel22.setText("Peso");
 
         jTextField15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -304,7 +302,7 @@ public class registrarDatosEnHistoria extends javax.swing.JFrame {
             }
         });
 
-        jLabel23.setText("Tensión Arterial Sistólica (mmHg):");
+        jLabel23.setText("pesoTalla");
 
         jTextField16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -317,7 +315,7 @@ public class registrarDatosEnHistoria extends javax.swing.JFrame {
             }
         });
 
-        jLabel24.setText("Tensión Arterial Diastólica (mmHg):");
+        jLabel24.setText("talla");
 
         jTextField17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -327,19 +325,6 @@ public class registrarDatosEnHistoria extends javax.swing.JFrame {
         jTextField17.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField17KeyTyped(evt);
-            }
-        });
-
-        jLabel25.setText("Pulso (pulsasiones por minuto)");
-
-        jTextField18.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField18ActionPerformed(evt);
-            }
-        });
-        jTextField18.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField18KeyTyped(evt);
             }
         });
 
@@ -367,7 +352,7 @@ public class registrarDatosEnHistoria extends javax.swing.JFrame {
                     .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(81, 81, 81)
+                .addGap(176, 176, 176)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel21)
@@ -388,12 +373,8 @@ public class registrarDatosEnHistoria extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel23)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel25)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(142, Short.MAX_VALUE))
+                        .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(165, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -427,11 +408,7 @@ public class registrarDatosEnHistoria extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel24)
                     .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel25)
-                    .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38))
         );
@@ -475,10 +452,6 @@ public class registrarDatosEnHistoria extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField17ActionPerformed
 
-    private void jTextField18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField18ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField18ActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -500,26 +473,19 @@ public class registrarDatosEnHistoria extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jTextField13KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField13KeyTyped
-       String texto = jTextField13.getText(); 
-       char c = evt.getKeyChar();
-       if(((c<'0'||c>'9')&&c!='.')||(c=='.'&&texto.contains("."))) evt.consume();
+
+        char c = evt.getKeyChar();
+       if((c<'0'||c>'9')) evt.consume();
     }//GEN-LAST:event_jTextField13KeyTyped
 
     private void jTextField14KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField14KeyTyped
-       String texto = jTextField14.getText(); 
-       char c = evt.getKeyChar();
-       if(((c<'0'||c>'9')&&c!='.')||(c=='.'&&texto.contains("."))) evt.consume();
+        char c = evt.getKeyChar();
+       if((c<'0'||c>'9')) evt.consume();
     }//GEN-LAST:event_jTextField14KeyTyped
 
-    private void jTextField18KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField18KeyTyped
-       char c = evt.getKeyChar();
-       if((c<'0'||c>'9')) evt.consume();
-    }//GEN-LAST:event_jTextField18KeyTyped
-
     private void jTextField15KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField15KeyTyped
-       String texto = jTextField15.getText(); 
-       char c = evt.getKeyChar();
-       if(((c<'0'||c>'9')&&c!='.')||(c=='.'&&texto.contains("."))) evt.consume();
+     char c = evt.getKeyChar();
+       if((c<'0'||c>'9')) evt.consume();
     }//GEN-LAST:event_jTextField15KeyTyped
 
     private void jTextField16KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField16KeyTyped
@@ -532,7 +498,12 @@ public class registrarDatosEnHistoria extends javax.swing.JFrame {
        if((c<'0'||c>'9')) evt.consume();
     }//GEN-LAST:event_jTextField17KeyTyped
     
+    /* validacion flotante
     
+    String texto = jTextField13.getText(); 
+       char c = evt.getKeyChar();
+       if(((c<'0'||c>'9')&&c!='.')||(c=='.'&&texto.contains("."))) evt.consume();
+    */
     
     /**
      * @param args the command line arguments
@@ -590,7 +561,6 @@ public class registrarDatosEnHistoria extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -610,7 +580,6 @@ public class registrarDatosEnHistoria extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
