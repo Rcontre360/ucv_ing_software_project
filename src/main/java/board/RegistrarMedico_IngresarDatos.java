@@ -112,7 +112,7 @@ public class RegistrarMedico_IngresarDatos extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setText("Sexo (F/M):");
+        jLabel7.setText("Sexo:");
 
         jTextField5.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -213,7 +213,7 @@ public class RegistrarMedico_IngresarDatos extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jTextField9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
+                                .addComponent(jTextField9, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jTextField8, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.LEADING)
@@ -377,7 +377,7 @@ public class RegistrarMedico_IngresarDatos extends javax.swing.JFrame {
      */
     private void jTextField4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyTyped
         char c = evt.getKeyChar();
-        if(c!='F' && c!='f' && c!='M' && c!='m') evt.consume();
+        if((c<'a' || c>'z') && (c<'A' || c>'Z')) evt.consume();
     }//GEN-LAST:event_jTextField4KeyTyped
 
     /**
