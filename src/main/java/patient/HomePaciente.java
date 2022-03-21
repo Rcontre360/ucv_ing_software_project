@@ -139,11 +139,13 @@ public class HomePaciente extends javax.swing.JFrame {
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         SolicitarModificacionCita1 ui = SolicitarModificacionCita1.getInstance();  
         ui.setVisible(true);
+        homePatient.setVisible(false);
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         SolicitarCancelacionCita1 ui = SolicitarCancelacionCita1.getInstance();  
         ui.setVisible(true);
+        homePatient.setVisible(false);
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
@@ -155,6 +157,7 @@ public class HomePaciente extends javax.swing.JFrame {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {                                      
         SolicitarReservacionCita1 reservation = SolicitarReservacionCita1.getInstance();  
         reservation.setVisible(true);
+        homePatient.setVisible(false);
     }
 
     /**
