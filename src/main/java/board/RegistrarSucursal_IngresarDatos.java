@@ -6,6 +6,7 @@ package board;
 
 import patient.*;
 import schemas.SchemaBranch;
+import utils.JsonWrapper;
 
 /**
  *
@@ -156,15 +157,26 @@ public class RegistrarSucursal_IngresarDatos extends javax.swing.JFrame {
            
         }else{
             
-            //Guardando datos ingresados 
-            SchemaBranch sucursal = new SchemaBranch(jTextField1.getText()); 
-            sucursal.setDireccion((jTextField1.getText())); 
-            sucursal.commit(); 
-             
-            //Desplegando interfaz exitosa 
-            RegistrarSucursal_Exito exito = RegistrarSucursal_Exito.getInstance();
-            exito.setVisible(true);
-            formDatosSucursal.setVisible(false);
+            //Verificando si la sucursal ya existe
+            String nombre = jTextField1.getText();
+            if((JsonWrapper.getUniversal("sucursales", "nombre", nombre))!=null){
+                RegistrarSucursal_YaExiste error = RegistrarSucursal_YaExiste.getInstance();
+                error.setVisible(true);
+                this.setVisible(false);
+            }
+            
+            else {
+                //Guardando datos ingresados 
+                SchemaBranch sucursal = new SchemaBranch(jTextField1.getText());
+                sucursal.setDireccion((jTextField1.getText()));
+                sucursal.commit();
+
+                //Desplegando interfaz exitosa 
+                RegistrarSucursal_Exito exito = RegistrarSucursal_Exito.getInstance();
+                exito.setVisible(true);
+                formDatosSucursal.setVisible(false);
+            }
+      
         } 
     }//GEN-LAST:event_jButton1MouseClicked
 
