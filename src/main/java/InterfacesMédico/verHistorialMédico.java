@@ -260,8 +260,9 @@ public class verHistorialMédico extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void button1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button1MouseClicked
-       InterfazHome home= InterfazHome.getInstance();
+        InterfazHome home = InterfazHome.getInstance();
         home.setVisible(true);
+        verHistorial.setVisible(false);
     }//GEN-LAST:event_button1MouseClicked
 
     private void jList2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList2MouseClicked
