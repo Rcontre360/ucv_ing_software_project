@@ -5,8 +5,11 @@
 package board;
 
 import java.util.UUID;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import schemas.SchemaDoctor;
 import patient.*;
+import utils.JsonWrapper;
 
 /**
  *
@@ -350,27 +353,46 @@ public class RegistrarMedico_IngresarDatos extends javax.swing.JFrame {
            
        }else{
            
-           //Guardando datos ingresados
-           String random = UUID.randomUUID().toString().replace("-","").substring(0,8);
-           SchemaDoctor medico = new SchemaDoctor(random);
-           medico.setNombre(jTextField1.getText());
-           medico.setApellido(jTextField2.getText());
-           medico.setCedula(jTextField3.getText());
-           medico.setSexo(jTextField4.getText());
-           medico.setLugarDeNacimiento(jTextField5.getText());
-           medico.setFechaDeNacimiento(jTextField6.getText());
-           medico.setEstadoCivil(jTextField7.getText());
-           medico.setDireccionDeHabitacion(jTextField8.getText());
-           medico.setTelefono(jTextField9.getText());
-           medico.setEspecialidad(jTextField10.getText());
-           medico.setSucursal(null);
-           
-           medico.commit();
-           
-            //Desplegando interfaz exitosa
-            RegistrarMedico_Exito exito = RegistrarMedico_Exito.getInstance();
-            exito.setVisible(true);
-            datosMedico.setVisible(false);
+           //Verificando si el médico ya existe
+           String nombre = jTextField1.getText();         
+           if((JsonWrapper.getUniversal("medicos", "nombre", nombre))!=null){
+               RegistrarMedico_YaExiste error = RegistrarMedico_YaExiste.getInstance();
+                error.setVisible(true);
+                datosMedico.setVisible(false);
+            
+           } else {
+               
+               try{
+                   //Guardando datos ingresados
+                String random = UUID.randomUUID().toString().replace("-", "").substring(0, 8);
+                SchemaDoctor medico = new SchemaDoctor(random);
+                medico.setNombre(jTextField1.getText());
+                medico.setApellido(jTextField2.getText());
+                medico.setCedula(jTextField3.getText());
+                medico.setSexo(jTextField4.getText());
+                medico.setLugarDeNacimiento(jTextField5.getText());
+                medico.setFechaDeNacimiento(jTextField6.getText());
+                medico.setEstadoCivil(jTextField7.getText());
+                medico.setDireccionDeHabitacion(jTextField8.getText());
+                medico.setTelefono(jTextField9.getText());
+                medico.setEspecialidad(jTextField10.getText());
+                medico.setSucursal(null);
+
+                medico.commit();
+
+                //Desplegando interfaz exitosa
+                RegistrarMedico_Exito exito = RegistrarMedico_Exito.getInstance();
+                exito.setVisible(true);
+                datosMedico.setVisible(false);
+                
+               } catch (java.lang.Exception e) {
+                   RegistrarMedico_Error error = RegistrarMedico_Error.getInstance();
+                   error.setVisible(true);
+                   datosMedico.setVisible(false);
+               }
+               
+               
+           }
        }   
     }//GEN-LAST:event_jButton1MouseClicked
 

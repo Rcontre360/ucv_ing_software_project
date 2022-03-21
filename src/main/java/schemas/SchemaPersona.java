@@ -14,17 +14,17 @@ import org.json.simple.JSONObject;
 
 public class SchemaPersona {
     
-    private String nombre;
-    private String apellido;
-    private String cedula;
-    private String sexo;
-    private String lugarDeNacimiento;
-    private String fechaDeNacimiento;
-    private String estadoCivil;
-    private String direccionDeHabitacion;
-    private String telefono;
-    private String profesion;
-    private String ocupacion;    
+    private String nombre = "";
+    private String apellido = "";
+    private String cedula = "";
+    private String sexo = "";
+    private String lugarDeNacimiento = "";
+    private String fechaDeNacimiento = "";
+    private String estadoCivil = "";
+    private String direccionDeHabitacion = "";
+    private String telefono = "";
+    private String profesion = "";
+    private String ocupacion = "";    
     
     public SchemaPersona(){ }
     

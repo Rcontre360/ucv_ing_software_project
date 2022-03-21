@@ -45,6 +45,7 @@ public class ingresarCédulaPacienteRegistrarHistoria extends javax.swing.JFrame
         jLabel26 = new javax.swing.JLabel();
         label1 = new java.awt.Label();
         button1 = new java.awt.Button();
+        jButton1 = new javax.swing.JButton();
 
         jButton3.setText("Enviar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -93,6 +94,13 @@ public class ingresarCédulaPacienteRegistrarHistoria extends javax.swing.JFrame
             }
         });
 
+        jButton1.setText("Atrás");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -106,7 +114,9 @@ public class ingresarCédulaPacienteRegistrarHistoria extends javax.swing.JFrame
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(button1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(156, 156, 156))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(107, 107, 107)
@@ -129,7 +139,9 @@ public class ingresarCédulaPacienteRegistrarHistoria extends javax.swing.JFrame
                 .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(122, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(66, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(125, 125, 125)
@@ -172,6 +184,12 @@ public class ingresarCédulaPacienteRegistrarHistoria extends javax.swing.JFrame
        if((c<'0'||c>'9')) evt.consume();
     }//GEN-LAST:event_jTextField19KeyTyped
 
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        InterfazHome home = InterfazHome.getInstance();
+        home.setVisible(true);
+        registro.setVisible(false);
+    }//GEN-LAST:event_jButton1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -210,6 +228,7 @@ public class ingresarCédulaPacienteRegistrarHistoria extends javax.swing.JFrame
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button button1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel25;

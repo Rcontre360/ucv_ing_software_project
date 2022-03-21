@@ -208,11 +208,13 @@ public class InterfazHome extends javax.swing.JFrame {
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
        ingresarCédulaPacienteRegistrarHistoria consulta = ingresarCédulaPacienteRegistrarHistoria.getInstance();
        consulta.setVisible(true);
+       home.setVisible(false);
     }//GEN-LAST:event_jButton6MouseClicked
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
        ingresarCédulaPacienteConsultarHistoria1 consulta = ingresarCédulaPacienteConsultarHistoria1.getInstance();
        consulta.setVisible(true);
+       home.setVisible(false);
     }//GEN-LAST:event_jButton5MouseClicked
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked

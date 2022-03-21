@@ -15,8 +15,8 @@ import utils.JsonWrapper;
  */
 public class SchemaPaciente extends SchemaPersona {
     
-    private String tlfPersonaRelacionada;
-    private String sucursal;
+    private String tlfPersonaRelacionada = "";
+    private String sucursal = "";
     private JSONArray citas = new JSONArray();
     
     public SchemaPaciente(){
