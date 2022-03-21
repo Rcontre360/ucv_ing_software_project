@@ -43,12 +43,8 @@ public class SchemaDoctor extends SchemaPersona{
     }
     
     public SchemaDoctor(String doctorId){
-        
     }
-
-    public String getCódigoDeLicencia(){ return ""; }
-    public void setCódigoDeLicencia(String id){}
-    
+   
     public void commit(){ 
         JSONObject medico = new JSONObject();  
         medico.put("id",this.getCedula()); 
