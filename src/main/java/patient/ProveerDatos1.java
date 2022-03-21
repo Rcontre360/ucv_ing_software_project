@@ -317,6 +317,8 @@ public class ProveerDatos1 extends javax.swing.JFrame {
 
             success.setCode(code);
             success.setVisible(true);
+            ui.setVisible(false);
+                    
         }catch(java.lang.Exception e){
             error.setVisible(true);
             e.printStackTrace();

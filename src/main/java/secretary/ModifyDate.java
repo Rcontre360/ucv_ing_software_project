@@ -255,6 +255,7 @@ public class ModifyDate extends javax.swing.JFrame {
                 JsonWrapper.setUniversal(date,"citas","id",codeCita);
                 Success success = Success.getInstance();
                 success.setVisible(true);
+                
             } catch (Exception ex) {
                 Error error = Error.getInstance();
                 error.setVisible(true);

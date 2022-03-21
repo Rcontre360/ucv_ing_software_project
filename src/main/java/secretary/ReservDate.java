@@ -158,6 +158,8 @@ public class ReservDate extends javax.swing.JFrame {
                 JsonWrapper.setUniversal(date,"citas","id",codeCita);
                 Success success = Success.getInstance();
                 success.setVisible(true);
+                reservD.setVisible(false);
+                
             } catch (Exception ex) {
                 Logger.getLogger(ReservDate.class.getName()).log(Level.SEVERE, null, ex);
             }       

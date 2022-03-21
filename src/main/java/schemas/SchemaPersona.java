@@ -77,7 +77,7 @@ public class SchemaPersona {
     }
     
     public void setApellido(String _apellido){
-        nombre = _apellido;
+        apellido = _apellido;
     }
     
     public void setCedula(String _cedula) {
