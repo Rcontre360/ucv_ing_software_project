@@ -353,7 +353,7 @@ public class RegistrarMedico_IngresarDatos extends javax.swing.JFrame {
            
        }else{
            
-           //Verificando existencia del médico
+           //Verificando si el médico ya existe
            String nombre = jTextField1.getText();         
            if((JsonWrapper.getUniversal("medicos", "nombre", nombre))!=null){
                RegistrarMedico_YaExiste error = RegistrarMedico_YaExiste.getInstance();

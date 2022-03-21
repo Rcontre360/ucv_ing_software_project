@@ -10,15 +10,15 @@ import patient.*;
  *
  * @author ラファエル・コントレラス
  */
-public class RegistrarSucursal_ErrorCapacidad extends javax.swing.JFrame {
+public class RegistrarSucursal_YaExiste extends javax.swing.JFrame {
 
-    private static final RegistrarSucursal_ErrorCapacidad e2 = new RegistrarSucursal_ErrorCapacidad();
+    private static final RegistrarSucursal_YaExiste e2 = new RegistrarSucursal_YaExiste();
     
-    private RegistrarSucursal_ErrorCapacidad() {
+    private RegistrarSucursal_YaExiste() {
         initComponents();
     }
     
-    public static RegistrarSucursal_ErrorCapacidad getInstance(){
+    public static RegistrarSucursal_YaExiste getInstance(){
         return e2;
     }
 
@@ -40,9 +40,9 @@ public class RegistrarSucursal_ErrorCapacidad extends javax.swing.JFrame {
 
         jPanel1.setBorder(new javax.swing.border.MatteBorder(null));
 
-        jLabel1.setText("ERROR. Todavía existe capacidad en alguna sucursal");
+        jLabel1.setText("ERROR.  La sucursal ya existe");
 
-        jButton2.setText("Atrás");
+        jButton2.setText("Reintentar");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton2MouseClicked(evt);
@@ -56,12 +56,12 @@ public class RegistrarSucursal_ErrorCapacidad extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(133, 133, 133)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(56, Short.MAX_VALUE))
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(115, 115, 115)
+                        .addComponent(jLabel1)))
+                .addContainerGap(116, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,9 +102,9 @@ public class RegistrarSucursal_ErrorCapacidad extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        HomeJunta cancelar = HomeJunta.getInstance();
-        cancelar.setVisible(true);
-        e2.setVisible(false);   
+        RegistrarSucursal_IngresarDatos reintentar = RegistrarSucursal_IngresarDatos.getInstance();
+        reintentar.setVisible(true);
+        this.setVisible(false);  
     }//GEN-LAST:event_jButton2MouseClicked
 
     /**
@@ -124,14 +124,30 @@ public class RegistrarSucursal_ErrorCapacidad extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RegistrarSucursal_ErrorCapacidad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistrarSucursal_YaExiste.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RegistrarSucursal_ErrorCapacidad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistrarSucursal_YaExiste.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RegistrarSucursal_ErrorCapacidad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistrarSucursal_YaExiste.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RegistrarSucursal_ErrorCapacidad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistrarSucursal_YaExiste.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -152,7 +168,7 @@ public class RegistrarSucursal_ErrorCapacidad extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RegistrarSucursal_ErrorCapacidad().setVisible(true);
+                new RegistrarSucursal_YaExiste().setVisible(true);
             }
         });
     }
