@@ -64,6 +64,8 @@ public class SchemaDoctor extends SchemaPersona{
         medico.put("ocupacion",this.getOcupacion()); 
         medico.put("sucursal", sucursal);
         medico.put("especialidad", especialidad);
+        medico.put("profesion", "Medico");
+        medico.put("ocupacion", "Medico");
         JsonWrapper.setUniversal(medico, "medicos", "id", this.getCedula()); 
     } 
 }
